@@ -16,8 +16,35 @@
   src: url('../fonts/PPNeueMachina-InktrapUltrabold.eot?#iefix') format("embedded-opentype"), url('../fonts/PPNeueMachina-InktrapUltrabold.woff2') format("woff2"), url('../fonts/PPNeueMachina-InktrapUltrabold.woff') format("woff"), url('../fonts/PPNeueMachina-InktrapUltrabold.ttf') format("truetype"), url('../fonts/PPNeueMachina-InktrapUltrabold.otf') format("otf")
   font-weight: 800
 
+*
+  box-sizing: border-box
+
 body
     margin: 0
     padding: 0
     background-color: #080715
     color: #fff
+
+.container
+  margin: 0 auto
+  max-width: 1760px
+  padding: 0 20px
+  position: relative
+
+.header
+  display: flex
+  align-items: center
+  justify-content: space-between
+  width: 100%
+  position: absolute
+  top: 82px
+  left: 0
+  &-nav
+    display: flex
+    &__link
+      color: #fff
+      text-decoration: none
+      font-family: 'ppmi', sans-serif
+      font-weight: 800
+      & + &
+        margin-left: 50px
