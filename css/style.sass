@@ -31,6 +31,29 @@ body
   padding: 0 20px
   position: relative
 
+.link-opacity
+  transition: opacity .2s ease-out
+  &:hover
+    opacity: .9
+  &:active, &:focus
+    opacity: 8
+
+.link-underline
+  text-decoration: none
+  transition: all .2s ease-out
+  outline: none
+  background-image: linear-gradient(90deg, #fff 0%, #fff 100%)
+  background-position: left bottom
+  background-size: 0px 1px
+  background-repeat: no-repeat
+  padding-bottom: 4px
+  margin-bottom: -4px
+  &:hover
+    background-size: 100% 1px
+  &:active, &:focus
+    background-size: 100% 1px
+
+
 .header
   display: flex
   align-items: center
