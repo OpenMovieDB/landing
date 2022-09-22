@@ -29,7 +29,6 @@ body
   margin: 0 auto
   max-width: 1760px
   padding: 0 20px
-  position: relative
 
 .link-opacity
   transition: opacity .2s ease-out
@@ -55,13 +54,14 @@ body
 
 
 .header
-  display: flex
-  align-items: center
-  justify-content: space-between
   width: 100%
   position: absolute
   top: 82px
   left: 0
+  &-inner
+    display: flex
+    align-items: center
+    justify-content: space-between
   &-nav
     display: flex
     &__link
