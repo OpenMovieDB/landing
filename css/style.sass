@@ -20,10 +20,10 @@
   box-sizing: border-box
 
 body
-    margin: 0
-    padding: 0
-    background-color: #080715
-    color: #fff
+  margin: 0
+  padding: 0
+  background-color: #080715
+  color: #fff
 
 .container
   margin: 0 auto
@@ -35,7 +35,7 @@ body
   &:hover
     opacity: .9
   &:active, &:focus
-    opacity: 8
+    opacity: .8
 
 .link-underline
   text-decoration: none
@@ -52,6 +52,42 @@ body
   &:active, &:focus
     background-size: 100% 1px
 
+.link-gradient
+  display: inline-block
+  font-family: 'ppmi', sans-serif
+  font-weight: 800
+  font-size: 18px
+  color: inherit
+  text-decoration: none
+  padding: 28px 56px
+  box-sizing: border-box
+  position: relative
+  border-radius: 50px
+  &:before
+    content: ''
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    border-radius: 50px
+    padding: 2px
+    background: linear-gradient(to right, #D402E6, #050BE3, #02D0E0)
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)
+    -webkit-mask-composite: destination-out
+    mask-composite: exclude
+  .overlay
+    line-height: 150%
+    display: inline-block
+    overflow: hidden
+    height: calc(18px * 1.5)
+    vertical-align: middle
+  span
+    display: block
+    transition: .6s cubic-bezier(0, 0, 0.04, 0.99)
+  &:hover span
+    &:first-child
+      margin-top: -27px
 
 .header
   width: 100%
@@ -71,3 +107,118 @@ body
       font-weight: 800
       & + &
         margin-left: 50px
+
+.main
+  padding-top: 508px
+  background: url(../img/noise.png)
+
+.hero
+  &-title
+    font-family: 'ppmi', sans-serif
+    font-size: 96px
+    line-height: 98px
+    font-weight: 800
+    margin: 0 0 48px
+    max-width: 840px
+  &-description
+    font-family: 'ppmi', sans-serif
+    font-size: 18px
+    line-height: 150%
+    margin: 0 0 80px
+    max-width: 1172px
+
+.section-title
+  margin: 0
+  font-family: 'ppmi', sans-serif
+  font-size: 64px
+  line-height: 66px
+
+.section-block
+  background: #080715 url('../img/noise.png')
+  border-radius: 15px
+  padding: 60px
+
+.example
+  margin-top: 387px
+  &-top
+    display: flex
+    align-items: center
+    justify-content: space-between
+    margin-bottom: 62px
+    &__list
+      padding: 0
+      margin: 0
+      list-style: none
+      li
+        display: inline-block
+        font-family: 'ppmi', sans-serif
+        font-size: 18px
+        line-height: 150%
+        & + li
+          margin-left: 43px
+        span
+          display: inline-block
+          background: linear-gradient(to left, #710099, #03009D)
+          background-clip: text
+          -webkit-text-fill-color: transparent
+    &__title
+      margin: 0
+      font-family: 'ppmi', sans-serif
+      font-size: 36px
+      line-height: 37px
+      font-weight: 800
+  &-block
+    margin-top: 80px
+    position: relative
+    &:before // Временное решение
+      content: ''
+      position: absolute
+      z-index: -1
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      width: 500px
+      height: 500px
+      display: inline-block
+      background: linear-gradient(67deg, #0500FF, #710099)
+      border-radius: 50px
+      filter: blur(350px)
+    &__content
+      display: flex
+      align-items: center
+      justify-content: space-between
+    &__img
+      max-width: 775px
+      flex: 1
+      border-radius: 15px
+    &__list
+      padding: 0
+      margin: 0
+      list-style: none
+      max-width: 775px
+      flex: 1
+      li
+        font-family: 'ppmi', sans-serif
+        font-size: 18px
+        line-height: 150%
+        max-height: 27px
+        overflow: hidden
+        text-overflow: ellipsis
+        white-space: nowrap
+        color: rgba(255, 255, 255, .4)
+        span
+          color: #fff
+        & + li
+          margin-top: 26px
+    &__footer
+      display: flex
+      align-items: center
+      margin-top: 51px
+    &__description
+      margin: 0 10px 0 0
+      font-family: 'ppmi', sans-serif
+      font-size: 18px
+      line-height: 150%
+      opacity: .4
+      max-width: 1330px
+      flex: 1 1
