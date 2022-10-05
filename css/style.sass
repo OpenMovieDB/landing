@@ -71,11 +71,16 @@ body
     left: 0
     right: 0
     border-radius: 50px
+    box-sizing: border-box
     padding: 2px
     background: linear-gradient(to right, #D402E6, #050BE3, #02D0E0)
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)
     -webkit-mask-composite: destination-out
     mask-composite: exclude
+  &.without-gradient
+    border: 2px solid rgba(255, 255, 255, .2)
+    &:before
+      content: none
   .overlay
     line-height: 150%
     display: inline-block
@@ -121,9 +126,6 @@ body
     margin: 0 0 48px
     max-width: 840px
   &-description
-    font-family: 'ppmi', sans-serif
-    font-size: 18px
-    line-height: 150%
     margin: 0 0 80px
     max-width: 1172px
 
@@ -133,10 +135,21 @@ body
   font-size: 64px
   line-height: 66px
 
+.section-description
+  font-family: 'ppmi', sans-serif
+  font-size: 18px
+  line-height: 150%
+
 .section-block
   background: #080715 url('../img/noise.png')
   border-radius: 15px
   padding: 60px
+
+.section-h3
+  font-family: 'ppmi', sans-serif
+  font-size: 36px
+  line-height: 37px
+  font-weight: 800
 
 .example
   margin-top: 387px
@@ -163,10 +176,6 @@ body
           -webkit-text-fill-color: transparent
     &__title
       margin: 0
-      font-family: 'ppmi', sans-serif
-      font-size: 36px
-      line-height: 37px
-      font-weight: 800
   &-block
     margin-top: 80px
     position: relative
@@ -222,3 +231,62 @@ body
       opacity: .4
       max-width: 1330px
       flex: 1 1
+
+.tariffs
+  margin-top: 300px
+  &-description
+    margin: 65px 0
+    max-width: 835px
+  &-cards
+    display: flex
+    justify-content: space-between
+    gap: 50px
+  &-item
+    flex-grow: 1
+    width: 100%
+    border: 2px solid rgba(255,255,255,.1)
+    border-radius: 15px
+    position: relative
+    padding: 60px
+    &-popular
+      border: 0
+      &:before
+        content: ''
+        padding: 2px
+        border-radius: 15px
+        position: absolute
+        top: 0
+        bottom: 0
+        left: 0
+        right: 0
+        display: inline-block
+        background: linear-gradient(to right, #D402E6, #050BE3, #02D0E0)
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)
+        -webkit-mask-composite: destination-out
+        mask-composite: exclude
+        box-sizing: border-box
+    &__overlay
+      position: relative
+      z-index: 1
+      height: 100%
+      display: flex
+      flex-direction: column
+      align-items: flex-start
+    &__title
+      margin: 0
+    &__description
+      opacity: .4
+      flex-grow: 1
+      margin: 50px 0 50px
+    &__list
+      padding: 0
+      margin: auto 0 0
+      list-style: none
+      li
+        font-family: 'ppmi', sans-serif
+        font-size: 18px
+        line-height: 150%
+        & + li
+          margin-top: 30px
+    &__button
+      margin: 50px auto 0
