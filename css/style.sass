@@ -290,3 +290,69 @@ body
           margin-top: 30px
     &__button
       margin: 50px auto 0
+
+.community
+  margin-top: 300px
+  &-block
+    position: relative
+    display: flex
+    justify-content: space-between
+    gap: 10px
+    padding: 0
+    margin-top: 80px
+    &:before
+      content: ''
+      position: absolute
+      z-index: -1
+      top: 50%
+      left: 25%
+      transform: translate(-50%, -50%)
+      width: 300px
+      height: 400px
+      display: inline-block
+      background: linear-gradient(67deg, #0500FF, #710099)
+      border-radius: 50px
+      filter: blur(100px)
+    &:after
+      content: ''
+      position: absolute
+      z-index: -1
+      top: 50%
+      left: 75%
+      transform: translate(-50%, -50%)
+      width: 300px
+      height: 400px
+      display: inline-block
+      background: linear-gradient(67deg, #0500FF, #710099)
+      border-radius: 50px
+      filter: blur(100px)
+  &-item
+    flex-grow: 1
+    max-width: 835px
+    padding: 60px
+    &__title
+      margin: 0
+      img
+        vertical-align: bottom
+        margin-right: 30px
+    &__description
+      max-width: 600px
+      margin: 42px 0 73px
+    &__link
+      margin: 0 auto
+      color: #fff
+      text-decoration: none
+      display: inline-block
+      position: relative
+      font-family: 'ppmi', sans-serif
+      font-size: 18px
+      line-height: 150%
+      font-weight: 800
+      &:after
+        content: ''
+        margin-top: 20px
+        display: inline-block
+        height: 2px
+        width: 100%
+        background: linear-gradient(to right, #D402E6, #050BE3, #02D0E0)
+        background-size: 130%
