@@ -11,28 +11,30 @@
 	</head>
 	<body>
 		<header class="header">
-			<div class="header-inner container">
-				<a href="#" class="logo link-opacity">
-					<img src="img/logo.svg" alt="Open Movie API" />
-				</a>
-				<nav class="header-nav">
-					<a href="#" class="header-nav__link link-underline"
-						>Пример API</a
-					>
-					<a href="#" class="header-nav__link link-underline"
-						>Тарифы</a
-					>
-					<a href="#" class="header-nav__link link-underline"
-						>Поддержка</a
-					>
-				</nav>
+			<div class="container">
+				<div class="header-inner">
+					<a href="#" class="logo link-opacity">
+						<img src="img/logo.svg" alt="Open Movie API" />
+					</a>
+					<nav class="header-nav">
+						<a href="#" class="header-nav__link link-underline"
+							>Пример API</a
+						>
+						<a href="#" class="header-nav__link link-underline"
+							>Тарифы</a
+						>
+						<a href="#" class="header-nav__link link-underline"
+							>Поддержка</a
+						>
+					</nav>
+				</div>
 			</div>
 		</header>
 		<main class="main">
 			<div class="container">
 				<section class="hero">
 					<h1 class="hero-title">Свободная база фильмов</h1>
-					<p class="section-description hero-description">
+					<p class="section-body hero-description">
 						Получайте максимум данных о фильмах, сериалах,
 						мультфильмах, тв-шоу, аниме, актерах и режиссерах
 						максимально быстро. Наше api содержит данные из таких
@@ -104,6 +106,7 @@
 							</p>
 							<a href="#" class="link-gradient"
 								><div class="overlay">
+									<!-- временное решение -->
 									<span>Трейлер ---></span>
 									<span>Трейлер ---></span>
 								</div></a
@@ -113,7 +116,7 @@
 				</section>
 				<section class="tariffs">
 					<h2 class="section-title">Тарифы</h2>
-					<p class="tariffs-description section-description">
+					<p class="tariffs-description section-body">
 						За 3 года разработки API стало понятно, что он
 						используется для бизнеса и для обучения. Чтобы стать
 						более удобными теперь только 2 самых нужных тарифа.
@@ -124,7 +127,9 @@
 								<h3 class="tariffs-item__title section-h3">
 									Обучение
 								</h3>
-								<p class="tariffs-item__description section-description">
+								<p
+									class="tariffs-item__description section-body"
+								>
 									Это тариф создан для некомерческого
 									использования API kinopoisk, tmdb и imdb с
 									целью обучения программированию. Идеален для
@@ -160,7 +165,9 @@
 								<h3 class="tariffs-item__title section-h3">
 									Бизнес
 								</h3>
-								<p class="tariffs-item__description section-description">
+								<p
+									class="tariffs-item__description section-body"
+								>
 									Для этого тарифа доступен тестовый период,
 									который позволит вам не платить за апи во
 									время эксперементов. Поумолчанию этот период
@@ -198,27 +205,72 @@
 					<div class="community-block section-block">
 						<div class="community-item">
 							<h3 class="community-item__title section-h3">
-								<img src="img/tg-icon.svg" alt="tg">
+								<img src="img/tg-icon.svg" alt="tg" />
 								Telegram
 							</h3>
-							<p class="community-item__description section-description">
-								Присоединяйся в наше сообщество в telegram и получай круглосуточную помощь
+							<p
+								class="community-item__description section-body"
+							>
+								Присоединяйся в наше сообщество в telegram и
+								получай круглосуточную помощь
 							</p>
-							<a href="#" class="community-item__link">Присоединиться</a>
+							<a href="#" class="community-item__link"
+								>Присоединиться</a
+							>
 						</div>
 						<div class="community-item">
 							<h3 class="community-item__title section-h3">
-								<img src="img/github-icon.svg" alt="github">
+								<img src="img/github-icon.svg" alt="github" />
 								Github
 							</h3>
-							<p class="community-item__description section-description">
-								Присоединяйся в наше сообщество в telegram и получай круглосуточную помощь
+							<p
+								class="community-item__description section-body"
+							>
+								Присоединяйся в наше сообщество в telegram и
+								получай круглосуточную помощь
 							</p>
-							<a href="#" class="community-item__link">Присоединиться</a>
+							<a href="#" class="community-item__link"
+								>Присоединиться</a
+							>
 						</div>
+					</div>
+				</section>
+				<section class="free">
+					<div class="free-inner">
+						<h2 class="inline-title section-title">
+							Хотите начать бесплатно?
+						</h2>
+						<a href="#" class="tariffs-item__button link-gradient">
+							<div class="overlay">
+								<span>Подключить</span>
+								<span>Подключить</span>
+							</div>
+						</a>
 					</div>
 				</section>
 			</div>
 		</main>
+		<footer class="footer">
+			<div class="container">
+				<div class="footer-inner">
+					<div class="footer-block">
+						<a href="#" class="logo link-opacity">
+							<img src="img/logo.svg" alt="Open Movie API" />
+						</a>
+						<a href="mdwit.t.me" class="link-opacity opacity-color section-body">@MDWIT</a>
+						<span class="opacity-color section-body">design by isakon</span>
+					</div>
+					<div class="footer-block">
+						<a href="#" class="link-opacity footer-item section-body">Пример API</a>
+						<a href="#" class="link-opacity footer-item section-body">Тарифы</a>
+						<a href="#" class="link-opacity footer-item section-body">Поддержка</a>
+					</div>
+					<div class="footer-block">
+						<a href="#" class="link-opacity footer-item section-body">support@openmovie.api</a>
+						<a href="#" class="link-opacity footer-item section-body">Github</a>
+					</div>
+				</div>
+			</div>
+		</footer>
 	</body>
 </html>
