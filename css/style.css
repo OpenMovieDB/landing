@@ -483,13 +483,37 @@ body {
 }
 .background__noise {
   position: fixed;
-  top: 0;
-  left: 0;
-  opacity: 0.4;
+  background-size: 100px;
+  opacity: 0.5;
   z-index: 2;
   mix-blend-mode: overlay;
 }
-.background__figure {
+.background__figures {
+  position: absolute;
   z-index: -1;
-  position: relative;
+  -webkit-animation: myAnim 2s ease 0s 1 normal forwards;
+          animation: myAnim 2s ease 0s 1 normal forwards;
+}
+.background__figure {
+  position: absolute;
+}
+.background__figure_1 {
+  translate: 23vw -12vh;
+  z-index: 3;
+}
+.background__figure_2 {
+  translate: 45.9vw -5.4vh;
+  z-index: 2;
+}
+.background__figure_3 {
+  translate: 53.3vw 9.4vh;
+  z-index: 1;
+}
+.background__primary, .background__secondary {
+  position: absolute;
+  filter: blur(125px);
+}
+.background__primary {
+  mix-blend-mode: color-dodge;
+  z-index: 1;
 }/*# sourceMappingURL=style.css.map */
