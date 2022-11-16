@@ -1,3 +1,9 @@
+// Colors 
+$color-accent-primary: #BD00FF
+$color-accent-secondary: #0500FF
+$color-accent-tertiary: #00F0FF
+
+// Fonts
 @font-face
   font-family: 'ppmi'
   src: url('../fonts/PPNeueMachina-InktrapRegular.eot')
@@ -422,12 +428,32 @@ body
     &_1
       translate: 23vw -12vh
       z-index: 3
+      fill: $color-accent-primary
     &_2
       translate: 45.9vw -5.4vh
       z-index: 2
+      fill: $color-accent-secondary
     &_3
       translate: 53.3vw 9.4vh
       z-index: 1
+      fill: $color-accent-tertiary
+
+  &__secondary &__figure
+    &_1
+      translate: 23vw -12vh
+      z-index: 3
+      background: rgba($color-accent-primary, 40%)
+      fill: $color-accent-primary
+    &_2
+      translate: 45.9vw -5.4vh
+      z-index: 2
+      background: rgba($color-accent-secondary, 50%)
+      fill: $color-accent-secondary
+    &_3
+      translate: 53.3vw 9.4vh
+      z-index: 1
+      background: rgba($color-accent-tertiary, 60%)
+      fill: $color-accent-tertiary
 
   &__primary,
   &__secondary

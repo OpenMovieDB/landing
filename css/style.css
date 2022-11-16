@@ -500,14 +500,35 @@ body {
 .background__figure_1 {
   translate: 23vw -12vh;
   z-index: 3;
+  fill: #BD00FF;
 }
 .background__figure_2 {
   translate: 45.9vw -5.4vh;
   z-index: 2;
+  fill: #0500FF;
 }
 .background__figure_3 {
   translate: 53.3vw 9.4vh;
   z-index: 1;
+  fill: #00F0FF;
+}
+.background__secondary .background__figure_1 {
+  translate: 23vw -12vh;
+  z-index: 3;
+  background: rgba(189, 0, 255, 0.4);
+  fill: #BD00FF;
+}
+.background__secondary .background__figure_2 {
+  translate: 45.9vw -5.4vh;
+  z-index: 2;
+  background: rgba(5, 0, 255, 0.5);
+  fill: #0500FF;
+}
+.background__secondary .background__figure_3 {
+  translate: 53.3vw 9.4vh;
+  z-index: 1;
+  background: rgba(0, 240, 255, 0.6);
+  fill: #00F0FF;
 }
 .background__primary, .background__secondary {
   position: absolute;
