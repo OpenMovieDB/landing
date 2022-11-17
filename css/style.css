@@ -550,6 +550,11 @@ body {
   z-index: 1;
 }
 
+@-moz-document url-prefix() {
+  .background__primary {
+    mix-blend-mode: screen;
+  }
+}
 @-webkit-keyframes figureAnim1 {
   0%, 100% {
     translate: 23vw -12vh;
@@ -561,7 +566,6 @@ body {
     translate: 16vw 17vh;
   }
 }
-
 @keyframes figureAnim1 {
   0%, 100% {
     translate: 23vw -12vh;

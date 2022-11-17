@@ -480,8 +480,12 @@ body
     mix-blend-mode: color-dodge
     z-index: 1
 
-// keyframes
+// Для firefox фиксим баг с режимом mix-blend-mode: color-dodge
+@-moz-document url-prefix()
+  .background__primary
+    mix-blend-mode: screen
 
+// keyframes
 @keyframes figureAnim1
   0%, 100%
     translate: 23vw -12vh
