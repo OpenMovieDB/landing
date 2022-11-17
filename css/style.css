@@ -1,3 +1,8 @@
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
+}
 @font-face {
   font-family: "ppmi";
   src: url("../fonts/PPNeueMachina-InktrapRegular.eot");
@@ -23,6 +28,14 @@
 a, button, p, span, b, h1, h2, h3, h4, h5, h6, ul, li, .tariffs-item__overlay {
   position: relative;
   z-index: 3;
+}
+
+.noise {
+  position: fixed;
+  opacity: 0.4;
+  scale: 1.3;
+  z-index: 2;
+  mix-blend-mode: overlay;
 }
 
 body {
@@ -89,10 +102,12 @@ body {
   border-radius: 50px;
   box-sizing: border-box;
   padding: 2px;
-  background: linear-gradient(to right, #D402E6, #050BE3, #02D0E0);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
+  background-image: linear-gradient(var(--rotate), rgba(189, 0, 255, 0.4), #0500ff, rgba(0, 240, 255, 0.4));
+  -webkit-animation: spin 15s ease-in-out 1s infinite;
+          animation: spin 15s ease-in-out 1s infinite;
 }
 .link-gradient.without-gradient {
   border: 2px solid rgba(255, 255, 255, 0.2);
@@ -292,6 +307,8 @@ body {
   display: flex;
   justify-content: space-between;
   gap: 50px;
+  z-index: 2;
+  position: relative;
 }
 .tariffs-item {
   flex-grow: 1;
@@ -314,7 +331,9 @@ body {
   left: 0;
   right: 0;
   display: inline-block;
-  background: linear-gradient(to right, #D402E6, #050BE3, #02D0E0);
+  background-image: linear-gradient(var(--rotate), rgba(189, 0, 255, 0.4), #0500ff, rgba(0, 240, 255, 0.4));
+  -webkit-animation: spin 15s ease-in-out 1s infinite;
+          animation: spin 15s ease-in-out 1s infinite;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
@@ -425,7 +444,9 @@ body {
   display: inline-block;
   height: 2px;
   width: 100%;
-  background: linear-gradient(to right, #D402E6, #050BE3, #02D0E0);
+  background-image: linear-gradient(var(--rotate), rgba(189, 0, 255, 0.4), #0500ff, rgba(0, 240, 255, 0.4));
+  -webkit-animation: spin 15s ease-in-out 1s infinite;
+          animation: spin 15s ease-in-out 1s infinite;
   background-size: 130%;
 }
 
@@ -485,13 +506,6 @@ body {
 
 .background {
   position: absolute;
-}
-.background__noise {
-  position: fixed;
-  opacity: 0.4;
-  scale: 1.3;
-  z-index: 2;
-  mix-blend-mode: overlay;
 }
 .background__figures {
   position: absolute;
@@ -701,5 +715,21 @@ body {
   50% {
     translate: 27.9vw 36.9vh;
     transform: rotate(-117deg);
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
   }
 }/*# sourceMappingURL=style.css.map */

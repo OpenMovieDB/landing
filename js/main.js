@@ -1,4 +1,4 @@
-const canvas = document.querySelector('.background__noise')
+const canvas = document.querySelector('.noise')
 const ctx = canvas.getContext('2d');
 
 const resize = () => {

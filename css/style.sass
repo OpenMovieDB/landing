@@ -1,7 +1,15 @@
+@property --rotate
+  syntax: "<angle>"
+  initial-value: 132deg
+  inherits: false
+
 // Colors variables
 $color-accent-primary: #BD00FF
 $color-accent-secondary: #0500FF
 $color-accent-tertiary: #00F0FF
+
+// Gradient variables
+$gradient-primary: linear-gradient(var(--rotate), rgba($color-accent-primary, 40%), rgba($color-accent-secondary, 100%), rgba($color-accent-tertiary, 40%))
 
 // functions
 @function figureAnimate($property)
@@ -37,6 +45,13 @@ $color-accent-tertiary: #00F0FF
 a, button, p, span, b, h1, h2, h3, h4, h5, h6, ul, li, .tariffs-item__overlay
   position: relative
   z-index: 3
+
+.noise
+  position: fixed
+  opacity: 0.4
+  scale: 1.3
+  z-index: 2
+  mix-blend-mode: overlay
 
 body
   margin: 0
@@ -83,6 +98,7 @@ body
   box-sizing: border-box
   position: relative
   border-radius: 50px
+
   &:before
     content: ''
     position: absolute
@@ -93,10 +109,12 @@ body
     border-radius: 50px
     box-sizing: border-box
     padding: 2px
-    background: linear-gradient(to right, #D402E6, #050BE3, #02D0E0)
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)
     -webkit-mask-composite: destination-out
     mask-composite: exclude
+    background-image: $gradient-primary
+    animation: figureAnimate(spin)
+
   &.without-gradient
     border: 2px solid rgba(255, 255, 255, .2)
     &:before
@@ -260,6 +278,9 @@ body
     display: flex
     justify-content: space-between
     gap: 50px
+    z-index: 2
+    position: relative
+
   &-item
     flex-grow: 1
     width: 100%
@@ -279,7 +300,8 @@ body
         left: 0
         right: 0
         display: inline-block
-        background: linear-gradient(to right, #D402E6, #050BE3, #02D0E0)
+        background-image: $gradient-primary
+        animation: figureAnimate(spin)
         -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)
         -webkit-mask-composite: destination-out
         mask-composite: exclude
@@ -373,7 +395,8 @@ body
         display: inline-block
         height: 2px
         width: 100%
-        background: linear-gradient(to right, #D402E6, #050BE3, #02D0E0)
+        background-image: $gradient-primary
+        animation: figureAnimate(spin)
         background-size: 130%
 
 .inline-title
@@ -401,6 +424,7 @@ body
     padding: 40px 170px 40px 60px
     display: flex
     align-items: center
+
   &-block
     display: flex
     flex-direction: column
@@ -423,13 +447,6 @@ body
 
 .background
   position: absolute
-
-  &__noise
-    position: fixed
-    opacity: 0.4
-    scale: 1.3
-    z-index: 2
-    mix-blend-mode: overlay
 
   &__figures
     position: absolute
@@ -544,3 +561,9 @@ body
   50%
     translate: 27.9vw 36.9vh
     transform: rotate(-117deg)
+
+@keyframes spin
+  0%
+    --rotate: 0deg
+  100%
+    --rotate: 360deg
