@@ -1,7 +1,15 @@
-// Colors 
+// Colors variables
 $color-accent-primary: #BD00FF
 $color-accent-secondary: #0500FF
 $color-accent-tertiary: #00F0FF
+
+// functions
+@function figureAnimate($property)
+  $duration: 15s
+  $delay: 1s
+  $function: ease-in-out
+  $iteration: infinite
+  @return $property $duration $function $delay $iteration
 
 // Fonts
 @font-face
@@ -424,32 +432,44 @@ body
 
   &__figure
     position: absolute
+
     &_1
       z-index: 3
       fill: $color-accent-primary
-      animation: figureAnim1 15s infinite ease-out
+
     &_2
       z-index: 2
       fill: $color-accent-secondary
-      animation: figureAnim2 15s infinite ease-out
+
     &_3
       z-index: 1
       fill: $color-accent-tertiary
-      animation: figureAnim3 15s infinite ease-out
+
+  &__primary &__figure
+    &_1
+      translate: 23vw -12vh
+      animation: figureAnimate(figureAnim1)
+    &_2
+      translate: 45.9vw -5.4vh
+      animation: figureAnimate(figureAnim2)
+    &_3
+      translate: 53.3vw 9.4vh
+      animation: figureAnimate(figureAnim3)
 
   &__secondary &__figure
     &_1
-      z-index: 3
+      translate: 23vw -12vh
       background: rgba($color-accent-primary, 40%)
-      fill: $color-accent-primary
+      animation: figureAnimate(figureSecondaryAnim1)
     &_2
-      z-index: 2
+      translate: 45.9vw -5.4vh
       background: rgba($color-accent-secondary, 50%)
-      fill: $color-accent-secondary
+      animation: figureAnimate(figureSecondaryAnim2)
+
     &_3
-      z-index: 1
+      translate: 53.3vw 9.4vh
       background: rgba($color-accent-tertiary, 60%)
-      fill: $color-accent-tertiary
+      animation: figureAnimate(figureSecondaryAnim3)
 
   &__primary,
   &__secondary
@@ -460,42 +480,58 @@ body
     mix-blend-mode: color-dodge
     z-index: 1
 
+// keyframes
+
 @keyframes figureAnim1
-  0%
+  0%, 100%
     translate: 23vw -12vh
-  25%
+  25%, 75%
     translate: 26vw 21vh
   50%
     translate: 16vw 17vh
-  75%
-    translate: 26vw 21vh
-  100%
-    translate: 23vw -12vh
 
 @keyframes figureAnim2
-  0%
+  0%, 100%
     translate: 45.9vw -5.4vh
-  25%
+  25%, 75%
     translate: 20.9vw 33.6vh
     transform: rotate(-66deg)
   50%
     translate: 30.3vw 29vh
     transform: rotate(36deg)
-  75%
-    translate: 20.9vw 33.6vh
-    transform: rotate(-66deg)
-  100%
-    translate: 45.9vw -5.4vh
 
 @keyframes figureAnim3
-  0%
+  0%, 100%
     translate: 53.3vw 9.4vh
-  25%
+  25%, 75%
     translate: 30.3vw 25.4vh
   50%
     translate: 27.7vw 36.9vh
     transform: rotate(-117deg)
-  75%
-    translate: 30.3vw 25.4vh
-  100%
+
+@keyframes figureSecondaryAnim1
+  0%, 100%
+    translate: 23vw -12vh
+  25%
+    translate: 26vw 21vh
+  50%, 75%
+    translate: 16vw 17.5vh
+
+@keyframes figureSecondaryAnim2
+  0%, 100%
+    translate: 45.9vw -5.4vh
+  25%, 75%
+    translate: 16.4vw 15vh
+    transform: rotate(-78deg)
+  50%
+    translate: 30.2vw 29.4vh
+    transform: rotate(36deg)
+
+@keyframes figureSecondaryAnim3
+  0%, 100%
     translate: 53.3vw 9.4vh
+  25%, 75%
+    translate: 33.5vw 30vh
+  50%
+    translate: 27.9vw 36.9vh
+    transform: rotate(-117deg)å

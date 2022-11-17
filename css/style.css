@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "ppmi";
   src: url("../fonts/PPNeueMachina-InktrapRegular.eot");
@@ -498,35 +499,47 @@ body {
 .background__figure_1 {
   z-index: 3;
   fill: #BD00FF;
-  -webkit-animation: figureAnim1 15s infinite ease-out;
-          animation: figureAnim1 15s infinite ease-out;
 }
 .background__figure_2 {
   z-index: 2;
   fill: #0500FF;
-  -webkit-animation: figureAnim2 15s infinite ease-out;
-          animation: figureAnim2 15s infinite ease-out;
 }
 .background__figure_3 {
   z-index: 1;
   fill: #00F0FF;
-  -webkit-animation: figureAnim3 15s infinite ease-out;
-          animation: figureAnim3 15s infinite ease-out;
+}
+.background__primary .background__figure_1 {
+  translate: 23vw -12vh;
+  -webkit-animation: figureAnim1 15s ease-in-out 1s infinite;
+          animation: figureAnim1 15s ease-in-out 1s infinite;
+}
+.background__primary .background__figure_2 {
+  translate: 45.9vw -5.4vh;
+  -webkit-animation: figureAnim2 15s ease-in-out 1s infinite;
+          animation: figureAnim2 15s ease-in-out 1s infinite;
+}
+.background__primary .background__figure_3 {
+  translate: 53.3vw 9.4vh;
+  -webkit-animation: figureAnim3 15s ease-in-out 1s infinite;
+          animation: figureAnim3 15s ease-in-out 1s infinite;
 }
 .background__secondary .background__figure_1 {
-  z-index: 3;
+  translate: 23vw -12vh;
   background: rgba(189, 0, 255, 0.4);
-  fill: #BD00FF;
+  -webkit-animation: figureSecondaryAnim1 15s ease-in-out 1s infinite;
+          animation: figureSecondaryAnim1 15s ease-in-out 1s infinite;
 }
 .background__secondary .background__figure_2 {
-  z-index: 2;
+  translate: 45.9vw -5.4vh;
   background: rgba(5, 0, 255, 0.5);
-  fill: #0500FF;
+  -webkit-animation: figureSecondaryAnim2 15s ease-in-out 1s infinite;
+          animation: figureSecondaryAnim2 15s ease-in-out 1s infinite;
 }
 .background__secondary .background__figure_3 {
-  z-index: 1;
+  translate: 53.3vw 9.4vh;
   background: rgba(0, 240, 255, 0.6);
-  fill: #00F0FF;
+  -webkit-animation: figureSecondaryAnim3 15s ease-in-out 1s infinite;
+          animation: figureSecondaryAnim3 15s ease-in-out 1s infinite;
 }
 .background__primary, .background__secondary {
   position: absolute;
@@ -538,65 +551,46 @@ body {
 }
 
 @-webkit-keyframes figureAnim1 {
-  0% {
+  0%, 100% {
     translate: 23vw -12vh;
   }
-  25% {
+  25%, 75% {
     translate: 26vw 21vh;
   }
   50% {
     translate: 16vw 17vh;
-  }
-  75% {
-    translate: 26vw 21vh;
-  }
-  100% {
-    translate: 23vw -12vh;
   }
 }
 
 @keyframes figureAnim1 {
-  0% {
+  0%, 100% {
     translate: 23vw -12vh;
   }
-  25% {
+  25%, 75% {
     translate: 26vw 21vh;
   }
   50% {
     translate: 16vw 17vh;
   }
-  75% {
-    translate: 26vw 21vh;
-  }
-  100% {
-    translate: 23vw -12vh;
-  }
 }
 @-webkit-keyframes figureAnim2 {
-  0% {
+  0%, 100% {
     translate: 45.9vw -5.4vh;
   }
-  25% {
+  25%, 75% {
     translate: 20.9vw 33.6vh;
     transform: rotate(-66deg);
   }
   50% {
     translate: 30.3vw 29vh;
     transform: rotate(36deg);
-  }
-  75% {
-    translate: 20.9vw 33.6vh;
-    transform: rotate(-66deg);
-  }
-  100% {
-    translate: 45.9vw -5.4vh;
   }
 }
 @keyframes figureAnim2 {
-  0% {
+  0%, 100% {
     translate: 45.9vw -5.4vh;
   }
-  25% {
+  25%, 75% {
     translate: 20.9vw 33.6vh;
     transform: rotate(-66deg);
   }
@@ -604,47 +598,100 @@ body {
     translate: 30.3vw 29vh;
     transform: rotate(36deg);
   }
-  75% {
-    translate: 20.9vw 33.6vh;
-    transform: rotate(-66deg);
-  }
-  100% {
-    translate: 45.9vw -5.4vh;
-  }
 }
 @-webkit-keyframes figureAnim3 {
-  0% {
+  0%, 100% {
     translate: 53.3vw 9.4vh;
   }
-  25% {
+  25%, 75% {
     translate: 30.3vw 25.4vh;
   }
   50% {
     translate: 27.7vw 36.9vh;
     transform: rotate(-117deg);
-  }
-  75% {
-    translate: 30.3vw 25.4vh;
-  }
-  100% {
-    translate: 53.3vw 9.4vh;
   }
 }
 @keyframes figureAnim3 {
-  0% {
+  0%, 100% {
     translate: 53.3vw 9.4vh;
   }
-  25% {
+  25%, 75% {
     translate: 30.3vw 25.4vh;
   }
   50% {
     translate: 27.7vw 36.9vh;
     transform: rotate(-117deg);
   }
-  75% {
-    translate: 30.3vw 25.4vh;
+}
+@-webkit-keyframes figureSecondaryAnim1 {
+  0%, 100% {
+    translate: 23vw -12vh;
   }
-  100% {
+  25% {
+    translate: 26vw 21vh;
+  }
+  50%, 75% {
+    translate: 16vw 17.5vh;
+  }
+}
+@keyframes figureSecondaryAnim1 {
+  0%, 100% {
+    translate: 23vw -12vh;
+  }
+  25% {
+    translate: 26vw 21vh;
+  }
+  50%, 75% {
+    translate: 16vw 17.5vh;
+  }
+}
+@-webkit-keyframes figureSecondaryAnim2 {
+  0%, 100% {
+    translate: 45.9vw -5.4vh;
+  }
+  25%, 75% {
+    translate: 16.4vw 15vh;
+    transform: rotate(-78deg);
+  }
+  50% {
+    translate: 30.2vw 29.4vh;
+    transform: rotate(36deg);
+  }
+}
+@keyframes figureSecondaryAnim2 {
+  0%, 100% {
+    translate: 45.9vw -5.4vh;
+  }
+  25%, 75% {
+    translate: 16.4vw 15vh;
+    transform: rotate(-78deg);
+  }
+  50% {
+    translate: 30.2vw 29.4vh;
+    transform: rotate(36deg);
+  }
+}
+@-webkit-keyframes figureSecondaryAnim3 {
+  0%, 100% {
     translate: 53.3vw 9.4vh;
+  }
+  25%, 75% {
+    translate: 33.5vw 30vh;
+  }
+  50% {
+    translate: 27.9vw 36.9vh;
+    transform: rotate(-117deg) å;
+  }
+}
+@keyframes figureSecondaryAnim3 {
+  0%, 100% {
+    translate: 53.3vw 9.4vh;
+  }
+  25%, 75% {
+    translate: 33.5vw 30vh;
+  }
+  50% {
+    translate: 27.9vw 36.9vh;
+    transform: rotate(-117deg) å;
   }
 }/*# sourceMappingURL=style.css.map */
