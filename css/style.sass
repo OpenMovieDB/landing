@@ -33,6 +33,11 @@ $color-accent-tertiary: #00F0FF
 *
   box-sizing: border-box
 
+// Фикс позиционирования, для элементов которые должны быть интерактивны, и не должны быт ьперекрыты шумом
+a, button, p, span, b, h1, h2, h3, h4, h5, h6, ul, li, .tariffs-item__overlay
+  position: relative
+  z-index: 3
+
 body
   margin: 0
   padding: 0
@@ -538,4 +543,4 @@ body
     translate: 33.5vw 30vh
   50%
     translate: 27.9vw 36.9vh
-    transform: rotate(-117deg)å
+    transform: rotate(-117deg)
