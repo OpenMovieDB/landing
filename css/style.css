@@ -40,8 +40,7 @@ a, button, p, span, b, h1, h2, h3, h4, h5, h6, ul, li, .tariffs-item__overlay {
 
 body {
   margin: 0;
-  padding: 0;
-  padding-bottom: 100px;
+  padding: 0 0 100px;
   background: #080715;
   color: #fff;
 }
@@ -561,7 +560,7 @@ body {
 }
 .background__primary, .background__secondary {
   position: absolute;
-  filter: blur(125px);
+  filter: blur(115px);
 }
 .background__primary {
   mix-blend-mode: color-dodge;
