@@ -512,6 +512,7 @@ body {
 }
 .background__figure {
   position: absolute;
+  will-change: translatw, rotate, filter, mix-blend-mode;
 }
 .background__figure_1 {
   z-index: 3;
