@@ -503,6 +503,16 @@ body {
   margin-bottom: 22px;
 }
 
+.support {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 835px;
+  margin: 300px auto 0 auto;
+}
+.support__description {
+  margin-top: 49px;
+}
+
 .background {
   position: absolute;
 }
