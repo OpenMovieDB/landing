@@ -334,8 +334,9 @@ body {
   -webkit-animation: spin 15s ease-in-out 1s infinite;
           animation: spin 15s ease-in-out 1s infinite;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
-  mask-composite: exclude;
+          mask-composite: destination-out;
   box-sizing: border-box;
 }
 .tariffs-item__overlay {
@@ -520,6 +521,36 @@ body {
   position: absolute;
   z-index: -1;
 }
+.background__figures_header_scene .background__primary .background__figure_1 {
+  translate: 23vw -12vh;
+  -webkit-animation: figureAnim1 15s ease-in-out 1s infinite;
+          animation: figureAnim1 15s ease-in-out 1s infinite;
+}
+.background__figures_header_scene .background__primary .background__figure_2 {
+  translate: 45.9vw -5.4vh;
+  -webkit-animation: figureAnim2 15s ease-in-out 1s infinite;
+          animation: figureAnim2 15s ease-in-out 1s infinite;
+}
+.background__figures_header_scene .background__primary .background__figure_3 {
+  translate: 53.3vw 9.4vh;
+  -webkit-animation: figureAnim3 15s ease-in-out 1s infinite;
+          animation: figureAnim3 15s ease-in-out 1s infinite;
+}
+.background__figures_header_scene .background__secondary .background__figure_1 {
+  translate: 23vw -12vh;
+  -webkit-animation: figureSecondaryAnim1 15s ease-in-out 1s infinite;
+          animation: figureSecondaryAnim1 15s ease-in-out 1s infinite;
+}
+.background__figures_header_scene .background__secondary .background__figure_2 {
+  translate: 45.9vw -5.4vh;
+  -webkit-animation: figureSecondaryAnim2 15s ease-in-out 1s infinite;
+          animation: figureSecondaryAnim2 15s ease-in-out 1s infinite;
+}
+.background__figures_header_scene .background__secondary .background__figure_3 {
+  translate: 53.3vw 9.4vh;
+  -webkit-animation: figureSecondaryAnim3 15s ease-in-out 1s infinite;
+          animation: figureSecondaryAnim3 15s ease-in-out 1s infinite;
+}
 .background__figure {
   position: absolute;
   will-change: translatw, rotate, filter, mix-blend-mode;
@@ -536,38 +567,14 @@ body {
   z-index: 1;
   fill: #00F0FF;
 }
-.background__primary .background__figure_1 {
-  translate: 23vw -12vh;
-  -webkit-animation: figureAnim1 15s ease-in-out 1s infinite;
-          animation: figureAnim1 15s ease-in-out 1s infinite;
-}
-.background__primary .background__figure_2 {
-  translate: 45.9vw -5.4vh;
-  -webkit-animation: figureAnim2 15s ease-in-out 1s infinite;
-          animation: figureAnim2 15s ease-in-out 1s infinite;
-}
-.background__primary .background__figure_3 {
-  translate: 53.3vw 9.4vh;
-  -webkit-animation: figureAnim3 15s ease-in-out 1s infinite;
-          animation: figureAnim3 15s ease-in-out 1s infinite;
-}
 .background__secondary .background__figure_1 {
-  translate: 23vw -12vh;
   background: rgba(189, 0, 255, 0.4);
-  -webkit-animation: figureSecondaryAnim1 15s ease-in-out 1s infinite;
-          animation: figureSecondaryAnim1 15s ease-in-out 1s infinite;
 }
 .background__secondary .background__figure_2 {
-  translate: 45.9vw -5.4vh;
   background: rgba(5, 0, 255, 0.5);
-  -webkit-animation: figureSecondaryAnim2 15s ease-in-out 1s infinite;
-          animation: figureSecondaryAnim2 15s ease-in-out 1s infinite;
 }
 .background__secondary .background__figure_3 {
-  translate: 53.3vw 9.4vh;
   background: rgba(0, 240, 255, 0.6);
-  -webkit-animation: figureSecondaryAnim3 15s ease-in-out 1s infinite;
-          animation: figureSecondaryAnim3 15s ease-in-out 1s infinite;
 }
 .background__primary, .background__secondary {
   position: absolute;
