@@ -301,9 +301,8 @@ body
         display: inline-block
         background-image: $gradient-primary
         animation: figureAnimate(spin)
-        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)
-        -webkit-mask-composite: destination-out
-        mask-composite: exclude
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)
+        mask-composite: destination-out
         box-sizing: border-box
     &__overlay
       position: relative
@@ -459,23 +458,7 @@ body
     position: absolute
     z-index: -1
 
-  &__figure
-    position: absolute
-    will-change: translatw, rotate, filter, mix-blend-mode
-
-    &_1
-      z-index: 3
-      fill: $color-accent-primary
-
-    &_2
-      z-index: 2
-      fill: $color-accent-secondary
-
-    &_3
-      z-index: 1
-      fill: $color-accent-tertiary
-
-  &__primary &__figure
+  &__figures_header_scene &__primary &__figure
     &_1
       translate: 23vw -12vh
       animation: figureAnimate(figureAnim1)
@@ -486,20 +469,38 @@ body
       translate: 53.3vw 9.4vh
       animation: figureAnimate(figureAnim3)
 
-  &__secondary &__figure
+  &__figures_header_scene &__secondary &__figure
     &_1
       translate: 23vw -12vh
-      background: rgba($color-accent-primary, 40%)
       animation: figureAnimate(figureSecondaryAnim1)
     &_2
       translate: 45.9vw -5.4vh
-      background: rgba($color-accent-secondary, 50%)
       animation: figureAnimate(figureSecondaryAnim2)
-
     &_3
       translate: 53.3vw 9.4vh
-      background: rgba($color-accent-tertiary, 60%)
       animation: figureAnimate(figureSecondaryAnim3)
+
+  &__figure
+    position: absolute
+    will-change: translatw, rotate, filter, mix-blend-mode
+
+    &_1
+      z-index: 3
+      fill: $color-accent-primary
+    &_2
+      z-index: 2
+      fill: $color-accent-secondary
+    &_3
+      z-index: 1
+      fill: $color-accent-tertiary
+
+  &__secondary &__figure
+    &_1
+      background: rgba($color-accent-primary, 40%)
+    &_2
+      background: rgba($color-accent-secondary, 50%)
+    &_3
+      background: rgba($color-accent-tertiary, 60%)
 
   &__primary,
   &__secondary
