@@ -21,7 +21,7 @@ const noise = (ctx) => {
 }
 
 
-resize();
-window.addEventListener('resize', () => resize())
+// resize();
+// window.addEventListener('resize', () => resize())
 
-noise(ctx);
+// noise(ctx);

@@ -58,6 +58,7 @@ body
   padding: 0 0 100px
   background: #080715
   color: #fff
+  overflow-x: hidden
 
 .container
   margin: 0 auto
@@ -477,6 +478,8 @@ body
   &__figures
     position: absolute
     z-index: -1
+  &__figure-set
+    transform: translateX(-26vw) translateY(-8vh)
 
   &__figures_header_scene &__primary &__figure
     &_1
@@ -666,7 +669,6 @@ body
   100%
     --rotate: 360deg
 
-
 @media (max-width: 1200px)
   .example
     &-top
@@ -684,7 +686,6 @@ body
       &__list
         width: calc(40% - 20px)
 
-
 @media (max-width: 1024px)
   .example
     &-top
@@ -700,14 +701,13 @@ body
       &__img
         width: 40%
 
-
   .tariffs
     margin-top: 250px
     &-cards
       flex-direction: column
     &-description
       margin-top: 40px
-  
+
   .community
     &-block
       display: block
@@ -729,15 +729,14 @@ body
       &:nth-child(3)
         margin-left: 0
 
-
 @media (max-width: 768px)
   .header-nav__link + .header-nav__link
     margin-left: 20px
-  
+
   .main
     padding-top: 400px
     overflow: hidden
-  
+
   .hero-title
     font-size: 60px
     line-height: normal
@@ -766,7 +765,7 @@ body
     padding: 40px
     &__description
       margin-top: 30px
-  
+
   .community
     &-block
       &:before
@@ -816,7 +815,6 @@ body
       & + &
         margin-top: 20px
 
-
 @media (max-width: 576px)
   body
     padding-bottom: 40px
@@ -846,7 +844,7 @@ body
       margin: 0 auto
       display: block
       max-width: max-content
-  
+
   .section
     &-title
       font-size: 32px
@@ -904,7 +902,7 @@ body
           margin-top: 20px
       &__button
         margin-top: 70px
-    
+
   .community
     margin-top: 140px
     &-block
@@ -937,6 +935,5 @@ body
         top: 10px
     &-nav
       display: none
-
 
 @media (max-width: 375px)

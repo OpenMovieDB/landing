@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="ru">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css" />
 
-		<title>Open Movie API</title>
-	</head>
-	<body>
-		<canvas class="noise"></canvas>
-		<!-- временно <div class="background">
+    <title>Open Movie API</title>
+  </head>
+  <body>
+    <canvas class="noise"></canvas>
+    <div class="background">
       <div class="background__figures background__figures_header_scene">
         <div class="background__primary">
           <svg
@@ -84,127 +84,142 @@
           </svg>
         </div>
       </div>
-    </div> -->
-		<header class="header">
-			<div class="container">
-				<div class="header-inner">
-					<a href="#" class="logo link-opacity">
-						<img src="img/logo.svg" alt="Open Movie API" />
-					</a>
-					<nav class="header-nav">
-						<a href="#" class="header-nav__link link-underline"
-							>Пример API</a
-						>
-						<a href="#" class="header-nav__link link-underline"
-							>Тарифы</a
-						>
-						<a href="#" class="header-nav__link link-underline"
-							>Поддержка</a
-						>
-					</nav>
-				</div>
-			</div>
-		</header>
-		<main class="main">
-			<div class="container">
-				<section class="hero">
-					<h1 class="hero-title">Свободная база фильмов</h1>
-					<p class="section-body hero-description">
-						Получайте максимум данных о фильмах, сериалах,
-						мультфильмах, тв-шоу, аниме, актерах и режиссерах
-						максимально быстро. Наше api содержит данные из таких
-						баз как: kinopoisk, tmbd, imdb
-					</p>
-					<a href="#" class="hero__link link-gradient">
-						<div class="overlay">
-							<span>Подключить</span>
-							<span>Подключить</span>
-						</div>
-					</a>
-				</section>
-				<section class="example">
-          <!-- временно <div class="background example__background">
+    </div>
+    <header class="header">
+      <div class="container">
+        <div class="header-inner">
+          <a href="#" class="logo link-opacity">
+            <img src="img/logo.svg" alt="Open Movie API" />
+          </a>
+          <nav class="header-nav">
+            <a href="#" class="header-nav__link link-underline">Пример API</a>
+            <a href="#" class="header-nav__link link-underline">Тарифы</a>
+            <a href="#" class="header-nav__link link-underline">Поддержка</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main class="main">
+      <div class="container">
+        <section class="hero">
+          <h1 class="hero-title">Свободная база фильмов</h1>
+          <p class="section-body hero-description">
+            Получайте максимум данных о фильмах, сериалах, мультфильмах, тв-шоу,
+            аниме, актерах и режиссерах максимально быстро. Наше api содержит
+            данные из таких баз как: kinopoisk, tmbd, imdb
+          </p>
+          <a href="#" class="hero__link link-gradient">
+            <div class="overlay">
+              <span>Подключить</span>
+              <span>Подключить</span>
+            </div>
+          </a>
+        </section>
+        <section class="example">
+          <div class="background example__background">
             <div class="background__figures background__figures_example_scene">
-              <div class="background__primary">
-                <svg
-                  width="427"
-                  height="561"
-                  viewBox="0 0 427 561"
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="background__figure background__figure_1"
-                >
-                  <path
-                    d="M121.257 511.636C-24.7633 697.168 -8.44816 306.196 18.6286 184.253C47.5564 53.974 219.823 73.3812 258.393 5.67197C296.963 -62.0373 548.004 607.596 354.201 499.466C160.397 391.336 267.278 326.104 121.257 511.636Z"
-                  />
-                </svg>
-                <svg
-                  width="1139"
-                  height="358"
-                  viewBox="0 0 1139 358"
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="background__figure background__figure_2"
-                >
-                  <path
-                    d="M1110.58 171.475C1273.9 375.327 670.042 342.376 508.342 289.315C327.939 230.116 77.6896 418.461 18.5429 336.068C-40.6037 253.676 35.0689 -167.456 403.288 75.6836C771.507 318.823 947.247 -32.3781 1110.58 171.475Z"
-                  />
-                </svg>
-                <svg
-                  width="1255"
-                  height="301"
-                  viewBox="0 0 1255 301"
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="background__figure background__figure_3"
-                >
-                  <path
-                    d="M1220.17 164.219C1391.48 37.2734 882.312 10.1179 654.52 3.71344C298.246 -20.1363 34.6491 119.074 0.928482 180.046C-32.7922 241.019 1024.19 386.074 682.793 232.267C341.393 78.4606 383.81 65.1871 446.319 63.6169C508.828 62.0468 1048.85 291.164 1220.17 164.219Z"
-                  />
-                </svg>
-              </div>
               <div class="background__secondary">
                 <svg
-                  width="692"
-                  height="324"
-                  viewBox="0 0 692 324"
+                  width="2847"
+                  height="1367"
+                  viewBox="0 0 2847 1367"
+                  fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  class="background__figure background__figure_1"
+                  class="background__figure-set"
                 >
-                  <path
-                    d="M90.6041 157.844C-179.047 128.307 228.126 23.1625 367.275 2.99907C515.937 -18.5427 591.392 86.0984 681.664 88.4223C771.937 90.7463 228.76 431.09 231.754 288.091C234.748 145.091 360.256 187.381 90.6041 157.844Z"
-                  />
-                </svg>
-                <svg
-                  width="902"
-                  height="342"
-                  viewBox="0 0 902 342"
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="background__figure background__figure_2"
-                >
-                  <path
-                    d="M44.1486 204.955C-146.49 16.048 333.878 30.8571 476.287 76.7824C635.167 128.02 771.328 -57.4409 843.034 19.0976C914.74 95.6362 986.986 497.141 624.604 276.551C262.223 55.9609 234.787 393.861 44.1486 204.955Z"
-                  />
-                </svg>
-                <svg
-                  width="945"
-                  height="305"
-                  viewBox="0 0 945 305"
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="background__figure background__figure_3"
-                >
-                  <path
-                    d="M21.9854 109.829C-95.4298 227.477 293.102 278.927 466.362 296.248C738.7 337.058 924.852 211.691 944.444 152.845C964.035 93.9998 148.806 -100.757 422.581 68.2197C696.357 237.197 665.509 248.318 618.29 246.865C571.07 245.412 139.401 -7.81839 21.9854 109.829Z"
-                  />
+                  <g filter="url(#filter0_f_502_208)">
+                    <path
+                      d="M2391.17 529.218C2562.48 402.273 2053.31 375.117 1825.52 368.713C1469.25 344.863 1205.65 484.073 1171.93 545.045C1138.21 606.018 2195.19 751.073 1853.79 597.267C1512.39 443.46 1554.81 430.186 1617.32 428.616C1679.83 427.046 2219.85 656.163 2391.17 529.218Z"
+                      fill="#00F0FF"
+                    />
+                    <path
+                      d="M2347.58 779.474C2510.9 983.327 1907.04 950.376 1745.34 897.314C1564.94 838.115 1314.69 1026.46 1255.54 944.068C1196.4 861.676 1272.07 440.544 1640.29 683.683C2008.51 926.822 2184.25 575.621 2347.58 779.474Z"
+                      fill="#0500FF"
+                    />
+                    <path
+                      d="M614.257 944.636C468.237 1130.17 484.552 739.196 511.629 617.253C540.556 486.974 712.823 506.381 751.393 438.672C789.963 370.962 1041 1040.6 847.201 932.466C653.397 824.336 760.278 759.104 614.257 944.636Z"
+                      fill="#BD00FF"
+                    />
+                  </g>
+                  <g
+                    style="mix-blend-mode: color-dodge"
+                    filter="url(#filter1_f_502_208)"
+                  >
+                    <path
+                      d="M942.24 760.658C824.825 878.306 1213.36 929.757 1386.62 947.078C1658.95 987.887 1845.11 862.52 1864.7 803.675C1884.29 744.829 1069.06 550.072 1342.84 719.049C1616.61 888.026 1585.76 899.148 1538.54 897.695C1491.32 896.242 1059.66 643.011 942.24 760.658Z"
+                      fill="#00F0FF"
+                    />
+                    <path
+                      d="M566.403 500.784C375.764 311.877 856.133 326.686 998.541 372.611C1157.42 423.849 1293.58 238.388 1365.29 314.927C1436.99 391.465 1509.24 792.97 1146.86 572.38C784.477 351.79 757.042 689.69 566.403 500.784Z"
+                      fill="#0500FF"
+                    />
+                    <path
+                      d="M734.744 494.365C465.093 464.828 872.266 359.683 1011.42 339.52C1160.08 317.978 1235.53 422.619 1325.8 424.943C1416.08 427.267 872.9 767.611 875.894 624.612C878.888 481.612 1004.4 523.902 734.744 494.365Z"
+                      fill="#BD00FF"
+                    />
+                  </g>
+                  <defs>
+                    <filter
+                      id="filter0_f_502_208"
+                      x="243.641"
+                      y="115.993"
+                      width="2432.1"
+                      height="1127.78"
+                      filterUnits="userSpaceOnUse"
+                      color-interpolation-filters="sRGB"
+                    >
+                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="BackgroundImageFix"
+                        result="shape"
+                      />
+                      <feGaussianBlur
+                        stdDeviation="125"
+                        result="effect1_foregroundBlur_502_208"
+                      />
+                    </filter>
+                    <filter
+                      id="filter1_f_502_208"
+                      x="272.293"
+                      y="46.1426"
+                      width="1842.75"
+                      height="1158.95"
+                      filterUnits="userSpaceOnUse"
+                      color-interpolation-filters="sRGB"
+                    >
+                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="BackgroundImageFix"
+                        result="shape"
+                      />
+                      <feGaussianBlur
+                        stdDeviation="125"
+                        result="effect1_foregroundBlur_502_208"
+                      />
+                    </filter>
+                  </defs>
                 </svg>
               </div>
             </div>
-          </div> -->
+          </div>
           <h2 class="section-title">Пример работы</h2>
           <div class="example-block section-block">
             <div class="example-top">
               <h3 class="example-top__title section-h3">Однажды в голливуде</h3>
               <ul class="example-top__list">
                 <li>ID: <span>1209712</span></li>
-                <li><div class="mobile-hidden">Рейтинг</div> КП: <span>5.7</span></li>
-                <li><div class="mobile-hidden">Рейтинг</div> IMDB: <span>5.3</span></li>
+                <li>
+                  <div class="mobile-hidden">Рейтинг</div>
+                  КП: <span>5.7</span>
+                </li>
+                <li>
+                  <div class="mobile-hidden">Рейтинг</div>
+                  IMDB: <span>5.3</span>
+                </li>
               </ul>
             </div>
             <div class="example-block__content">
@@ -242,132 +257,106 @@
               </p>
               <a href="#" class="example-block__link link-gradient"
                 ><div class="overlay">
-                  <span>Трейлер <img src="img/arrow.svg" alt=">"></span>
-                  <span>Трейлер <img src="img/arrow.svg" alt=">"></span>
-                </div></a
-              >
+                  <span>Трейлер <img src="img/arrow.svg" alt=">" /></span>
+                  <span>Трейлер <img src="img/arrow.svg" alt=">" /></span></div
+              ></a>
             </div>
           </div>
         </section>
-				<section class="tariffs">
-					<h2 class="section-title">Тарифы</h2>
-					<p class="tariffs-description section-body">
-						За 3 года разработки API стало понятно, что он
-						используется для бизнеса и для обучения. Чтобы стать
-						более удобными теперь только 2 самых нужных тарифа.
-					</p>
-					<div class="tariffs-cards">
-						<div class="tariffs-item">
-							<div class="tariffs-item__overlay">
-								<h3 class="tariffs-item__title section-h3">
-									Обучение
-								</h3>
-								<p
-									class="tariffs-item__description section-body"
-								>
-									Это тариф создан для некомерческого
-									использования API kinopoisk, tmdb и imdb с
-									целью обучения программированию. Идеален для
-									студентов :)
-								</p>
-								<ul class="tariffs-item__list">
-									<li>
-										Доступ ко всем методам API кинопоиска
-										(3000 запросов в сутки)
-									</li>
-									<li>Доступ к документации</li>
-									<li>Доступ исходному коду API</li>
-									<li>
-										Нельзя использовать в приватных
-										репозиториях
-									</li>
-									<li>Тех. поддержка в чате @dev_to_dev</li>
-									<li class="mobile-hidden">&nbsp;</li>
-								</ul>
-								<a
-									href="#"
-									class="tariffs-item__button link-gradient without-gradient"
-								>
-									<div class="overlay">
-										<span>Получить токен</span>
-										<span>Получить токен</span>
-									</div>
-								</a>
-							</div>
-						</div>
-						<div class="tariffs-item tariffs-item-popular">
-							<div class="tariffs-item__overlay">
-								<h3 class="tariffs-item__title section-h3">
-									Бизнес
-								</h3>
-								<p
-									class="tariffs-item__description section-body"
-								>
-									Для этого тарифа доступен тестовый период,
-									который позволит вам не платить за апи во
-									время эксперементов. Поумолчанию этот период
-									длится 2 недели c момента активации тарифа,
-									после 2000 р. в месяц.
-								</p>
-								<ul class="tariffs-item__list">
-									<li>
-										Безлимитный доступ ко всем методам API
-									</li>
-									<li>Доступ к документации</li>
-									<li>Доступ исходному коду API</li>
-									<li>Возможность купить дамп базы</li>
-									<li>
-										Возможность развернуть свой личный
-										инстанс API
-									</li>
-									<li>Оперативная тех. поддержка</li>
-								</ul>
-								<a
-									href="#"
-									class="tariffs-item__button link-gradient"
-								>
-									<div class="overlay">
-										<span>Бесплатное демо</span>
-										<span>Бесплатное демо</span>
-									</div>
-								</a>
-							</div>
-						</div>
-					</div>
-				</section>
-				<section class="community">
-					<h2 class="section-title">Сообщество</h2>
-					<div class="community-block section-block">
-						<div class="community-item">
-							<h3 class="community-item__title section-h3">
-								<img src="img/tg-icon.svg" alt="tg" />
-								Telegram
-							</h3>
-							<p class="community-item__description section-body">
-								Присоединяйся в наше сообщество в telegram и
-								получай круглосуточную помощь
-							</p>
-							<a href="#" class="community-item__link"
-								>Присоединиться</a
-							>
-						</div>
-						<div class="community-item">
-							<h3 class="community-item__title section-h3">
-								<img src="img/github-icon.svg" alt="github" />
-								Github
-							</h3>
-							<p class="community-item__description section-body">
-								Присоединяйся в наше сообщество в telegram и
-								получай круглосуточную помощь
-							</p>
-							<a href="#" class="community-item__link"
-								>Присоединиться</a
-							>
-						</div>
-					</div>
-				</section>
-				<section class="support">
-					<!-- временно <div class="background support__background">
+        <section class="tariffs">
+          <h2 class="section-title">Тарифы</h2>
+          <p class="tariffs-description section-body">
+            За 3 года разработки API стало понятно, что он используется для
+            бизнеса и для обучения. Чтобы стать более удобными теперь только 2
+            самых нужных тарифа.
+          </p>
+          <div class="tariffs-cards">
+            <div class="tariffs-item">
+              <div class="tariffs-item__overlay">
+                <h3 class="tariffs-item__title section-h3">Обучение</h3>
+                <p class="tariffs-item__description section-body">
+                  Это тариф создан для некомерческого использования API
+                  kinopoisk, tmdb и imdb с целью обучения программированию.
+                  Идеален для студентов :)
+                </p>
+                <ul class="tariffs-item__list">
+                  <li>
+                    Доступ ко всем методам API кинопоиска (3000 запросов в
+                    сутки)
+                  </li>
+                  <li>Доступ к документации</li>
+                  <li>Доступ исходному коду API</li>
+                  <li>Нельзя использовать в приватных репозиториях</li>
+                  <li>Тех. поддержка в чате @dev_to_dev</li>
+                  <li class="mobile-hidden">&nbsp;</li>
+                </ul>
+                <a
+                  href="#"
+                  class="tariffs-item__button link-gradient without-gradient"
+                >
+                  <div class="overlay">
+                    <span>Получить токен</span>
+                    <span>Получить токен</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="tariffs-item tariffs-item-popular">
+              <div class="tariffs-item__overlay">
+                <h3 class="tariffs-item__title section-h3">Бизнес</h3>
+                <p class="tariffs-item__description section-body">
+                  Для этого тарифа доступен тестовый период, который позволит
+                  вам не платить за апи во время эксперементов. Поумолчанию этот
+                  период длится 2 недели c момента активации тарифа, после 2000
+                  р. в месяц.
+                </p>
+                <ul class="tariffs-item__list">
+                  <li>Безлимитный доступ ко всем методам API</li>
+                  <li>Доступ к документации</li>
+                  <li>Доступ исходному коду API</li>
+                  <li>Возможность купить дамп базы</li>
+                  <li>Возможность развернуть свой личный инстанс API</li>
+                  <li>Оперативная тех. поддержка</li>
+                </ul>
+                <a href="#" class="tariffs-item__button link-gradient">
+                  <div class="overlay">
+                    <span>Бесплатное демо</span>
+                    <span>Бесплатное демо</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="community">
+          <h2 class="section-title">Сообщество</h2>
+          <div class="community-block section-block">
+            <div class="community-item">
+              <h3 class="community-item__title section-h3">
+                <img src="img/tg-icon.svg" alt="tg" />
+                Telegram
+              </h3>
+              <p class="community-item__description section-body">
+                Присоединяйся в наше сообщество в telegram и получай
+                круглосуточную помощь
+              </p>
+              <a href="#" class="community-item__link">Присоединиться</a>
+            </div>
+            <div class="community-item">
+              <h3 class="community-item__title section-h3">
+                <img src="img/github-icon.svg" alt="github" />
+                Github
+              </h3>
+              <p class="community-item__description section-body">
+                Присоединяйся в наше сообщество в telegram и получай
+                круглосуточную помощь
+              </p>
+              <a href="#" class="community-item__link">Присоединиться</a>
+            </div>
+          </div>
+        </section>
+        <section class="support">
+          <div class="background support__background">
             <div class="background__figures background__figures_support_scene">
               <div class="background__primary">
                 <svg
@@ -512,87 +501,73 @@
                 </svg>
               </div>
             </div>
-          </div> -->
-					<h2 class="support__title section-title">Поддержка</h2>
-					<p class="support__description section-body">
-						Мы не оставим Вас без поддержки, сотрудники
-						openmovieapi.dev онлайн 24/7. Готовы решить практически
-						любой ваш вопрос, а также - подсказать, помочь,
-						обновить, загрузить, даже доработать код для корректной
-						работы с API kinopoisk.dev.
-					</p>
-				</section>
-				<section class="free">
-					<div class="free-inner">
-						<h2 class="free-title inline-title section-title">
-							Хотите начать бесплатно?
-						</h2>
-						<a href="#" class="tariffs-item__button link-gradient">
-							<div class="overlay">
-								<span>Подключить</span>
-								<span>Подключить</span>
-							</div>
-						</a>
-					</div>
-				</section>
-			</div>
-		</main>
-		<footer class="footer">
-			<div class="container">
-				<div class="footer-inner">
-					<div class="footer-block">
-						<a href="#" class="logo link-opacity">
-							<img src="img/logo.svg" alt="Open Movie API" />
-						</a>
-						<a
-							href="mdwit.t.me"
-							class="link-opacity opacity-color section-body mobile-hidden"
-							>@MDWIT</a
-						>
-						<span class="opacity-color section-body mobile-hidden"
-							>design by isakon</span
-						>
-					</div>
-					<nav class="footer-block footer-nav">
-						<a
-							href="#"
-							class="link-opacity footer-item section-body"
-							>Пример API</a
-						>
-						<a
-							href="#"
-							class="link-opacity footer-item section-body"
-							>Тарифы</a
-						>
-						<a
-							href="#"
-							class="link-opacity footer-item section-body"
-							>Поддержка</a
-						>
-					</nav>
-					<div class="footer-block">
-						<a
-							href="#"
-							class="link-opacity footer-item section-body"
-							>support@openmovie.api</a
-						>
-						<a
-							href="#"
-							class="link-opacity footer-item section-body"
-							>Github</a
-						>
-					</div>
-					<div class="footer-block footer-block__mobile">
-						<a href="mdwit.t.me" class="link-opacity opacity-color section-body">
+          </div>
+          <h2 class="support__title section-title">Поддержка</h2>
+          <p class="support__description section-body">
+            Мы не оставим Вас без поддержки, сотрудники openmovieapi.dev онлайн
+            24/7. Готовы решить практически любой ваш вопрос, а также -
+            подсказать, помочь, обновить, загрузить, даже доработать код для
+            корректной работы с API kinopoisk.dev.
+          </p>
+        </section>
+        <section class="free">
+          <div class="free-inner">
+            <h2 class="free-title inline-title section-title">
+              Хотите начать бесплатно?
+            </h2>
+            <a href="#" class="tariffs-item__button link-gradient">
+              <div class="overlay">
+                <span>Подключить</span>
+                <span>Подключить</span>
+              </div>
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-block">
+            <a href="#" class="logo link-opacity">
+              <img src="img/logo.svg" alt="Open Movie API" />
+            </a>
+            <a
+              href="mdwit.t.me"
+              class="link-opacity opacity-color section-body mobile-hidden"
+              >@MDWIT</a
+            >
+            <span class="opacity-color section-body mobile-hidden"
+              >design by isakon</span
+            >
+          </div>
+          <nav class="footer-block footer-nav">
+            <a href="#" class="link-opacity footer-item section-body"
+              >Пример API</a
+            >
+            <a href="#" class="link-opacity footer-item section-body">Тарифы</a>
+            <a href="#" class="link-opacity footer-item section-body"
+              >Поддержка</a
+            >
+          </nav>
+          <div class="footer-block">
+            <a href="#" class="link-opacity footer-item section-body"
+              >support@openmovie.api</a
+            >
+            <a href="#" class="link-opacity footer-item section-body">Github</a>
+          </div>
+          <div class="footer-block footer-block__mobile">
+            <a
+              href="mdwit.t.me"
+              class="link-opacity opacity-color section-body"
+            >
               @MDWIT
             </a>
-						<span class="opacity-color section-body">
-              design by isakon
-            </span>
-					</div>
-				</div>
-			</div>
-		</footer>
-		<script src="js/main.js"></script>
-	</body>
+            <span class="opacity-color section-body"> design by isakon </span>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="js/main.js"></script>
+  </body>
 </html>
