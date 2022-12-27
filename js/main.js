@@ -4,6 +4,7 @@ const ctx = canvas.getContext('2d');
 const resize = () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+    noise(ctx);
 }
 
 const noise = (ctx) => {
@@ -19,13 +20,8 @@ const noise = (ctx) => {
     ctx.putImageData(imageData, 0, 0);
 }
 
-const noiseLoop = () => {
-    noise(ctx);
-    requestAnimationFrame(noiseLoop);
-};
-
 
 resize();
-window.onresize = resize;
+window.addEventListener('resize', () => resize())
 
-noiseLoop();
+noise(ctx);
