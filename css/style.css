@@ -249,20 +249,6 @@ body {
   margin-top: 80px;
   position: relative;
 }
-.example-block:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 500px;
-  height: 500px;
-  display: inline-block;
-  background: linear-gradient(67deg, #0500FF, #710099);
-  border-radius: 50px;
-  filter: blur(350px);
-}
 .example-block__content {
   display: flex;
   align-items: center;
@@ -547,9 +533,6 @@ body {
 .background__figures {
   position: absolute;
   z-index: -1;
-}
-.background__figure-set {
-  transform: translateX(-26vw) translateY(-8vh);
 }
 .background__figures_header_scene .background__primary .background__figure_1 {
   translate: 23vw -12vh;
