@@ -20,7 +20,7 @@ const noise = (ctx: CanvasRenderingContext2D) => {
 const BackgroundNoise = () => {
   const canvas = useRef<HTMLCanvasElement>(null);
   const ctx = canvas.current?.getContext('2d');
-  const { height, width } = useWi ndowSize();
+  const { height, width } = useWindowSize();
 
   useEffect(() => {
     if (ctx) noise(ctx);
