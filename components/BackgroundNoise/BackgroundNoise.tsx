@@ -1,6 +1,8 @@
 /* eslint-disable no-bitwise */
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
+
+import useWindowSize from '../../hooks/useWindowSize';
 
 const noise = (ctx: CanvasRenderingContext2D) => {
   const { width, height } = ctx.canvas;
@@ -18,10 +20,9 @@ const noise = (ctx: CanvasRenderingContext2D) => {
 const BackgroundNoise = () => {
   const canvas = useRef<HTMLCanvasElement>(null);
   const ctx = canvas.current?.getContext('2d');
-  const [size, setSize] = useState({ height: 0, width: 0 });
+  const { height, width } = useWi ndowSize();
 
   useEffect(() => {
-    setSize({ height: window.innerHeight, width: window.innerWidth });
     if (ctx) noise(ctx);
   });
 
@@ -29,8 +30,8 @@ const BackgroundNoise = () => {
     <canvas
       ref={canvas}
       className="noise"
-      width={size.width}
-      height={size.height}
+      width={width}
+      height={height}
     ></canvas>
   );
 };
