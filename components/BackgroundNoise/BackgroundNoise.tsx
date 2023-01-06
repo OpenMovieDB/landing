@@ -25,7 +25,14 @@ const BackgroundNoise = () => {
     if (ctx) noise(ctx);
   });
 
-  return <canvas ref={canvas} width={size.width} height={size.height}></canvas>;
+  return (
+    <canvas
+      ref={canvas}
+      className="noise"
+      width={size.width}
+      height={size.height}
+    ></canvas>
+  );
 };
 
 export default BackgroundNoise;
