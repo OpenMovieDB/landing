@@ -33,6 +33,14 @@
   box-sizing: border-box;
 }
 
+html.has-scroll-smooth {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
 a,
 button,
 p,
@@ -66,6 +74,7 @@ body {
   color: #fff;
   overflow-x: hidden;
 }
+
 
 .container {
   margin: 0 auto;
@@ -1436,5 +1445,3 @@ body {
     display: none;
   }
 }
-
-/*# sourceMappingURL=style.css.map */

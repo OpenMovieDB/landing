@@ -1,7 +1,7 @@
 import Head from 'next/head';
+import { useRef } from 'react';
+import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 
-import BackgroundNoise from '../components/BackgroundNoise/BackgroundNoise';
-import BackgroundScene from '../components/BackgroundScene/BackgroundScene';
 import Community from '../components/Community/Community';
 import Example from '../components/Example/Example';
 import Footer from '../components/Footer/Footer';
@@ -10,8 +10,10 @@ import Header from '../components/Header/Header';
 import Hero from '../components/Hero/Hero';
 import Support from '../components/Support/Support';
 import Tariffs from '../components/Tariffs/Tariffs';
+import ScrollTriggerProxy from '../utils/ScrollTriggerProxy';
 
 export default function Home() {
+  const containerRef = useRef(null);
   return (
     <>
       <Head>
@@ -20,20 +22,38 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <BackgroundNoise></BackgroundNoise>
-      <BackgroundScene></BackgroundScene>
-      <Header></Header>
-      <main className="main">
-        <div className="container">
+      {/* <BackgroundNoise></BackgroundNoise> */}
+      {/* <BackgroundScene></BackgroundScene> */}
+      <LocomotiveScrollProvider
+        options={{
+          smooth: true,
+          // ... all available Locomotive Scroll instance options
+          smartphone: {
+            smooth: true,
+          },
+          tablet: {
+            smooth: true,
+          },
+        }}
+        watch={[]}
+        containerRef={containerRef}
+      >
+        <main
+          data-scroll-container
+          ref={containerRef}
+          className="main container"
+        >
+          <ScrollTriggerProxy></ScrollTriggerProxy>
+          <Header></Header>
           <Hero></Hero>
           <Example></Example>
           <Tariffs></Tariffs>
           <Community></Community>
           <Support></Support>
           <Free></Free>
-        </div>
-      </main>
-      <Footer></Footer>
+          <Footer></Footer>
+        </main>
+      </LocomotiveScrollProvider>
     </>
   );
 }

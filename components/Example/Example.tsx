@@ -1,7 +1,7 @@
 const Example = () => {
   return (
     <section className="example">
-      <div className="background example__background">
+      {/* <div className="background example__background">
         <svg
           width="1598"
           height="1338"
@@ -85,7 +85,7 @@ const Example = () => {
             </filter>
           </defs>
         </svg>
-      </div>
+      </div> */}
       <h2 className="section-title">Пример работы</h2>
       <div className="example-block section-block">
         <div className="example-top">

@@ -1,7 +1,7 @@
 const Support = () => {
   return (
     <section className="support">
-      <div className="background support__background">
+      {/* <div className="background support__background">
         <div className="background__figures background__figures_support_scene">
           <div className="background__primary">
             <svg
@@ -122,7 +122,7 @@ const Support = () => {
             </svg>
           </div>
         </div>
-      </div>
+      </div> */}
       <h2 className="support__title section-title">Поддержка</h2>
       <p className="support__description section-body">
         Мы не оставим Вас без поддержки, сотрудники openmovieapi.dev онлайн
