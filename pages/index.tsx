@@ -2,6 +2,8 @@ import Head from 'next/head';
 import { useRef } from 'react';
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 
+import BackgroundNoise from '../components/BackgroundNoise/BackgroundNoise';
+import BackgroundScene from '../components/BackgroundScene/BackgroundScene';
 import Community from '../components/Community/Community';
 import Example from '../components/Example/Example';
 import Footer from '../components/Footer/Footer';
@@ -22,8 +24,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* <BackgroundNoise></BackgroundNoise> */}
-      {/* <BackgroundScene></BackgroundScene> */}
+      <BackgroundNoise></BackgroundNoise>
+      <BackgroundScene></BackgroundScene>
       <LocomotiveScrollProvider
         options={{
           smooth: true,
