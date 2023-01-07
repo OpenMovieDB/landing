@@ -10,6 +10,7 @@ import Footer from '../components/Footer/Footer';
 import Free from '../components/Free/Free';
 import Header from '../components/Header/Header';
 import Hero from '../components/Hero/Hero';
+import Stats from '../components/Stats/Stats';
 import Support from '../components/Support/Support';
 import Tariffs from '../components/Tariffs/Tariffs';
 import ScrollTriggerProxy from '../utils/ScrollTriggerProxy';
@@ -39,6 +40,7 @@ export default function Home() {
             <BackgroundScene></BackgroundScene>
             <Header></Header>
             <Hero></Hero>
+            <Stats></Stats>
             <Example></Example>
             <Tariffs></Tariffs>
             <Community></Community>
