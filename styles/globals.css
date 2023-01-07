@@ -616,6 +616,10 @@ body {
   margin-bottom: 22px;
 }
 
+.footer {
+  padding-bottom: 100px;
+}
+
 .support {
   text-align: center;
   margin: 0 auto;
