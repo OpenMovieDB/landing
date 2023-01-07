@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const Free = () => {
   return (
-    <section className="free">
+    <section className="free container">
       <div className="free-inner">
         <h2 className="free-title inline-title section-title">
           Хотите начать бесплатно?

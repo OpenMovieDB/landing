@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const Community = () => {
   return (
-    <section className="community">
+    <section className="community container">
       <h2 className="section-title">Сообщество</h2>
       <div className="community-block section-block">
         <div className="community-item">
