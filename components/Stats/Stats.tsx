@@ -1,48 +1,83 @@
+import Image from 'next/image';
+import React from 'react';
+
+type StatItem = {
+  sum: number;
+  unit: string;
+  name: string;
+  images: string[];
+  imageSize: {
+    width: number;
+    height: number;
+  };
+};
+
+const STATS: StatItem[] = [
+  {
+    sum: 777,
+    unit: 'тысяч',
+    name: 'фильмов',
+    images: [1, 2, 3, 4, 5, 6].map((i) => `/img/films/${i}.png`),
+    imageSize: {
+      width: 523,
+      height: 294,
+    },
+  },
+  {
+    sum: 6,
+    unit: 'миллионов',
+    name: 'персон',
+    images: [1, 2, 3, 4, 5, 6].map((i) => `/img/persons/${i}.png`),
+    imageSize: {
+      width: 367,
+      height: 490,
+    },
+  },
+  {
+    sum: 1,
+    unit: 'миллионов',
+    name: 'изображений',
+    images: [1, 2, 3, 4, 5, 6].map((i) => `/img/photos/${i}.png`),
+    imageSize: {
+      width: 523,
+      height: 294,
+    },
+  },
+];
+
 const Stats = () => {
-  return (
-    <section className="stats">
-      <div className="stats__titles">
-        <h3 className="stats__title section-title">
-          <span className="stats__sum">777</span>
-          <b className="statu__unit">тысяч</b>
-          фильмов
-        </h3>
-        <h3 className="stats__title section-title">
-          <span className="stats__sum">6</span>
-          <b className="statu__unit">миллионов</b>
-          персон
-        </h3>
-        <h3 className="stats__title section-title">
-          <span className="stats__sum">1</span>
-          <b className="statu__unit">миллион</b>
-          изображений
-        </h3>
-      </div>
+  const renderImages = (stat: StatItem): React.ReactNode => {
+    return (
       <div className="stats__images">
-        <div className="stats__images-set">
-          <img src="/img/films/1.png" alt="" className="stats__image" />
-          <img src="/img/films/2.png" alt="" className="stats__image" />
-          <img src="/img/films/3.png" alt="" className="stats__image" />
-          <img src="/img/films/4.png" alt="" className="stats__image" />
-          <img src="/img/films/5.png" alt="" className="stats__image" />
-          <img src="/img/films/6.png" alt="" className="stats__image" />
-        </div>
-        <div className="stats__images-set">
-          <img src="/img/persons/1.png" alt="" className="stats__image" />
-          <img src="/img/persons/2.png" alt="" className="stats__image" />
-          <img src="/img/persons/3.png" alt="" className="stats__image" />
-          <img src="/img/persons/4.png" alt="" className="stats__image" />
-          <img src="/img/persons/5.png" alt="" className="stats__image" />
-          <img src="/img/persons/6.png" alt="" className="stats__image" />
-        </div>
-        <div className="stats__images-set">
-          <img src="/img/photos/1.png" alt="" className="stats__image" />
-          <img src="/img/photos/2.png" alt="" className="stats__image" />
-          <img src="/img/photos/3.png" alt="" className="stats__image" />
-          <img src="/img/photos/4.png" alt="" className="stats__image" />
-          <img src="/img/photos/5.png" alt="" className="stats__image" />
-          <img src="/img/photos/6.png" alt="" className="stats__image" />
-        </div>
+        {stat.images.map((url, index) => (
+          <Image
+            src={url}
+            width={stat.imageSize.width}
+            height={stat.imageSize.height}
+            alt=""
+            key={index}
+            className="stats__image"
+          ></Image>
+        ))}
+      </div>
+    );
+  };
+
+  const renderTitle = (stat: StatItem): React.ReactNode => {
+    return (
+      <h3 className="stats__title section-title">
+        <span className="stats__sum">{stat.sum}</span>
+        <b className="statu__unit">{stat.unit}</b>
+        {stat.name}
+      </h3>
+    );
+  };
+
+  return (
+    <section id="stats-fixed-target" className="stats" data-scroll>
+      <div className="stats__scroll">
+        <div className="stats__title">{renderTitle(STATS[0])}</div>
+        {renderImages(STATS[0])}
       </div>
     </section>
   );
