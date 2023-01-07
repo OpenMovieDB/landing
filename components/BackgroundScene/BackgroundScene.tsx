@@ -1,7 +1,13 @@
 const BackgroundScene = () => {
   return (
-    <div className="background">
-      <video src={'/videos/header-bg.mp4'} autoPlay muted loop />
+    <div className="background" data-scroll>
+      <video
+        src={'/videos/header-bg.mp4'}
+        className="background__video"
+        autoPlay
+        muted
+        loop
+      />
     </div>
   );
 };

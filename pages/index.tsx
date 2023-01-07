@@ -24,12 +24,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <BackgroundNoise></BackgroundNoise>
-      <BackgroundScene></BackgroundScene>
+
       <LocomotiveScrollProvider
         options={{
           smooth: true,
-          // ... all available Locomotive Scroll instance options
           smartphone: {
             smooth: true,
           },
@@ -40,20 +38,20 @@ export default function Home() {
         watch={[]}
         containerRef={containerRef}
       >
-        <main
-          data-scroll-container
-          ref={containerRef}
-          className="main container"
-        >
-          <ScrollTriggerProxy></ScrollTriggerProxy>
-          <Header></Header>
-          <Hero></Hero>
-          <Example></Example>
-          <Tariffs></Tariffs>
-          <Community></Community>
-          <Support></Support>
-          <Free></Free>
-          <Footer></Footer>
+        <main ref={containerRef} className="main" id="fixed-target">
+          <div data-scroll-container>
+            <ScrollTriggerProxy></ScrollTriggerProxy>
+            <BackgroundNoise></BackgroundNoise>
+            <BackgroundScene></BackgroundScene>
+            <Header></Header>
+            <Hero></Hero>
+            <Example></Example>
+            <Tariffs></Tariffs>
+            <Community></Community>
+            <Support></Support>
+            <Free></Free>
+            <Footer></Footer>
+          </div>
         </main>
       </LocomotiveScrollProvider>
     </>

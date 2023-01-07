@@ -1,6 +1,6 @@
 const Example = () => {
   return (
-    <section className="example">
+    <section className="example container">
       {/* <div className="background example__background">
         <svg
           width="1598"

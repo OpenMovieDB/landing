@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const Hero = () => {
   return (
-    <section className="hero">
+    <section className="hero container">
       <h1 className="hero-title">Свободная база фильмов</h1>
       <p className="section-body hero-description">
         Получайте максимум данных о фильмах, сериалах, мультфильмах, тв-шоу,

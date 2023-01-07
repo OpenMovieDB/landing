@@ -1,6 +1,6 @@
 const Support = () => {
   return (
-    <section className="support">
+    <section className="support container">
       {/* <div className="background support__background">
         <div className="background__figures background__figures_support_scene">
           <div className="background__primary">

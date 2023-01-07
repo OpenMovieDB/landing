@@ -60,9 +60,9 @@ li,
 }
 
 .noise {
-  position: fixed;
+  position: absolute;
   opacity: 0.4;
-  z-index: 0;
+  z-index: 1;
   mix-blend-mode: overlay;
   background-image: url("/img/noise.png");
   background-repeat: revert;
@@ -214,7 +214,7 @@ body {
   margin-left: 50px;
 }
 
-.main {
+.hero {
   padding-top: 508px;
 }
 
@@ -630,6 +630,12 @@ body {
 .background {
   position: absolute;
   z-index: -1;
+}
+
+.background__video {
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
 }
 
 .background__figures {
@@ -1049,6 +1055,12 @@ body {
 }
 
 @media (max-width: 1200px) {
+  .background__video {
+    height: auto;
+    width: auto;
+    object-fit: contain;
+  }
+
   .example-top {
     margin-bottom: 40px;
   }
@@ -1145,8 +1157,17 @@ body {
   }
 
   .main {
-    padding-top: 400px;
     overflow: hidden;
+  }
+
+  .background__video {
+    height: 50vh;
+    width: 100vw;
+    object-fit: cover;
+  }
+
+  .hero {
+    padding-top: 400px;
   }
 
   .hero-title {
@@ -1280,6 +1301,9 @@ body {
 
   .main {
     overflow: hidden;
+  }
+
+  .hero {
     padding-top: 329px;
   }
 
