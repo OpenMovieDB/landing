@@ -61,8 +61,8 @@ li,
 
 .noise {
   position: absolute;
-  opacity: 0.4;
-  z-index: 1;
+  opacity: 1;
+  z-index: 0;
   mix-blend-mode: overlay;
   background-image: url("/img/noise.png");
   background-repeat: revert;
@@ -629,6 +629,11 @@ body {
 
 .background {
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 100vw;
   z-index: -1;
 }
 
@@ -637,6 +642,12 @@ body {
   width: 100vw;
   object-fit: cover;
 }
+
+
+.example__background-image {
+  transform: translateY(-10vh);
+}
+
 
 .background__figures {
   position: absolute;
@@ -1091,6 +1102,18 @@ body {
 }
 
 @media (max-width: 1024px) {
+  .example__background-image {
+    height: 100vh;
+    object-fit: cover;
+    width: 100vw;
+  }
+
+  .background__video {
+    height: 70vh;
+    width: auto;
+    object-fit: cover;
+  }
+
   .example-top {
     flex-direction: column;
     align-items: flex-start;
