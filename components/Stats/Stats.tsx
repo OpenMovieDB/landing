@@ -2,17 +2,17 @@ const Stats = () => {
   return (
     <section className="stats">
       <div className="stats__titles">
-        <h3 className="stats__title">
+        <h3 className="stats__title section-title">
           <span className="stats__sum">777</span>
           <b className="statu__unit">тысяч</b>
           фильмов
         </h3>
-        <h3 className="stats__title">
+        <h3 className="stats__title section-title">
           <span className="stats__sum">6</span>
           <b className="statu__unit">миллионов</b>
           персон
         </h3>
-        <h3 className="stats__title">
+        <h3 className="stats__title section-title">
           <span className="stats__sum">1</span>
           <b className="statu__unit">миллион</b>
           изображений

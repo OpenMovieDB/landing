@@ -1073,6 +1073,45 @@ body {
   }
 }
 
+
+
+.stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.stats__title {
+  position: absolute;
+  width: inherit;
+}
+
+
+.stats__image {
+  position: absolute;
+}
+
+.stats__titles {
+  width: 100vw;
+  text-align: center;
+  height: 64px;
+  overflow: hidden;
+}
+
+
+.stats__images {
+  width: 100vw;
+}
+
+.stats__images {
+  position: absolute;
+}
+
+
 @media (max-width: 1200px) {
   .background__video {
     height: auto;
