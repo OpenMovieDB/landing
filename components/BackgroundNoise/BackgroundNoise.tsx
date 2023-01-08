@@ -4,7 +4,7 @@ const BackgroundNoise = () => {
       className="noise"
       data-scroll
       data-scroll-sticky
-      data-scroll-target="#fixed-target"
+      data-scroll-target="#smooth-scroll"
     ></div>
   );
 };

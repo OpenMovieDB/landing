@@ -33,21 +33,24 @@ export default function Home() {
         watch={[]}
         containerRef={containerRef}
       >
-        <main ref={containerRef} className="main" id="fixed-target">
-          <div data-scroll-container>
-            <ScrollTriggerProxy></ScrollTriggerProxy>
-            <BackgroundNoise></BackgroundNoise>
-            <BackgroundScene></BackgroundScene>
-            <Header></Header>
-            <Hero></Hero>
-            <Stats></Stats>
-            <Example></Example>
-            <Tariffs></Tariffs>
-            <Community></Community>
-            <Support></Support>
-            <Free></Free>
-            <Footer></Footer>
-          </div>
+        <ScrollTriggerProxy />
+        <main
+          ref={containerRef}
+          className="main"
+          id="smooth-scroll"
+          data-scroll-container
+        >
+          <BackgroundNoise></BackgroundNoise>
+          <BackgroundScene></BackgroundScene>
+          <Header></Header>
+          <Hero></Hero>
+          <Stats></Stats>
+          <Example></Example>
+          <Tariffs></Tariffs>
+          <Community></Community>
+          <Support></Support>
+          <Free></Free>
+          <Footer></Footer>
         </main>
       </LocomotiveScrollProvider>
     </>
