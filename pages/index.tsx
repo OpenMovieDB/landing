@@ -10,6 +10,7 @@ import Footer from '../components/Footer/Footer';
 import Free from '../components/Free/Free';
 import Header from '../components/Header/Header';
 import Hero from '../components/Hero/Hero';
+import Stats from '../components/Stats/Stats';
 import Support from '../components/Support/Support';
 import Tariffs from '../components/Tariffs/Tariffs';
 import ScrollTriggerProxy from '../utils/ScrollTriggerProxy';
@@ -28,30 +29,28 @@ export default function Home() {
       <LocomotiveScrollProvider
         options={{
           smooth: true,
-          smartphone: {
-            smooth: true,
-          },
-          tablet: {
-            smooth: true,
-          },
         }}
         watch={[]}
         containerRef={containerRef}
       >
-        <main ref={containerRef} className="main" id="fixed-target">
-          <div data-scroll-container>
-            <ScrollTriggerProxy></ScrollTriggerProxy>
-            <BackgroundNoise></BackgroundNoise>
-            <BackgroundScene></BackgroundScene>
-            <Header></Header>
-            <Hero></Hero>
-            <Example></Example>
-            <Tariffs></Tariffs>
-            <Community></Community>
-            <Support></Support>
-            <Free></Free>
-            <Footer></Footer>
-          </div>
+        <ScrollTriggerProxy />
+        <main
+          ref={containerRef}
+          className="main"
+          id="smooth-scroll"
+          data-scroll-container
+        >
+          <BackgroundNoise></BackgroundNoise>
+          <BackgroundScene></BackgroundScene>
+          <Header></Header>
+          <Hero></Hero>
+          <Stats></Stats>
+          <Example></Example>
+          <Tariffs></Tariffs>
+          <Community></Community>
+          <Support></Support>
+          <Free></Free>
+          <Footer></Footer>
         </main>
       </LocomotiveScrollProvider>
     </>
