@@ -48,6 +48,66 @@ const STATS: StatItem[] = [
   },
 ];
 
+const initTitleAnimation = (scroller: HTMLElement) => {
+  gsap.utils.toArray('.stats__title').forEach((el, index) => {
+    if (index) {
+      gsap.set(el as HTMLElement, {
+        y: '200%',
+        opacity: 0,
+        ease: Power3.easeInOut,
+      });
+    } else {
+      gsap.set(el as HTMLElement, {
+        y: '0%',
+        ease: Power3.easeInOut,
+        opacity: 1,
+      });
+    }
+  });
+  gsap
+    .timeline({
+      scrollTrigger: {
+        scrub: 1,
+        trigger: '.stats__slide_0',
+        start: 'top top',
+        scroller,
+        end: `center center`,
+        markers: true,
+      },
+    })
+    .to('.stats__title_0', { y: '0' })
+    .to('.stats__title_1', { y: '200%' })
+    .to('.stats__title_2', { y: '200%' });
+
+  gsap
+    .timeline({
+      scrollTrigger: {
+        scrub: 1,
+        trigger: '.stats__slide_1',
+        start: 'top top',
+        scroller,
+        end: `center center`,
+        markers: true,
+      },
+    })
+    .to('.stats__title_0', { y: '-200%', opacity: 0 })
+    .to('.stats__title_1', { y: '0%', opacity: 1 });
+
+  gsap
+    .timeline({
+      scrollTrigger: {
+        scrub: 1,
+        trigger: '.stats__slide_2',
+        start: 'center center',
+        scroller,
+        end: `bottom bottom`,
+        markers: true,
+      },
+    })
+    .to('.stats__title_1', { y: '-200%', opacity: 0 })
+    .to('.stats__title_2', { y: '0%', opacity: 1 });
+};
+
 const Stats = () => {
   const { scroll } = useLocomotiveScroll();
 
@@ -59,65 +119,7 @@ const Stats = () => {
   useEffect(() => {
     if (scroll) {
       const element = scroll?.el;
-
-      gsap.utils.toArray('.stats__title').forEach((el, index) => {
-        if (index) {
-          gsap.set(el as HTMLElement, {
-            y: '200%',
-            opacity: 0,
-            ease: Power3.easeInOut,
-          });
-        } else {
-          gsap.set(el as HTMLElement, {
-            y: '0%',
-            ease: Power3.easeInOut,
-            opacity: 1,
-          });
-        }
-      });
-      gsap
-        .timeline({
-          scrollTrigger: {
-            scrub: 1,
-            trigger: '.stats__slide_0',
-            start: 'top top',
-            scroller: element,
-            end: `center center`,
-            markers: true,
-          },
-        })
-        .to('.stats__title_0', { y: '0' })
-        .to('.stats__title_1', { y: '200%' })
-        .to('.stats__title_2', { y: '200%' });
-
-      gsap
-        .timeline({
-          scrollTrigger: {
-            scrub: 1,
-            trigger: '.stats__slide_1',
-            start: 'top top',
-            scroller: element,
-            end: `center center`,
-            markers: true,
-          },
-        })
-        .to('.stats__title_0', { y: '-200%', opacity: 0 })
-        .to('.stats__title_1', { y: '0%', opacity: 1 });
-
-      gsap
-        .timeline({
-          scrollTrigger: {
-            scrub: 1,
-            trigger: '.stats__slide_2',
-            start: 'center center',
-            scroller: element,
-            end: `bottom bottom`,
-            markers: true,
-          },
-        })
-        .to('.stats__title_1', { y: '-200%', opacity: 0 })
-        .to('.stats__title_2', { y: '0%', opacity: 1 });
-
+      initTitleAnimation(element);
       ScrollTrigger.create({
         trigger: '.stats__titles',
         pin: true,
