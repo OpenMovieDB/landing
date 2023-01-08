@@ -1,4 +1,4 @@
-import gsap, { Power3 } from 'gsap';
+import gsap, { Power1, Power3 } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import React, { useEffect, useRef } from 'react';
@@ -38,7 +38,7 @@ const STATS: StatItem[] = [
   },
   {
     sum: 1,
-    unit: 'миллионов',
+    unit: 'миллион',
     name: 'изображений',
     images: [1, 2, 3, 4, 5, 6].map((i) => `/img/photos/${i}.png`),
     imageSize: {
@@ -53,29 +53,38 @@ const initTitleAnimation = (scroller: HTMLElement) => {
     if (index) {
       gsap.set(el as HTMLElement, {
         y: '200%',
-        opacity: 0,
         ease: Power3.easeInOut,
+        duration: 0.1,
       });
     } else {
       gsap.set(el as HTMLElement, {
         y: '0%',
         ease: Power3.easeInOut,
-        opacity: 1,
+        duration: 0.1,
       });
     }
   });
+
   gsap
     .timeline({
       scrollTrigger: {
         scrub: 1,
         trigger: '.stats__slide_0',
-        start: 'top top',
+        start: 'top center',
         scroller,
-        end: `center center`,
+        end: `center bottom`,
         markers: true,
       },
     })
     .to('.stats__title_0', { y: '0' })
+    .from('.stats__title_0 .stats__sum', {
+      trigger: '.stats__slide_0',
+      textContent: 0,
+      duration: 5,
+      ease: Power1.easeIn,
+      snap: { textContent: 1 },
+      stagger: 1,
+    })
     .to('.stats__title_1', { y: '200%' })
     .to('.stats__title_2', { y: '200%' });
 
@@ -84,28 +93,44 @@ const initTitleAnimation = (scroller: HTMLElement) => {
       scrollTrigger: {
         scrub: 1,
         trigger: '.stats__slide_1',
-        start: 'top top',
+        start: 'top center',
         scroller,
-        end: `center center`,
+        end: `center bottom`,
         markers: true,
       },
     })
-    .to('.stats__title_0', { y: '-200%', opacity: 0 })
-    .to('.stats__title_1', { y: '0%', opacity: 1 });
+    .to('.stats__title_0', { y: '-200%' })
+    .to('.stats__title_1', { y: '0%' })
+    .from('.stats__title_1 .stats__sum', {
+      trigger: '.stats__slide_0',
+      textContent: 0,
+      duration: 1,
+      ease: Power1.easeIn,
+      snap: { textContent: 1 },
+      stagger: 1,
+    });
 
   gsap
     .timeline({
       scrollTrigger: {
         scrub: 1,
         trigger: '.stats__slide_2',
-        start: 'center center',
+        start: 'top center',
         scroller,
-        end: `bottom bottom`,
+        end: `center bottom`,
         markers: true,
       },
     })
-    .to('.stats__title_1', { y: '-200%', opacity: 0 })
-    .to('.stats__title_2', { y: '0%', opacity: 1 });
+    .to('.stats__title_1', { y: '-200%' })
+    .to('.stats__title_2', { y: '0%' })
+    .from('.stats__title_2 .stats__sum', {
+      trigger: '.stats__slide_0',
+      textContent: 0,
+      duration: 20,
+      ease: Power1.easeIn,
+      snap: { textContent: 1 },
+      stagger: 1,
+    });
 };
 
 const Stats = () => {
@@ -120,6 +145,7 @@ const Stats = () => {
     if (scroll) {
       const element = scroll?.el;
       initTitleAnimation(element);
+
       ScrollTrigger.create({
         trigger: '.stats__titles',
         pin: true,
@@ -140,18 +166,21 @@ const Stats = () => {
 
   const renderImages = (stat: StatItem): React.ReactNode => {
     return (
-      <div className="stats__images">
+      <>
         {stat.images.map((url, index) => (
-          <Image
-            src={url}
-            width={stat.imageSize.width}
-            height={stat.imageSize.height}
-            alt=""
-            key={index}
-            className={`stats__image stats__image_${index}`}
-          ></Image>
+          <div className="stats__image-frame" key={index}>
+            <Image
+              src={url}
+              width={stat.imageSize.width}
+              height={stat.imageSize.height}
+              alt=""
+              className={`stats__image stats__image_${index}`}
+              data-scroll
+              data-scroll-speed={index}
+            ></Image>
+          </div>
         ))}
-      </div>
+      </>
     );
   };
 
@@ -162,7 +191,7 @@ const Stats = () => {
         key={index}
       >
         <span className="stats__sum">{stat.sum}</span>
-        <b className="statu__unit">{stat.unit}</b>
+        <b className="stats__unit">{stat.unit}</b>
         {stat.name}
       </h3>
     );
