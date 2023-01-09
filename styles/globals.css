@@ -1116,6 +1116,11 @@ body {
 
 }
 
+.stats__slide {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
 .stats__title {
   position: absolute;
   background: #070612;
