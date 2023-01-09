@@ -28,7 +28,43 @@ export default function Home() {
           title: 'Open Movie API',
           description:
             'Все популярные источники фильмов в одном API. В базе уже 960 тысяч фильмов, 6 млн персон (актеров, режиссеров ...) и 1 млн изображений к кино',
+          images: [
+            {
+              url: 'https://openmovieapi.dev/img/800-600.jpg',
+              width: 800,
+              height: 600,
+              alt: 'Open Movie Api',
+              type: 'image/jpeg',
+            },
+            {
+              url: 'https://openmovieapi.dev/img/900-800.jpg',
+              width: 900,
+              height: 800,
+              alt: 'Open Movie Api',
+              type: 'image/jpeg',
+            },
+            {
+              url: 'https://openmovieapi.dev/img/1200-600.jpg',
+              width: 1200,
+              height: 600,
+              alt: 'Open Movie Api',
+              type: 'image/jpeg',
+            },
+            {
+              url: 'https://openmovieapi.dev/img/1200-630.jpg',
+              width: 1200,
+              height: 630,
+              alt: 'Open Movie Api',
+              type: 'image/jpeg',
+            },
+          ],
           siteName: 'Open Movie API',
+          locale: 'ru_RU',
+        }}
+        twitter={{
+          handle: '@handle',
+          site: '@site',
+          cardType: 'summary_large_image',
         }}
       />
 
