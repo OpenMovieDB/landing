@@ -1717,3 +1717,37 @@ body {
 .stats__slide {
   height: 250vh;
 }
+
+@media (max-height: 900px) {
+  .stats__slide {
+    height: 300vh;
+  }
+}
+
+@media (min-height: 1100px) {
+  .stats__slide {
+    height: 200vh;
+  }
+}
+
+@media (min-height: 1500px) {
+  .stats__slide {
+    height: 180vh;
+  }
+}
+
+@media (min-height: 2000px) {
+  .stats__slide {
+    height: 140vh;
+  }
+}
+
+.stats {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .stats {
+    display: inherit;
+  }
+}
