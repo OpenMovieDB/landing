@@ -73,7 +73,6 @@ const initTitleAnimation = (scroller: HTMLElement) => {
         start: 'top center',
         scroller,
         end: `center bottom`,
-        markers: true,
       },
     })
     .to('.stats__title_0', { y: '0' })
@@ -96,7 +95,6 @@ const initTitleAnimation = (scroller: HTMLElement) => {
         start: 'top center',
         scroller,
         end: `center bottom`,
-        markers: true,
       },
     })
     .to('.stats__title_0', { y: '-200%' })
@@ -117,8 +115,7 @@ const initTitleAnimation = (scroller: HTMLElement) => {
         trigger: '.stats__slide_2',
         start: 'top center',
         scroller,
-        end: `center bottom`,
-        markers: true,
+        end: `bottom bottom `,
       },
     })
     .to('.stats__title_1', { y: '-200%' })
@@ -154,7 +151,6 @@ const Stats = () => {
         scroller: element,
         endTrigger: `.stats__slide_2`,
         end: 'center',
-        markers: true,
       });
     }
 
@@ -176,7 +172,7 @@ const Stats = () => {
               alt=""
               className={`stats__image stats__image_${index}`}
               data-scroll
-              data-scroll-speed={index}
+              data-scroll-speed={index + 2}
             ></Image>
           </div>
         ))}
