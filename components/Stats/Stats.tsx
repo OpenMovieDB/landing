@@ -17,7 +17,7 @@ type StatItem = {
 
 const STATS: StatItem[] = [
   {
-    sum: 777,
+    sum: 960,
     unit: 'тысяч',
     name: 'фильмов',
     images: [1, 2, 3, 4, 5, 6].map((i) => `/img/films/${i}.png`),
