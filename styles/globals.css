@@ -1734,6 +1734,16 @@ body {
   }
 }
 
+@media (max-height: 980px ) and (min-width: 1024px){
+  .hero {
+    padding-top: 10vh;
+    min-height: 100vh;
+    display: flex;
+    align-items: end;
+    padding-bottom: 1vh;
+  }
+}
+
 @media (min-height: 1100px) {
   .stats__slide {
     height: 200vh;
@@ -1762,3 +1772,9 @@ body {
   }
 }
 
+.stats__slide {
+  max-width: 1920px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
