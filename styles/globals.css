@@ -34,11 +34,12 @@
 }
 
 html.has-scroll-smooth {
-  position: fixed;
+  bottom: 0;
   left: 0;
+  overflow: hidden;
+  position: fixed;
   right: 0;
   top: 0;
-  bottom: 0;
 }
 
 a,
@@ -145,9 +146,9 @@ body {
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
-  background-image: linear-gradient(var(--rotate), rgba(189, 0, 255, 0.4), #0500ff, rgba(0, 240, 255, 0.4));
-  -webkit-animation: spin 15s ease-in-out 1s infinite;
-  animation: spin 15s ease-in-out 1s infinite;
+  -moz-border-image: -moz-linear-gradient(100deg, rgba(189, 0, 255, 0.4), #0500ff);
+  background-image: linear-gradient(100deg, rgba(189, 0, 255, 0.4), #0500ff);
+  border-image-slice: 1;
 }
 
 .link-gradient.without-gradient {
@@ -406,14 +407,21 @@ body {
   left: 0;
   right: 0;
   display: inline-block;
-  background-image: linear-gradient(var(--rotate), rgba(189, 0, 255, 0.4), #0500ff, rgba(0, 240, 255, 0.4));
-  -webkit-animation: spin 15s ease-in-out 1s infinite;
-  animation: spin 15s ease-in-out 1s infinite;
+
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
-  mask-composite: destination-out;
   box-sizing: border-box;
+
+  -moz-border-image: -moz-linear-gradient(100deg,  rgba(189, 0, 255, 0.4), #0500ff, rgba(0, 240, 255, 0.4));
+  background-image: linear-gradient(100deg,  rgba(189, 0, 255, 0.4), #0500ff, rgba(0, 240, 255, 0.4));
+
+  padding: 2px;
+
+  mask-composite: exclude;
+
+  border-image-slice: 1;
+
 }
 
 .tariffs-item__overlay {
@@ -539,9 +547,10 @@ body {
   display: block;
   height: 2px;
   width: 100%;
-  background-image: linear-gradient(var(--rotate), rgba(189, 0, 255, 0.4), #0500ff, rgba(0, 240, 255, 0.4));
-  -webkit-animation: spin 15s ease-in-out 1s infinite;
-  animation: spin 15s ease-in-out 1s infinite;
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  -moz-border-image: -moz-linear-gradient(100deg, rgba(189, 0, 255, 0.4), #0500ff);
+  background-image: linear-gradient(100deg, rgba(189, 0, 255, 0.4), #0500ff);
   background-size: 130%;
 }
 
@@ -1725,6 +1734,16 @@ body {
   }
 }
 
+@media (max-height: 980px ) and (min-width: 1024px){
+  .hero {
+    padding-top: 10vh;
+    min-height: 100vh;
+    display: flex;
+    align-items: end;
+    padding-bottom: 1vh;
+  }
+}
+
 @media (min-height: 1100px) {
   .stats__slide {
     height: 200vh;
@@ -1753,3 +1772,9 @@ body {
   }
 }
 
+.stats__slide {
+  max-width: 1920px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
