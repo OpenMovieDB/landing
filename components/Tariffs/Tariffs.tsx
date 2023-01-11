@@ -1,6 +1,6 @@
 const Tariffs = () => {
   return (
-    <section className="tariffs container">
+    <section className="tariffs container" id="tariffs">
       <h2 className="section-title">Тарифы</h2>
       <p className="tariffs-description section-body">
         За 3 года разработки API стало понятно, что он используется для бизнеса

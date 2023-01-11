@@ -1,6 +1,6 @@
 const Example = () => {
   return (
-    <section className="example">
+    <section className="example" id="example">
       <div className="background example__background">
         <img
           src="img/example.png"

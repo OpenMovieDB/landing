@@ -20,13 +20,22 @@ const Footer = () => {
             </span>
           </div>
           <nav className="footer-block footer-nav">
-            <Link href="#" className="link-opacity footer-item section-body">
+            <Link
+              href="#example"
+              className="link-opacity footer-item section-body"
+            >
               Пример API
             </Link>
-            <Link href="#" className="link-opacity footer-item section-body">
+            <Link
+              href="#tariffs"
+              className="link-opacity footer-item section-body"
+            >
               Тарифы
             </Link>
-            <Link href="#" className="link-opacity footer-item section-body">
+            <Link
+              href="#support"
+              className="link-opacity footer-item section-body"
+            >
               Поддержка
             </Link>
           </nav>
