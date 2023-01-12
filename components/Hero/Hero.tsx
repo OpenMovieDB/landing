@@ -10,7 +10,11 @@ const Hero = () => {
           аниме, актерах и режиссерах максимально быстро. Наше api содержит
           данные из таких баз как: kinopoisk, tmbd, imdb
         </p>
-        <Link href="#" className="hero__link link-gradient">
+        <Link
+          href="https://mdwit.t.me"
+          target="_blank"
+          className="hero__link link-gradient"
+        >
           <div className="overlay">
             <span>Подключить</span>
             <span>Подключить</span>

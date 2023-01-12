@@ -22,18 +22,21 @@ const Footer = () => {
           <nav className="footer-block footer-nav">
             <Link
               href="#example"
+              data-scroll-to
               className="link-opacity footer-item section-body"
             >
               Пример API
             </Link>
             <Link
               href="#tariffs"
+              data-scroll-to
               className="link-opacity footer-item section-body"
             >
               Тарифы
             </Link>
             <Link
               href="#support"
+              data-scroll-to
               className="link-opacity footer-item section-body"
             >
               Поддержка

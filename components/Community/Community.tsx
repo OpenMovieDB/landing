@@ -14,7 +14,7 @@ const Community = () => {
             Присоединяйся в наше сообщество в telegram и получай круглосуточную
             помощь
           </p>
-          <Link href="#" className="community-item__link">
+          <Link href="https://t.me/dev_to_dev" className="community-item__link">
             Присоединиться
           </Link>
         </div>
@@ -27,7 +27,10 @@ const Community = () => {
             Присоединяйся в наше сообщество в telegram и получай круглосуточную
             помощь
           </p>
-          <Link href="#" className="community-item__link">
+          <Link
+            href="https://github.com/OpenMovieApi"
+            className="community-item__link"
+          >
             Присоединиться
           </Link>
         </div>
