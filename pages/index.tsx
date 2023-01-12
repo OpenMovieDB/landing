@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { NextSeo } from 'next-seo';
 import { useRef } from 'react';
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
+import { YMInitializer } from 'react-yandex-metrika';
 
 import BackgroundNoise from '../components/BackgroundNoise/BackgroundNoise';
 import BackgroundScene from '../components/BackgroundScene/BackgroundScene';
@@ -92,6 +93,15 @@ export default function Home() {
         <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
+      <YMInitializer
+        accounts={[92038751]}
+        options={{
+          clickmap: true,
+          trackLinks: true,
+          accurateTrackBounce: true,
+          webvisor: true,
+        }}
+      />
       <LocomotiveScrollProvider
         options={{
           smooth: true,
