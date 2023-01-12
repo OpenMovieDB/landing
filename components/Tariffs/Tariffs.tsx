@@ -18,7 +18,7 @@ const Tariffs = () => {
             </p>
             <ul className="tariffs-item__list">
               <li>
-                Доступ ко всем методам API кинопоиска (3000 запросов в сутки)
+                Доступ ко всем методам API кинопоиска (200 запросов в сутки)
               </li>
               <li>Доступ к документации</li>
               <li>Доступ исходному коду API</li>
@@ -27,8 +27,10 @@ const Tariffs = () => {
               <li className="mobile-hidden">&nbsp;</li>
             </ul>
             <a
-              href="#"
+              href="https://mdwit.t.me"
+              target="_blank"
               className="tariffs-item__button link-gradient without-gradient"
+              rel="noreferrer"
             >
               <div className="overlay">
                 <span>Получить токен</span>
@@ -53,7 +55,12 @@ const Tariffs = () => {
               <li>Возможность развернуть свой личный инстанс API</li>
               <li>Оперативная тех. поддержка</li>
             </ul>
-            <a href="#" className="tariffs-item__button link-gradient">
+            <a
+              href="https://mdwit.t.me"
+              target="_blank"
+              className="tariffs-item__button link-gradient"
+              rel="noreferrer"
+            >
               <div className="overlay">
                 <span>Бесплатное демо</span>
                 <span>Бесплатное демо</span>
