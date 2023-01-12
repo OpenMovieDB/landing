@@ -10,7 +10,7 @@ const Footer = () => {
               <img src="img/logo.svg" alt="Open Movie API" />
             </Link>
             <Link
-              href="mdwit.t.me"
+              href="https://mdwit.t.me"
               className="link-opacity opacity-color section-body mobile-hidden"
             >
               @MDWIT
@@ -20,27 +20,36 @@ const Footer = () => {
             </span>
           </div>
           <nav className="footer-block footer-nav">
-            <Link href="#" className="link-opacity footer-item section-body">
+            <Link
+              href="#example"
+              className="link-opacity footer-item section-body"
+            >
               Пример API
             </Link>
-            <Link href="#" className="link-opacity footer-item section-body">
+            <Link
+              href="#tariffs"
+              className="link-opacity footer-item section-body"
+            >
               Тарифы
             </Link>
-            <Link href="#" className="link-opacity footer-item section-body">
+            <Link
+              href="#support"
+              className="link-opacity footer-item section-body"
+            >
               Поддержка
             </Link>
           </nav>
           <div className="footer-block">
-            <Link href="#" className="link-opacity footer-item section-body">
-              support@openmovie.api
-            </Link>
-            <Link href="#" className="link-opacity footer-item section-body">
+            <Link
+              href="https://github.com/OpenMovieApi"
+              className="link-opacity footer-item section-body"
+            >
               Github
             </Link>
           </div>
           <div className="footer-block footer-block__mobile">
             <Link
-              href="mdwit.t.me"
+              href="https://mdwit.t.me"
               className="link-opacity opacity-color section-body"
             >
               @MDWIT

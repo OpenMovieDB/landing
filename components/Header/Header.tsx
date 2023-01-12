@@ -9,15 +9,27 @@ const Header = () => {
             <img src="img/logo.svg" alt="Open Movie API" />
           </Link>
           <nav className="header-nav">
-            <Link href="#" className="header-nav__link link-underline">
+            <a
+              href="#example"
+              data-scroll-to
+              className="header-nav__link link-underline"
+            >
               Пример API
-            </Link>
-            <Link href="#" className="header-nav__link link-underline">
+            </a>
+            <a
+              href="#tariffs"
+              data-scroll-to
+              className="header-nav__link link-underline"
+            >
               Тарифы
-            </Link>
-            <Link href="#" className="header-nav__link link-underline">
+            </a>
+            <a
+              href="#support"
+              data-scroll-to
+              className="header-nav__link link-underline"
+            >
               Поддержка
-            </Link>
+            </a>
           </nav>
         </div>
       </div>

@@ -1,6 +1,6 @@
 const Support = () => {
   return (
-    <section className="support">
+    <section className="support" id="support">
       <div className="background support__background">
         <img src="img/support-left.png" alt="" className="background-left" />
         <img src="img/support-right.png" alt="" className="background-right" />
