@@ -113,9 +113,9 @@ const initTitleAnimation = (scroller: HTMLElement) => {
       scrollTrigger: {
         scrub: 1,
         trigger: '.stats__slide_2',
-        start: 'top center',
+        start: 'top bottom',
         scroller,
-        end: `bottom bottom `,
+        end: `center bottom `,
       },
     })
     .to('.stats__title_1', { y: '-200%' })
@@ -123,7 +123,7 @@ const initTitleAnimation = (scroller: HTMLElement) => {
     .from('.stats__title_2 .stats__sum', {
       trigger: '.stats__slide_0',
       textContent: 0,
-      duration: 20,
+      duration: 1,
       ease: Power1.easeIn,
       snap: { textContent: 1 },
       stagger: 1,
