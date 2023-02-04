@@ -65,6 +65,25 @@ const GlobalStyles = createGlobalStyle`
     background: ${COLORS.dark};
     color: ${COLORS.light};
     overflow-x: hidden;
+    font-family: "ppmi", sans-serif;
+  }
+
+  h1 {
+    font-size: 96px;
+    line-height: 98px;
+    font-weight: 800;
+  }
+  
+  h2 {
+    font-size: 64px;
+    line-height: 66px;
+    font-weight: 800;
+  }
+  
+  h3 {
+    font-size: 48px;
+    line-height: 50px;
+    font-weight: 800;
   }
 `;
 
