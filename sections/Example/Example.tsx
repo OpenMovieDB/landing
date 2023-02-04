@@ -1,4 +1,74 @@
 const Example = () => {
+  const data = {
+    titles: [
+      'САМАЯ БОЛЬШАЯ БАЗА ФИЛЬМОВ В МИРЕ',
+      'THE LARGEST MOVIE DATABASE IN THE WORLD',
+    ],
+    vendors: [
+      {
+        name: 'TMDB',
+        logo: 'img/icons/tmdb.png',
+      },
+      {
+        name: 'JastWatch',
+        logo: 'img/icons/jastwatch.png',
+      },
+      {
+        name: 'IMDB',
+        logo: 'img/icons/imdb.png',
+      },
+      {
+        name: 'Rotten Tomatoes',
+        logo: 'img/icons/t.png',
+      },
+      {
+        name: 'TVDB',
+        logo: 'img/icons/tvdb.png',
+      },
+      {
+        name: 'KinoPoisk',
+        logo: 'img/icons/kp.png',
+      },
+    ],
+    movie: {
+      titles: ['Однажды в голливуде', 'Once Upon a Time... in Hollywood'],
+      description: [
+        'В 1969 году в Лос-Анджелесе, где все еще великая эпоха голливудского кинематографа, снялся новый фильм. В главных ролях — звезда телевидения Рик Даллас и его дублер Брат Винсент. Вместе они пытаются подняться по карьерной лестнице, но в то же время сталкиваются с рядом проблем, связанных с современной жизнью.',
+        'In 1969 Los Angeles, TV star Rick Dalton and his longtime stunt double Cliff Booth make their way around an industry they hardly recognize anymore. The ninth film from the writer-director features a large ensemble cast and multiple storylines in a tribute to the final moments of Hollywood’s golden age.',
+      ],
+      year: '2019',
+      rating: '7.9',
+      genres: ['Криминал', 'Драма', 'Комедия'],
+      countries: ['США'],
+      budget: '$90 000 000',
+      awards: [
+        {
+          name: 'Golden Globe',
+          logo: 'img/icons/golden-globe.png',
+        },
+      ],
+      poster: 'img/posters/once-upon-a-time-in-hollywood.png',
+      trailer: 'https://www.youtube.com/embed/zw81ihoukKU',
+      actors: [
+        {
+          name: 'Леонардо ДиКаприо',
+          role: 'Rick Dalton',
+          photo: 'img/persons/leonardo-dicaprio.png',
+        },
+        {
+          name: 'Брэд Питт',
+          role: 'Cliff Booth',
+          photo: 'img/persons/brad-pitt.png',
+        },
+        {
+          name: 'Марго Робби',
+          role: 'Sharon Tate',
+          photo: 'img/persons/margo-robbie.png',
+        },
+      ],
+    },
+  };
+
   return (
     <section className="example" id="example">
       <div className="background example__background">
