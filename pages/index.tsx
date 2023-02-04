@@ -7,7 +7,6 @@ import { YMInitializer } from 'react-yandex-metrika';
 import BackgroundNoise from '../components/BackgroundNoise/BackgroundNoise';
 import BackgroundScene from '../components/BackgroundScene/BackgroundScene';
 import Community from '../components/Community/Community';
-import Example from '../components/Example/Example';
 import Footer from '../components/Footer/Footer';
 import Free from '../components/Free/Free';
 import Header from '../components/Header/Header';
@@ -15,6 +14,7 @@ import Hero from '../components/Hero/Hero';
 import Stats from '../components/Stats/Stats';
 import Support from '../components/Support/Support';
 import Tariffs from '../components/Tariffs/Tariffs';
+import Example from '../sections/Example/Example';
 import GlobalStyles from '../styles/GlobalStyles';
 import ScrollTriggerProxy from '../utils/ScrollTriggerProxy';
 

@@ -1,8 +1,23 @@
+import Image from 'next/image';
+import styled from 'styled-components';
+
 const Example = () => {
   const data = {
     titles: [
+      // На русском
       'САМАЯ БОЛЬШАЯ БАЗА ФИЛЬМОВ В МИРЕ',
+      // На английском
       'THE LARGEST MOVIE DATABASE IN THE WORLD',
+      // На китайском языке
+      '世界上最大的电影数据库',
+      // На японском языке
+      '世界で最も大きな映画データベース',
+      // На корейском языке
+      '세계에서 가장 큰 영화 데이터베이스',
+      // На испанском языке
+      'LA BASE DE DATOS DE PELÍCULAS MÁS GRANDE DEL MUNDO',
+      // На французском языке
+      'LA PLUS GRANDE BASE DE DONNÉES DE FILMS AU MONDE',
     ],
     vendors: [
       {
