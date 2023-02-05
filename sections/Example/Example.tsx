@@ -19,35 +19,35 @@ const Example = () => {
       // На французском языке
       'LA PLUS GRANDE BASE DE DONNÉES DE FILMS AU MONDE',
     ],
-    vendors: [
+    sources: [
       {
         name: 'TMDB',
-        logo: 'img/icons/tmdb.png',
+        logo: '/img/icons/tmdb.png',
       },
       {
         name: 'JastWatch',
-        logo: 'img/icons/jastwatch.png',
+        logo: '/img/icons/jastwatch.png',
       },
       {
         name: 'IMDB',
-        logo: 'img/icons/imdb.png',
+        logo: '/img/icons/imdb.png',
       },
       {
         name: 'Rotten Tomatoes',
-        logo: 'img/icons/t.png',
+        logo: '/img/icons/rt.png',
       },
       {
         name: 'TVDB',
-        logo: 'img/icons/tvdb.png',
+        logo: '/img/icons/tvdb.png',
       },
       {
         name: 'KinoPoisk',
-        logo: 'img/icons/kp.png',
+        logo: '/img/icons/kp.png',
       },
     ],
     movie: {
       titles: ['Однажды в голливуде', 'Once Upon a Time... in Hollywood'],
-      description: [
+      descriptions: [
         'В 1969 году в Лос-Анджелесе, где все еще великая эпоха голливудского кинематографа, снялся новый фильм. В главных ролях — звезда телевидения Рик Даллас и его дублер Брат Винсент. Вместе они пытаются подняться по карьерной лестнице, но в то же время сталкиваются с рядом проблем, связанных с современной жизнью.',
         'In 1969 Los Angeles, TV star Rick Dalton and his longtime stunt double Cliff Booth make their way around an industry they hardly recognize anymore. The ninth film from the writer-director features a large ensemble cast and multiple storylines in a tribute to the final moments of Hollywood’s golden age.',
       ],
@@ -59,114 +59,321 @@ const Example = () => {
       awards: [
         {
           name: 'Golden Globe',
-          logo: 'img/icons/golden-globe.png',
+          logo: '/img/icons/golden-globe.png',
         },
       ],
-      poster: 'img/posters/once-upon-a-time-in-hollywood.png',
+      poster: '/img/posters/once-upon-a-time-in-hollywood.png',
       trailer: 'https://www.youtube.com/embed/zw81ihoukKU',
       actors: [
         {
           name: 'Леонардо ДиКаприо',
           role: 'Rick Dalton',
-          photo: 'img/persons/leonardo-dicaprio.png',
+          photo: '/img/persons/leonardo-dicaprio.png',
         },
         {
           name: 'Брэд Питт',
           role: 'Cliff Booth',
-          photo: 'img/persons/brad-pitt.png',
+          photo: '/img/persons/brad-pitt.png',
         },
         {
           name: 'Марго Робби',
           role: 'Sharon Tate',
-          photo: 'img/persons/margo-robbie.png',
+          photo: '/img/persons/margo-robbie.png',
         },
       ],
     },
   };
 
-  return (
-    <section className="example" id="example">
-      <div className="background example__background">
-        <img
-          src="img/example.png"
-          alt=""
-          className="background-image example__background-image"
+  const Section = styled.section``;
+  const Container = styled.div``;
+
+  const TitleСontainer = styled.div``;
+  const Title = styled.h2``;
+
+  const SourcesContainer = styled.div``;
+  const CircleContainer = styled.div``;
+  const Circles = () => (
+    <svg
+      width="836"
+      height="836"
+      viewBox="0 0 836 836"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="418"
+        cy="418"
+        r="262"
+        stroke="white"
+        stroke-opacity="0.1"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-dasharray="2 15"
+      />
+      <circle
+        cx="418"
+        cy="418"
+        r="417"
+        stroke="white"
+        stroke-opacity="0.1"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-dasharray="2 15"
+      />
+      <circle
+        cx="418"
+        cy="418"
+        r="167"
+        stroke="white"
+        stroke-opacity="0.1"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-dasharray="2 15"
+      />
+    </svg>
+  );
+
+  const Connectors = () => (
+    <svg
+      width="685"
+      height="763"
+      viewBox="0 0 685 763"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M345 0.5L345 613.243C345 621.527 351.716 628.243 360 628.243L669 628.243C677.284 628.243 684 634.959 684 643.243L684 763"
+        stroke="url(#paint0_linear_605_770)"
+        stroke-opacity="0.1"
+        stroke-width="2"
+      />
+      <path
+        d="M315 2L315 611.27C315 619.555 308.284 626.271 300 626.271L16 626.27C7.71569 626.27 0.999972 632.986 0.999972 641.27L0.999967 763"
+        stroke="url(#paint1_linear_605_770)"
+        stroke-opacity="0.1"
+        stroke-width="2"
+      />
+      <path
+        d="M335 1.5L335 763"
+        stroke="url(#paint2_linear_605_770)"
+        stroke-opacity="0.1"
+        stroke-width="2"
+      />
+      <path
+        d="M325 1.5L325 627.047C325 635.331 318.284 642.047 310 642.047L197 642.047C188.716 642.047 182 648.763 182 657.047L182 763"
+        stroke="url(#paint3_linear_605_770)"
+        stroke-opacity="0.1"
+        stroke-width="2"
+      />
+      <g filter="url(#filter0_f_605_770)">
+        <ellipse
+          cx="315"
+          cy="397.5"
+          rx="1"
+          ry="37.5"
+          fill="url(#paint4_linear_605_770)"
         />
-      </div>
-      <div className="container">
-        <h2 className="section-title">Пример работы</h2>
-        <div className="example-block section-block">
-          <div className="example-top">
-            <h3 className="example-top__title section-h3">
-              Однажды в голливуде
-            </h3>
-            <ul className="example-top__list">
-              <li>
-                ID: <span>1209712</span>
-              </li>
-              <li>
-                <div className="mobile-hidden">Рейтинг</div>
-                КП: <span>5.7</span>
-              </li>
-              <li>
-                <div className="mobile-hidden">Рейтинг</div>
-                IMDB: <span>5.3</span>
-              </li>
-            </ul>
-          </div>
-          <div className="example-block__content">
-            <img src="img/films/5.png" alt="" className="example-block__img" />
-            <ul className="example-block__list">
-              <li>
-                Год: <span>2019</span>
-              </li>
-              <li>
-                Страны:
-                <span>США, Великобритания, Китай</span>
-              </li>
-              <li>
-                Актёры:
-                <span>
-                  Леонардо ДиКаприо, Брэд Питт, Марго Робби, Эмиль Хирш,Маргарет
-                  Куэлли, Тимоти Олифант
-                </span>
-              </li>
-              <li>
-                Слоган:
-                <span>«The 9th Film from Quentin Tarantino»</span>
-              </li>
-              <li>
-                Жанр: <span>драма, комедия</span>
-              </li>
-              <li>
-                Премьера в мире: <span>21 мая 2019</span>
-              </li>
-              <li>
-                Сборы в мире:
-                <span>+ $231 872 331 = $372 711 080</span>
-              </li>
-            </ul>
-          </div>
-          <div className="example-block__footer">
-            <p className="example-block__description">
-              1969 год, золотой век Голливуда уже закончился. Известный актёр
-              Рик Далтон и его дублер Клифф Бут пытаются найти свое место в
-              стремительно меняющемся мире киноиндустрии.
-            </p>
-            <a href="#" className="example-block__link link-gradient">
-              <div className="overlay">
-                <span>
-                  Трейлер <img src="img/arrow.svg" alt=">" />
-                </span>
-                <span>
-                  Трейлер <img src="img/arrow.svg" alt=">" />
-                </span>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
+      </g>
+      <defs>
+        <filter
+          id="filter0_f_605_770"
+          x="311"
+          y="357"
+          width="8"
+          height="81"
+          filterUnits="userSpaceOnUse"
+          color-interpolation-filters="sRGB"
+        >
+          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="BackgroundImageFix"
+            result="shape"
+          />
+          <feGaussianBlur
+            stdDeviation="1.5"
+            result="effect1_foregroundBlur_605_770"
+          />
+        </filter>
+        <linearGradient
+          id="paint0_linear_605_770"
+          x1="684"
+          y1="763"
+          x2="684"
+          y2="0.5"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="white" stop-opacity="0" />
+          <stop stop-color="white" stop-opacity="0" />
+          <stop offset="0.0989583" stop-color="white" />
+          <stop offset="0.908833" stop-color="white" />
+          <stop offset="1" stop-color="white" stop-opacity="0" />
+        </linearGradient>
+        <linearGradient
+          id="paint1_linear_605_770"
+          x1="315"
+          y1="763"
+          x2="315"
+          y2="2"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="white" stop-opacity="0" />
+          <stop stop-color="white" stop-opacity="0" />
+          <stop offset="0.0989583" stop-color="white" />
+          <stop offset="0.908833" stop-color="white" />
+          <stop offset="1" stop-color="white" stop-opacity="0" />
+        </linearGradient>
+        <linearGradient
+          id="paint2_linear_605_770"
+          x1="335"
+          y1="763"
+          x2="-23.5818"
+          y2="254.228"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="white" stop-opacity="0" />
+          <stop stop-color="white" stop-opacity="0" />
+          <stop offset="0.0989583" stop-color="white" />
+          <stop offset="0.908833" stop-color="white" />
+          <stop offset="1" stop-color="white" stop-opacity="0" />
+        </linearGradient>
+        <linearGradient
+          id="paint3_linear_605_770"
+          x1="325"
+          y1="763"
+          x2="325"
+          y2="1.5"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="white" stop-opacity="0" />
+          <stop stop-color="white" stop-opacity="0" />
+          <stop offset="0.0989583" stop-color="white" />
+          <stop offset="0.908833" stop-color="white" />
+          <stop offset="1" stop-color="white" stop-opacity="0" />
+        </linearGradient>
+        <linearGradient
+          id="paint4_linear_605_770"
+          x1="315"
+          y1="360"
+          x2="315"
+          y2="435"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="#BD00FF" stop-opacity="0" />
+          <stop offset="0.46875" stop-color="#BD00FF" />
+          <stop offset="1" stop-color="#BD00FF" stop-opacity="0" />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+
+  const Sources = styled.div``;
+  const Source = styled(Image)``;
+  const Logo = styled(Image)``;
+
+  const PosterContainer = styled.div``;
+  const Poster = styled(Image)``;
+
+  const MovieContainer = styled.div``;
+  const MovieInfo = styled.div``;
+  const FirstRow = styled.div``;
+  const SecondRow = styled.div``;
+  const ThirdRow = styled.div``;
+
+  const MovieTitle = styled.h4``;
+  const MovieDescription = styled.p``;
+  const MovieNumber = styled.p``;
+  const MovieCountry = styled.p``;
+  const MovieAward = styled(Image)``;
+
+  const PersonContainer = styled.div``;
+  const PersonPhoto = styled(Image)``;
+  const PersonName = styled.span``;
+  const PersonRole = styled.span``;
+
+  return (
+    <Section>
+      <TitleСontainer>
+        {data.titles.map((title, index) => (
+          <Title key={index}>{title}</Title>
+        ))}
+      </TitleСontainer>
+      <SourcesContainer>
+        <CircleContainer>
+          <Circles />
+        </CircleContainer>
+        <Sources>
+          {data.sources.map((source, index) => (
+            <Source
+              key={index}
+              height="65"
+              width="65"
+              src={source.logo}
+              alt={source.name}
+            />
+          ))}
+        </Sources>
+        <Logo
+          width="108"
+          height="91"
+          src="/img/logo.png"
+          alt="open movie api"
+        />
+        <Connectors></Connectors>
+      </SourcesContainer>
+      <MovieContainer>
+        <PosterContainer>
+          <Poster
+            width={835}
+            height={469}
+            src={data.movie.poster}
+            alt={data.movie.titles[0]}
+          />
+        </PosterContainer>
+        <MovieInfo>
+          <FirstRow>
+            {data.movie.titles.map((title, index) => (
+              <MovieTitle key={index}>{title}</MovieTitle>
+            ))}
+            {data.movie.descriptions.map((description, index) => (
+              <MovieDescription key={index}>{description}</MovieDescription>
+            ))}
+          </FirstRow>
+          <SecondRow>
+            <MovieNumber>{data.movie.year}</MovieNumber>
+            <MovieNumber>{data.movie.rating}</MovieNumber>
+            <MovieNumber>{data.movie.budget}</MovieNumber>
+            {data.movie.countries.map((country, index) => (
+              <MovieCountry key={index}>{country}</MovieCountry>
+            ))}
+            {data.movie.awards.map((award, index) => (
+              <MovieAward
+                key={index}
+                height={87}
+                width={87}
+                alt={award.name}
+                src={award.logo}
+              />
+            ))}
+          </SecondRow>
+          <ThirdRow>
+            {data.movie.actors.map((person, index) => (
+              <PersonContainer key={index}>
+                <PersonPhoto
+                  width={88}
+                  height={126}
+                  alt={person.name}
+                  src={person.photo}
+                />
+                <PersonName>{person.name}</PersonName>
+                <PersonRole>{person.role}</PersonRole>
+              </PersonContainer>
+            ))}
+          </ThirdRow>
+        </MovieInfo>
+      </MovieContainer>
+    </Section>
   );
 };
 
