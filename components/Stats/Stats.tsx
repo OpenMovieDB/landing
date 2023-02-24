@@ -164,12 +164,12 @@ const Stats = () => {
     return (
       <>
         {stat.images.map((url, index) => (
-          <div className="stats__image-frame" key={index}>
+          <div className='stats__image-frame' key={index}>
             <Image
               src={url}
               width={stat.imageSize.width}
               height={stat.imageSize.height}
-              alt=""
+              alt=''
               className={`stats__image stats__image_${index}`}
               data-scroll
               data-scroll-speed={index + 2}
@@ -182,30 +182,21 @@ const Stats = () => {
 
   const renderTitle = (stat: StatItem, index: number): React.ReactNode => {
     return (
-      <h3
-        className={`stats__title stats__title_${index} section-title`}
-        key={index}
-      >
-        <span className="stats__sum">{stat.sum}</span>
-        <b className="stats__unit">{stat.unit}</b>
+      <h3 className={`stats__title stats__title_${index} section-title`} key={index}>
+        <span className='stats__sum'>{stat.sum}</span>
+        <b className='stats__unit'>{stat.unit}</b>
         {stat.name}
       </h3>
     );
   };
 
   const renderSlides = (): React.ReactNode => (
-    <div className="stats__slides" ref={ScrollingRef}>
-      <div className="stats__titles">
-        <div className="stats__titles-wrap">
-          {STATS.map((item, index) => renderTitle(item, index))}
-        </div>
+    <div className='stats__slides' ref={ScrollingRef}>
+      <div className='stats__titles'>
+        <div className='stats__titles-wrap'>{STATS.map((item, index) => renderTitle(item, index))}</div>
       </div>
       {STATS.map((item, index) => (
-        <div
-          className={`stats__slide stats__slide_${index}`}
-          key={`slide-${index}`}
-          id={`slide-${index}`}
-        >
+        <div className={`stats__slide stats__slide_${index}`} key={`slide-${index}`} id={`slide-${index}`}>
           {renderImages(item)}
         </div>
       ))}
@@ -213,7 +204,7 @@ const Stats = () => {
   );
 
   return (
-    <section className="stats" ref={scene}>
+    <section className='stats' ref={scene}>
       {renderSlides()}
     </section>
   );
