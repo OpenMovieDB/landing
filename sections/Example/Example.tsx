@@ -109,41 +109,33 @@ const SourcesContainer = styled.div`
 const CircleContainer = styled.div`
   position: absolute;
 `;
+
+const Circle = ({ duration, cx, cy, r }: { duration: number; cx: string; cy: string; r: string }) => (
+  <motion.circle
+    cx={cx}
+    cy={cy}
+    r={r}
+    stroke='white'
+    strokeOpacity='0.1'
+    strokeWidth='2'
+    strokeLinecap='round'
+    strokeDasharray='2 15'
+    animate={{
+      rotate: 360,
+      transition: {
+        repeat: Infinity,
+        duration,
+      },
+    }}
+  />
+);
 const Circles = () => (
   <svg width='836' height='836' viewBox='0 0 836 836' fill='none' xmlns='http://www.w3.org/2000/svg'>
-    <circle
-      cx='418'
-      cy='418'
-      r='262'
-      stroke='white'
-      strokeOpacity='0.1'
-      strokeWidth='2'
-      strokeLinecap='round'
-      strokeDasharray='2 15'
-    />
-    <circle
-      cx='418'
-      cy='418'
-      r='417'
-      stroke='white'
-      strokeOpacity='0.1'
-      strokeWidth='2'
-      strokeLinecap='round'
-      strokeDasharray='2 15'
-    />
-    <circle
-      cx='418'
-      cy='418'
-      r='167'
-      stroke='white'
-      strokeOpacity='0.1'
-      strokeWidth='2'
-      strokeLinecap='round'
-      strokeDasharray='2 15'
-    />
+    <Circle cx='418' cy='418' r='262' duration={25} />
+    <Circle cx='418' cy='418' r='417' duration={25} />
+    <Circle cx='418' cy='418' r='167' duration={25} />
   </svg>
 );
-
 const LogoContainer = styled.div`
   position: absolute;
   display: flex;
