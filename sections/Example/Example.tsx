@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 import { GRADIENTS } from '../../styles/theme';
 
@@ -117,8 +118,8 @@ const Circles = () => (
       stroke='white'
       strokeOpacity='0.1'
       strokeWidth='2'
-      stroke-linecap='round'
-      stroke-dasharray='2 15'
+      strokeLinecap='round'
+      strokeDasharray='2 15'
     />
     <circle
       cx='418'
@@ -127,8 +128,8 @@ const Circles = () => (
       stroke='white'
       strokeOpacity='0.1'
       strokeWidth='2'
-      stroke-linecap='round'
-      stroke-dasharray='2 15'
+      strokeLinecap='round'
+      strokeDasharray='2 15'
     />
     <circle
       cx='418'
@@ -137,8 +138,8 @@ const Circles = () => (
       stroke='white'
       strokeOpacity='0.1'
       strokeWidth='2'
-      stroke-linecap='round'
-      stroke-dasharray='2 15'
+      strokeLinecap='round'
+      strokeDasharray='2 15'
     />
   </svg>
 );
@@ -162,87 +163,33 @@ const Logo = styled(Image)``;
 const ConnectorsSvg = styled.svg`
   position: absolute;
   transform: translate(15px, 480px);
+  mask-image: linear-gradient(
+    0deg,
+    rgba(217, 217, 217, 0) 0%,
+    #d9d9d9 11.98%,
+    #d9d9d9 88.02%,
+    rgba(217, 217, 217, 0.0104167) 100%
+  );
 `;
+
+const ConnectorPath = ({ d }: { d: string }) => (
+  <motion.path
+    d={d}
+    stroke='white'
+    stroke-opacity='0.1'
+    stroke-width='2'
+    initial={{ pathLength: 0, pathOffset: 1 }}
+    animate={{ pathLength: 1, pathOffset: 0 }}
+    transition={{ duration: 2 }}
+  />
+);
 
 const Connectors = () => (
   <ConnectorsSvg width='685' height='763' viewBox='0 0 685 763' fill='none' xmlns='http://www.w3.org/2000/svg'>
-    <path
-      d='M345 0.5L345 613.243C345 621.527 351.716 628.243 360 628.243L669 628.243C677.284 628.243 684 634.959 684 643.243L684 763'
-      stroke='url(#paint0_linear_605_770)'
-      strokeOpacity='0.1'
-      strokeWidth='2'
-    />
-    <path
-      d='M315 2L315 611.27C315 619.555 308.284 626.271 300 626.271L16 626.27C7.71569 626.27 0.999972 632.986 0.999972 641.27L0.999967 763'
-      stroke='url(#paint1_linear_605_770)'
-      strokeOpacity='0.1'
-      strokeWidth='2'
-    />
-    <path d='M335 1.5L335 763' stroke='url(#paint2_linear_605_770)' strokeOpacity='0.1' strokeWidth='2' />
-    <path
-      d='M325 1.5L325 627.047C325 635.331 318.284 642.047 310 642.047L197 642.047C188.716 642.047 182 648.763 182 657.047L182 763'
-      stroke='url(#paint3_linear_605_770)'
-      strokeOpacity='0.1'
-      strokeWidth='2'
-    />
-    <g filter='url(#filter0_f_605_770)'>
-      <ellipse cx='315' cy='397.5' rx='1' ry='37.5' fill='url(#paint4_linear_605_770)' />
-    </g>
-    <defs>
-      <filter
-        id='filter0_f_605_770'
-        x='311'
-        y='357'
-        width='8'
-        height='81'
-        filterUnits='userSpaceOnUse'
-        colorInterpolationFilters='sRGB'
-      >
-        <feFlood flood-opacity='0' result='BackgroundImageFix' />
-        <feBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape' />
-        <feGaussianBlur stdDeviation='1.5' result='effect1_foregroundBlur_605_770' />
-      </filter>
-      <linearGradient id='paint0_linear_605_770' x1='684' y1='763' x2='684' y2='0.5' gradientUnits='userSpaceOnUse'>
-        <stop stopColor='white' stopOpacity='0' />
-        <stop stopColor='white' stopOpacity='0' />
-        <stop offset='0.0989583' stopColor='white' />
-        <stop offset='0.908833' stopColor='white' />
-        <stop offset='1' stopColor='white' stopOpacity='0' />
-      </linearGradient>
-      <linearGradient id='paint1_linear_605_770' x1='315' y1='763' x2='315' y2='2' gradientUnits='userSpaceOnUse'>
-        <stop stopColor='white' stopOpacity='0' />
-        <stop stopColor='white' stopOpacity='0' />
-        <stop offset='0.0989583' stopColor='white' />
-        <stop offset='0.908833' stopColor='white' />
-        <stop offset='1' stopColor='white' stopOpacity='0' />
-      </linearGradient>
-      <linearGradient
-        id='paint2_linear_605_770'
-        x1='335'
-        y1='763'
-        x2='-23.5818'
-        y2='254.228'
-        gradientUnits='userSpaceOnUse'
-      >
-        <stop stopColor='white' stopOpacity='0' />
-        <stop stopColor='white' stopOpacity='0' />
-        <stop offset='0.0989583' stopColor='white' />
-        <stop offset='0.908833' stopColor='white' />
-        <stop offset='1' stopColor='white' stopOpacity='0' />
-      </linearGradient>
-      <linearGradient id='paint3_linear_605_770' x1='325' y1='763' x2='325' y2='1.5' gradientUnits='userSpaceOnUse'>
-        <stop stopColor='white' stopOpacity='0' />
-        <stop stopColor='white' stopOpacity='0' />
-        <stop offset='0.0989583' stopColor='white' />
-        <stop offset='0.908833' stopColor='white' />
-        <stop offset='1' stopColor='white' stopOpacity='0' />
-      </linearGradient>
-      <linearGradient id='paint4_linear_605_770' x1='315' y1='360' x2='315' y2='435' gradientUnits='userSpaceOnUse'>
-        <stop stopColor='#BD00FF' stopOpacity='0' />
-        <stop offset='0.46875' stopColor='#BD00FF' />
-        <stop offset='1' stopColor='#BD00FF' stopOpacity='0' />
-      </linearGradient>
-    </defs>
+    <ConnectorPath d='M683.496 791.002L683.496 673.659C683.496 665.375 676.78 658.659 668.496 658.659L359.5 658.659C351.216 658.659 344.5 651.943 344.5 643.659L344.5 3.49999' />
+    <ConnectorPath d='M0.999935 783.598L0.999967 673.598C0.999969 665.313 7.7157 658.598 16 658.598L299.496 658.598C307.78 658.598 314.496 651.882 314.496 643.598L314.496 1.5' />
+    <ConnectorPath d='M334.5 786L334.5 1' />
+    <ConnectorPath d='M181.5 799L181.5 687.5C181.5 679.216 188.216 672.5 196.5 672.5L309.496 672.5C317.78 672.5 324.496 665.784 324.496 657.5L324.496 0' />
   </ConnectorsSvg>
 );
 
