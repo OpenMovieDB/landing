@@ -47,7 +47,7 @@ const data = {
     },
   ],
   movie: {
-    titles: ['Однажды в голливуде', 'Once Upon a Time... in Hollywood'],
+    titles: ['Однажды в\nголливуде', 'Once Upon a Time...\nin Hollywood'],
     descriptions: [
       'В 1969 году в Лос-Анджелесе, где все еще великая эпоха голливудского кинематографа, снялся новый фильм. В главных ролях — звезда телевидения Рик Даллас и его дублер Брат Винсент. Вместе они пытаются подняться по карьерной лестнице, но в то же время сталкиваются с рядом проблем, связанных с современной жизнью.',
       'In 1969 Los Angeles, TV star Rick Dalton and his longtime stunt double Cliff Booth make their way around an industry they hardly recognize anymore. The ninth film from the writer-director features a large ensemble cast and multiple storylines in a tribute to the final moments of Hollywood’s golden age.',
@@ -67,25 +67,23 @@ const data = {
     trailer: 'https://www.youtube.com/embed/zw81ihoukKU',
     actors: [
       {
-        name: 'Леонардо ДиКаприо',
+        name: 'Леонардо\nДиКаприо',
         role: 'Rick Dalton',
         photo: '/img/persons/leonardo-dicaprio.png',
       },
       {
-        name: 'Брэд Питт',
+        name: 'Брэд\nПитт',
         role: 'Cliff Booth',
         photo: '/img/persons/brad-pitt.png',
       },
       {
-        name: 'Марго Робби',
+        name: 'Марго\nРобби',
         role: 'Sharon Tate',
         photo: '/img/persons/margo-robbie.png',
       },
     ],
   },
 };
-
-const Container = styled.div``;
 
 const TitleContainer = styled.div``;
 
@@ -263,24 +261,100 @@ const Source = styled.img`
 `;
 
 const PosterContainer = styled.div``;
-const Poster = styled(Image)``;
+const Poster = styled(Image)`
+  max-width: 45vw;
+  object-fit: cover;
 
-const MovieContainer = styled.div``;
-const MovieInfo = styled.div``;
-const FirstRow = styled.div``;
-const SecondRow = styled.div``;
-const ThirdRow = styled.div``;
+  border-radius: 15px;
+`;
 
-const MovieTitle = styled.h4``;
-const MovieDescription = styled.p``;
-const MovieNumber = styled.p``;
-const MovieCountry = styled.p``;
+const MovieContainer = styled.div`
+  margin-top: 441px;
+  max-width: 1720px;
+  margin: 445px auto 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+`;
+const MovieInfo = styled.div`
+  max-width: 45vw;
+  overflow: hidden;
+  display: grid;
+
+  gap: 41px;
+
+  mask-image: linear-gradient(
+    270deg,
+    rgba(217, 217, 217, 0) 0%,
+    #d9d9d9 11.98%,
+    #d9d9d9 88.02%,
+    rgba(217, 217, 217, 0.0104167) 100%
+  );
+`;
+
+const Row = styled.div<{ totalWidth: number }>`
+  display: flex;
+  gap: 50px;
+  width: ${({ totalWidth }) => `calc(100% * ${totalWidth})`};
+`;
+
+const InfoContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 25px 60px;
+  gap: 10px;
+
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+`;
+const MovieTitle = styled.h4`
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 37px;
+  margin: 0;
+`;
+
+const TitleText = styled.p`
+  margin: 0;
+`;
+const MovieDescription = styled.p`
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  margin: 0;
+`;
+const MovieNumber = styled.p`
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 37px;
+  margin: 0;
+`;
+const MovieCountry = styled.p`
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 37px;
+  margin: 0;
+`;
 const MovieAward = styled(Image)``;
 
-const PersonContainer = styled.div``;
+const PersonContainer = styled.div`
+  max-width: 223px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 35px;
+`;
 const PersonPhoto = styled(Image)``;
-const PersonName = styled.span``;
-const PersonRole = styled.span``;
+const PersonName = styled.span`
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 150%;
+  /* or 27px */
+
+  color: #ffffff;
+`;
 
 const Section = styled.section``;
 
@@ -327,34 +401,55 @@ const Example = () => {
           <Poster width={835} height={469} src={data.movie.poster} alt={data.movie.titles[0]} />
         </PosterContainer>
         <MovieInfo>
-          <FirstRow>
+          <Row totalWidth={totalWidth}>
             {data.movie.titles.map((title, index) => (
-              <MovieTitle key={index}>{title}</MovieTitle>
+              <InfoContainer key={index}>
+                <MovieTitle>
+                  {title.split('\n').map((str, i) => (
+                    <TitleText key={`title_${i}`}>{str}</TitleText>
+                  ))}
+                </MovieTitle>
+              </InfoContainer>
             ))}
             {data.movie.descriptions.map((description, index) => (
-              <MovieDescription key={index}>{description}</MovieDescription>
+              <InfoContainer key={index}>
+                <MovieDescription>{description}</MovieDescription>
+              </InfoContainer>
             ))}
-          </FirstRow>
-          <SecondRow>
-            <MovieNumber>{data.movie.year}</MovieNumber>
-            <MovieNumber>{data.movie.rating}</MovieNumber>
-            <MovieNumber>{data.movie.budget}</MovieNumber>
+          </Row>
+          <Row totalWidth={totalWidth}>
+            <InfoContainer>
+              <MovieNumber>{data.movie.year}</MovieNumber>
+            </InfoContainer>
+            <InfoContainer>
+              <MovieNumber>{data.movie.rating}</MovieNumber>
+            </InfoContainer>
+            <InfoContainer>
+              <MovieNumber>{data.movie.budget}</MovieNumber>
+            </InfoContainer>
             {data.movie.countries.map((country, index) => (
-              <MovieCountry key={index}>{country}</MovieCountry>
+              <InfoContainer key={index}>
+                <MovieCountry>{country}</MovieCountry>
+              </InfoContainer>
             ))}
             {data.movie.awards.map((award, index) => (
               <MovieAward key={index} height={87} width={87} alt={award.name} src={award.logo} />
             ))}
-          </SecondRow>
-          <ThirdRow>
+          </Row>
+          <Row totalWidth={totalWidth}>
             {data.movie.actors.map((person, index) => (
-              <PersonContainer key={index}>
-                <PersonPhoto width={88} height={126} alt={person.name} src={person.photo} />
-                <PersonName>{person.name}</PersonName>
-                <PersonRole>{person.role}</PersonRole>
-              </PersonContainer>
+              <InfoContainer key={index}>
+                <PersonContainer>
+                  <PersonPhoto width={88} height={126} alt={person.name} src={person.photo} />
+                  <PersonName>
+                    {person.name.split('\n').map((str, i) => (
+                      <TitleText key={`person_name_${i}`}>{str}</TitleText>
+                    ))}
+                  </PersonName>
+                </PersonContainer>
+              </InfoContainer>
             ))}
-          </ThirdRow>
+          </Row>
         </MovieInfo>
       </MovieContainer>
     </Section>
