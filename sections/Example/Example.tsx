@@ -1,6 +1,7 @@
+import { motion, MotionValue, useAnimation, useInView, useScroll, useSpring } from 'framer-motion';
 import Image from 'next/image';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 
 import { GRADIENTS } from '../../styles/theme';
 
@@ -129,13 +130,16 @@ const Circle = ({ duration, cx, cy, r }: { duration: number; cx: string; cy: str
     }}
   />
 );
-const Circles = () => (
-  <svg width='836' height='836' viewBox='0 0 836 836' fill='none' xmlns='http://www.w3.org/2000/svg'>
-    <Circle cx='418' cy='418' r='262' duration={25} />
-    <Circle cx='418' cy='418' r='417' duration={25} />
-    <Circle cx='418' cy='418' r='167' duration={25} />
-  </svg>
-);
+
+const Circles = () => {
+  return (
+    <svg width='836' height='836' viewBox='0 0 836 836' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <Circle cx='418' cy='418' r='262' duration={25} />
+      <Circle cx='418' cy='418' r='417' duration={25} />
+      <Circle cx='418' cy='418' r='167' duration={25} />
+    </svg>
+  );
+};
 const LogoContainer = styled.div`
   position: absolute;
   display: flex;
@@ -164,26 +168,44 @@ const ConnectorsSvg = styled.svg`
   );
 `;
 
-const ConnectorPath = ({ d }: { d: string }) => (
-  <motion.path
-    d={d}
-    stroke='white'
-    stroke-opacity='0.1'
-    stroke-width='2'
-    initial={{ pathLength: 0, pathOffset: 1 }}
-    animate={{ pathLength: 1, pathOffset: 0 }}
-    transition={{ duration: 2 }}
-  />
-);
+const ConnectorPath = ({ d, scale }: { d: string; scale: MotionValue }) => {
+  return (
+    <motion.path
+      d={d}
+      stroke='white'
+      strokeOpacity='0.1'
+      strokeWidth='2'
+      initial={{ pathLength: 0 }}
+      pathLength={scale}
+    />
+  );
+};
 
-const Connectors = () => (
-  <ConnectorsSvg width='685' height='763' viewBox='0 0 685 763' fill='none' xmlns='http://www.w3.org/2000/svg'>
-    <ConnectorPath d='M683.496 791.002L683.496 673.659C683.496 665.375 676.78 658.659 668.496 658.659L359.5 658.659C351.216 658.659 344.5 651.943 344.5 643.659L344.5 3.49999' />
-    <ConnectorPath d='M0.999935 783.598L0.999967 673.598C0.999969 665.313 7.7157 658.598 16 658.598L299.496 658.598C307.78 658.598 314.496 651.882 314.496 643.598L314.496 1.5' />
-    <ConnectorPath d='M334.5 786L334.5 1' />
-    <ConnectorPath d='M181.5 799L181.5 687.5C181.5 679.216 188.216 672.5 196.5 672.5L309.496 672.5C317.78 672.5 324.496 665.784 324.496 657.5L324.496 0' />
-  </ConnectorsSvg>
-);
+const Connectors = ({ scrollYProgress }: { scrollYProgress: MotionValue }) => {
+  const scale = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
+  return (
+    <ConnectorsSvg width='685' height='763' viewBox='0 0 685 763' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <ConnectorPath
+        d='M345 0.5L345 613.243C345 621.527 351.716 628.243 360 628.243L669 628.243C677.284 628.243 684 634.959 684 643.243L684 763'
+        scale={scale}
+      />
+      <ConnectorPath
+        d='M315 2L315 611.27C315 619.555 308.284 626.271 300 626.271L16 626.27C7.71569 626.27 0.999972 632.986 0.999972 641.27L0.999967 763'
+        scale={scale}
+      />
+      <ConnectorPath d='M335 1.5L335 763' scale={scale} />
+      <ConnectorPath
+        d='M325 1.5L325 627.047C325 635.331 318.284 642.047 310 642.047L197 642.047C188.716 642.047 182 648.763 182 657.047L182 763'
+        scale={scale}
+      />
+    </ConnectorsSvg>
+  );
+};
 
 const Sources = styled.div`
   position: absolute;
@@ -231,7 +253,7 @@ const MovieInfo = styled.div`
   );
 `;
 
-const Row = styled.div<{ totalWidth: number }>`
+const Row = styled(motion.div)<{ totalWidth: number }>`
   display: flex;
   gap: 50px;
   width: ${({ totalWidth }) => `calc(100% * ${totalWidth})`};
@@ -298,6 +320,12 @@ const PersonName = styled.span`
 const Section = styled.section``;
 
 const Example = () => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start start', 'end end'],
+  });
+
   const totalWidth = data.titles.reduce((acc, curr) => {
     const titleWidth = curr.length * 64;
     return acc + titleWidth;
@@ -308,7 +336,7 @@ const Example = () => {
   const sourcesCount = data.sources.length;
   const angleStep = 360 / sourcesCount;
   return (
-    <Section>
+    <Section ref={ref}>
       <TitleContainer>
         <Titles totalWidth={totalWidth}>
           {data.titles.map((title, index) => (
@@ -317,7 +345,7 @@ const Example = () => {
         </Titles>
       </TitleContainer>
       <SourcesContainer>
-        <Connectors></Connectors>
+        <Connectors scrollYProgress={scrollYProgress}></Connectors>
 
         <CircleContainer>
           <Circles />
@@ -340,7 +368,12 @@ const Example = () => {
           <Poster width={835} height={469} src={data.movie.poster} alt={data.movie.titles[0]} />
         </PosterContainer>
         <MovieInfo>
-          <Row totalWidth={totalWidth}>
+          <Row
+            totalWidth={totalWidth}
+            initial={{ translateX: -100 }}
+            animate={{ translateX: 100 }}
+            transition={{ ease: 'easeOut', duration: 2 }}
+          >
             {data.movie.titles.map((title, index) => (
               <InfoContainer key={index}>
                 <MovieTitle>

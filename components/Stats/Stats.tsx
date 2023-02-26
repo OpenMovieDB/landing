@@ -2,7 +2,6 @@ import gsap, { Power1, Power3 } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import React, { useEffect, useRef } from 'react';
-import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
 type StatItem = {
   sum: number;
@@ -48,7 +47,7 @@ const STATS: StatItem[] = [
   },
 ];
 
-const initTitleAnimation = (scroller: HTMLElement) => {
+const initTitleAnimation = () => {
   gsap.utils.toArray('.stats__title').forEach((el, index) => {
     if (index) {
       gsap.set(el as HTMLElement, {
@@ -71,7 +70,6 @@ const initTitleAnimation = (scroller: HTMLElement) => {
         scrub: 1,
         trigger: '.stats__slide_0',
         start: 'top center',
-        scroller,
         end: `center bottom`,
       },
     })
@@ -93,7 +91,6 @@ const initTitleAnimation = (scroller: HTMLElement) => {
         scrub: 1,
         trigger: '.stats__slide_1',
         start: 'top center',
-        scroller,
         end: `center bottom`,
       },
     })
@@ -114,7 +111,6 @@ const initTitleAnimation = (scroller: HTMLElement) => {
         scrub: 1,
         trigger: '.stats__slide_2',
         start: 'top bottom',
-        scroller,
         end: `center bottom `,
       },
     })
@@ -131,34 +127,27 @@ const initTitleAnimation = (scroller: HTMLElement) => {
 };
 
 const Stats = () => {
-  const { scroll } = useLocomotiveScroll();
-
   gsap.registerPlugin(ScrollTrigger);
   const scene = useRef<HTMLDivElement>(null);
 
   const ScrollingRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (scroll) {
-      const element = scroll?.el;
-      initTitleAnimation(element);
+    initTitleAnimation();
 
-      ScrollTrigger.create({
-        trigger: '.stats__titles',
-        pin: true,
-        scrub: 1,
-        start: 'top',
-        scroller: element,
-        endTrigger: `.stats__slide_2`,
-        end: 'center',
-      });
-    }
+    ScrollTrigger.create({
+      trigger: '.stats__titles',
+      pin: true,
+      scrub: 1,
+      start: 'top',
+      endTrigger: `.stats__slide_2`,
+      end: 'center',
+    });
 
     return () => {
-      ScrollTrigger.addEventListener('refresh', () => scroll?.update());
       ScrollTrigger.refresh();
     };
-  }, [scene, ScrollingRef, scroll]);
+  }, [scene, ScrollingRef]);
 
   const renderImages = (stat: StatItem): React.ReactNode => {
     return (
@@ -171,8 +160,6 @@ const Stats = () => {
               height={stat.imageSize.height}
               alt=''
               className={`stats__image stats__image_${index}`}
-              data-scroll
-              data-scroll-speed={index + 2}
             ></Image>
           </div>
         ))}
