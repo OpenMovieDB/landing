@@ -1,27 +1,14 @@
-import { motion, MotionValue, useAnimation, useInView, useScroll, useSpring } from 'framer-motion';
+import type { MotionValue } from 'framer-motion';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import styled from 'styled-components';
 
+import ParallaxTitles from '../../components/ui/ParalaxTitles';
 import { GRADIENTS } from '../../styles/theme';
 
 const data = {
-  titles: [
-    // На русском
-    'САМАЯ БОЛЬШАЯ БАЗА ФИЛЬМОВ В МИРЕ',
-    // На английском
-    'THE LARGEST MOVIE DATABASE IN THE WORLD',
-    // На китайском языке
-    '世界上最大的电影数据库',
-    // На японском языке
-    '世界で最も大きな映画データベース',
-    // На корейском языке
-    '세계에서 가장 큰 영화 데이터베이스',
-    // На испанском языке
-    'LA BASE DE DATOS DE PELÍCULAS MÁS GRANDE DEL MUNDO',
-    // На французском языке
-    'LA PLUS GRANDE BASE DE DONNÉES DE FILMS AU MONDE',
-  ],
+  title: 'Крупнейшая в мире база данных о кинематографе',
   sources: [
     {
       name: 'TMDB',
@@ -86,20 +73,6 @@ const data = {
     ],
   },
 };
-
-const TitleContainer = styled.div``;
-
-const Titles = styled.div`
-  display: flex;
-  gap: 100px;
-  width: ${({ totalWidth }: { totalWidth: number }) => `calc(100% * ${totalWidth})`};
-`;
-
-const Title = styled.h2`
-  background: ${GRADIENTS.primaryTitle};
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-`;
 
 const SourcesContainer = styled.div`
   height: 860px;
@@ -253,10 +226,9 @@ const MovieInfo = styled.div`
   );
 `;
 
-const Row = styled(motion.div)<{ totalWidth: number }>`
+const Row = styled(motion.div)`
   display: flex;
   gap: 50px;
-  width: ${({ totalWidth }) => `calc(100% * ${totalWidth})`};
 `;
 
 const InfoContainer = styled.div`
@@ -317,7 +289,9 @@ const PersonName = styled.span`
   color: #ffffff;
 `;
 
-const Section = styled.section``;
+const Section = styled.section`
+  margin-top: 100px;
+`;
 
 const Example = () => {
   const ref = useRef(null);
@@ -326,10 +300,6 @@ const Example = () => {
     offset: ['start start', 'end end'],
   });
 
-  const totalWidth = data.titles.reduce((acc, curr) => {
-    const titleWidth = curr.length * 64;
-    return acc + titleWidth;
-  }, 0);
   const radius = 260;
   const centerX = 300;
   const centerY = 300;
@@ -337,13 +307,7 @@ const Example = () => {
   const angleStep = 360 / sourcesCount;
   return (
     <Section ref={ref}>
-      <TitleContainer>
-        <Titles totalWidth={totalWidth}>
-          {data.titles.map((title, index) => (
-            <Title key={index}>{title}</Title>
-          ))}
-        </Titles>
-      </TitleContainer>
+      <ParallaxTitles baseVelocity={-5}>{data.title}</ParallaxTitles>
       <SourcesContainer>
         <Connectors scrollYProgress={scrollYProgress}></Connectors>
 
@@ -369,7 +333,6 @@ const Example = () => {
         </PosterContainer>
         <MovieInfo>
           <Row
-            totalWidth={totalWidth}
             initial={{ translateX: -100 }}
             animate={{ translateX: 100 }}
             transition={{ ease: 'easeOut', duration: 2 }}
@@ -389,7 +352,7 @@ const Example = () => {
               </InfoContainer>
             ))}
           </Row>
-          <Row totalWidth={totalWidth}>
+          <Row>
             <InfoContainer>
               <MovieNumber>{data.movie.year}</MovieNumber>
             </InfoContainer>
@@ -408,7 +371,7 @@ const Example = () => {
               <MovieAward key={index} height={87} width={87} alt={award.name} src={award.logo} />
             ))}
           </Row>
-          <Row totalWidth={totalWidth}>
+          <Row>
             {data.movie.actors.map((person, index) => (
               <InfoContainer key={index}>
                 <PersonContainer>
