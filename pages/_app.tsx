@@ -1,16 +1,21 @@
-import "../styles/globals.css";
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-plusplus */
+/* @ts-nocheck */
+import '../styles/globals.css';
 
-import type { AppProps } from "next/app";
-import { useEffect } from "react";
+import type { AppProps } from 'next/app';
+import { useEffect } from 'react';
 
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
-    const allElements = document.querySelectorAll("*");
+    const allElements = document.querySelectorAll('*');
+
     function randomColor() {
-      let color = "#";
-      let keys = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "a", "b", "c", "d", "e", "f"];
+      const keys = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
+      let color = '#';
+
       for (let i = 1; i <= 6; i++) {
-        let rand = Math.round(Math.random() * (keys.length - 1));
+        const rand = Math.round(Math.random() * (keys.length - 1));
         color += keys[rand];
       }
       return color;
@@ -27,7 +32,7 @@ export default function App({ Component, pageProps }: AppProps) {
       return size;
     }
     function setColors() {
-      allElements.forEach((el) => {
+      allElements.forEach((el: any) => {
         el.style.color = randomColor();
         el.style.fill = randomColor();
         el.style.stroke = randomColor();
