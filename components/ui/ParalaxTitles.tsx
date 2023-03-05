@@ -11,7 +11,7 @@ import {
 import { useRef } from 'react';
 import styled from 'styled-components';
 
-import { GRADIENTS } from '../../styles/theme';
+import Title from './Title';
 
 interface ParallaxProps {
   children: string;
@@ -36,14 +36,6 @@ const Scroller = styled(motion.div)`
   white-space: nowrap;
   display: flex;
   flex-wrap: nowrap;
-`;
-
-const Title = styled.h2`
-  background: ${GRADIENTS.primaryTitle};
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-right: 30px;
-  line-height: 94px;
 `;
 
 const ParallaxTitles = ({ children, baseVelocity = 100 }: ParallaxProps) => {
