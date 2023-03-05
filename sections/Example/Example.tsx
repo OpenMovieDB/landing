@@ -1,11 +1,11 @@
 import type { MotionValue } from 'framer-motion';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import Image from 'next/image';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 
 import ParallaxTitles from '../../components/ui/ParalaxTitles';
-import { GRADIENTS } from '../../styles/theme';
+import ParallaxSlider from '../../components/ui/ParallaxSlider';
 
 const data = {
   title: 'Крупнейшая в мире база данных о кинематографе',
@@ -203,10 +203,8 @@ const Poster = styled(Image)`
 `;
 
 const MovieContainer = styled.div`
-  margin-top: 441px;
   max-width: 1720px;
   margin: 445px auto 0 auto;
-
   display: grid;
   grid-template-columns: 1fr 1fr;
 `;
@@ -224,11 +222,6 @@ const MovieInfo = styled.div`
     #d9d9d9 88.02%,
     rgba(217, 217, 217, 0.0104167) 100%
   );
-`;
-
-const Row = styled(motion.div)`
-  display: flex;
-  gap: 50px;
 `;
 
 const InfoContainer = styled.div`
@@ -256,6 +249,7 @@ const MovieDescription = styled.p`
   font-size: 18px;
   line-height: 150%;
   margin: 0;
+  max-width: 1192px;
 `;
 const MovieNumber = styled.p`
   font-weight: 800;
@@ -332,11 +326,7 @@ const Example = () => {
           <Poster width={835} height={469} src={data.movie.poster} alt={data.movie.titles[0]} />
         </PosterContainer>
         <MovieInfo>
-          <Row
-            initial={{ translateX: -100 }}
-            animate={{ translateX: 100 }}
-            transition={{ ease: 'easeOut', duration: 2 }}
-          >
+          <ParallaxSlider baseVelocity={1}>
             {data.movie.titles.map((title, index) => (
               <InfoContainer key={index}>
                 <MovieTitle>
@@ -351,8 +341,8 @@ const Example = () => {
                 <MovieDescription>{description}</MovieDescription>
               </InfoContainer>
             ))}
-          </Row>
-          <Row>
+          </ParallaxSlider>
+          <ParallaxSlider baseVelocity={2}>
             <InfoContainer>
               <MovieNumber>{data.movie.year}</MovieNumber>
             </InfoContainer>
@@ -370,8 +360,8 @@ const Example = () => {
             {data.movie.awards.map((award, index) => (
               <MovieAward key={index} height={87} width={87} alt={award.name} src={award.logo} />
             ))}
-          </Row>
-          <Row>
+          </ParallaxSlider>
+          <ParallaxSlider baseVelocity={5}>
             {data.movie.actors.map((person, index) => (
               <InfoContainer key={index}>
                 <PersonContainer>
@@ -384,7 +374,7 @@ const Example = () => {
                 </PersonContainer>
               </InfoContainer>
             ))}
-          </Row>
+          </ParallaxSlider>
         </MovieInfo>
       </MovieContainer>
     </Section>

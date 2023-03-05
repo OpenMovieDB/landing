@@ -1,5 +1,3 @@
-import { adjustHue, darken, desaturate, lighten, opacify } from 'polished';
-
 export const COLORS = {
   primary: '#0500FF',
   secondary: '#BD00FF',
@@ -10,7 +8,7 @@ export const COLORS = {
 };
 
 export const GRADIENTS = {
-  primaryTitle: `linear-gradient(119deg, ${COLORS.secondary} 14%, ${adjustHue(17, COLORS.tertiary)} 32%, ${COLORS.primary} 48%)`,
+  primaryTitle: `linear-gradient(119deg, #0500ff, #00a8ff 19.33%, #0500ff 42.44%, #bd00ff 60.08%, rgba(0, 157, 255, 1) 77.31%, rgb(5, 0, 255) 95.8%)`,
 };
 
 export const FONTS = {
