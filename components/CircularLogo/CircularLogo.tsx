@@ -32,6 +32,15 @@ const Logo = styled.img`
   }
 `;
 
+const LogoBackground = styled.img`
+  position: absolute;
+
+  @media (max-width: 768px) {
+    width: 334px;
+    height: 353px;
+  }
+`;
+
 interface CircularLogoProps {
   src: string;
   alt: string;
@@ -39,9 +48,13 @@ interface CircularLogoProps {
 
 const CircularLogo: React.FC<CircularLogoProps> = ({ src, alt }) => {
   return (
-    <LogoContainer>
-      <Logo src={src} alt={alt} />
-    </LogoContainer>
+    <>
+      <LogoBackground src='/img/example-bg.png' alt='bg'></LogoBackground>
+
+      <LogoContainer>
+        <Logo src={src} alt={alt} />
+      </LogoContainer>
+    </>
   );
 };
 
