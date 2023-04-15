@@ -36,6 +36,10 @@ const Scroller = styled(motion.div)`
   white-space: nowrap;
   display: flex;
   flex-wrap: nowrap;
+
+  @media screen and (max-width: 768px) {
+    font-size: 48px;
+  }
 `;
 
 const ParallaxTitles = ({ children, baseVelocity = 100 }: ParallaxProps) => {
