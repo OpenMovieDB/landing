@@ -1,14 +1,19 @@
-import type { MotionValue } from 'framer-motion';
-import { motion, useScroll, useSpring } from 'framer-motion';
-import Image from 'next/image';
+import { useScroll } from 'framer-motion';
 import React, { useRef } from 'react';
 import styled from 'styled-components';
 
+import Sources from '../../components/Cources/Sources';
+import Circles from '../../components/ui/Circles';
+import Connectors from '../../components/ui/Connectors';
 import ParallaxTitles from '../../components/ui/ParalaxTitles';
-import ParallaxSlider from '../../components/ui/ParallaxSlider';
+import SectionContainer from '../../components/ui/SectionContainer';
+import SideFade from '../../components/ui/SideFade';
+import MovieInfo from '../../components/MovieInfo/MovieInfo';
+import CircularLogo from '../../components/CircularLogo/CircularLogo';
+import MoviePoster from '../../components/MoviePoster/MoviePoster';
 
 const data = {
-  title: 'Крупнейшая в мире база данных о кинематографе',
+  title: 'Информация о фильмах из популярных источников',
   sources: [
     {
       name: 'TMDB',
@@ -79,127 +84,10 @@ const SourcesContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
-const CircleContainer = styled.div`
-  position: absolute;
-`;
 
-const Circle = ({ duration, cx, cy, r }: { duration: number; cx: string; cy: string; r: string }) => (
-  <motion.circle
-    cx={cx}
-    cy={cy}
-    r={r}
-    stroke='white'
-    strokeOpacity='0.1'
-    strokeWidth='2'
-    strokeLinecap='round'
-    strokeDasharray='2 15'
-    animate={{
-      rotate: 360,
-      transition: {
-        repeat: Infinity,
-        duration,
-      },
-    }}
-  />
-);
-
-const Circles = () => {
-  return (
-    <svg width='836' height='836' viewBox='0 0 836 836' fill='none' xmlns='http://www.w3.org/2000/svg'>
-      <Circle cx='418' cy='418' r='262' duration={25} />
-      <Circle cx='418' cy='418' r='417' duration={25} />
-      <Circle cx='418' cy='418' r='167' duration={25} />
-    </svg>
-  );
-};
-const LogoContainer = styled.div`
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #080715;
-  border-radius: 200px;
-  width: 212px;
-  height: 212px;
-`;
-
-const LogoBackground = styled(Image)`
-  position: absolute;
-`;
-
-const Logo = styled(Image)``;
-const ConnectorsSvg = styled.svg`
-  position: absolute;
-  transform: translate(15px, 480px);
-  mask-image: linear-gradient(
-    0deg,
-    rgba(217, 217, 217, 0) 0%,
-    #d9d9d9 11.98%,
-    #d9d9d9 88.02%,
-    rgba(217, 217, 217, 0.0104167) 100%
-  );
-`;
-
-const ConnectorPath = ({ d, scale }: { d: string; scale: MotionValue }) => {
-  return (
-    <motion.path
-      d={d}
-      stroke='white'
-      strokeOpacity='0.1'
-      strokeWidth='2'
-      initial={{ pathLength: 0 }}
-      pathLength={scale}
-    />
-  );
-};
-
-const Connectors = ({ scrollYProgress }: { scrollYProgress: MotionValue }) => {
-  const scale = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
-
-  return (
-    <ConnectorsSvg width='685' height='763' viewBox='0 0 685 763' fill='none' xmlns='http://www.w3.org/2000/svg'>
-      <ConnectorPath
-        d='M345 0.5L345 613.243C345 621.527 351.716 628.243 360 628.243L669 628.243C677.284 628.243 684 634.959 684 643.243L684 763'
-        scale={scale}
-      />
-      <ConnectorPath
-        d='M315 2L315 611.27C315 619.555 308.284 626.271 300 626.271L16 626.27C7.71569 626.27 0.999972 632.986 0.999972 641.27L0.999967 763'
-        scale={scale}
-      />
-      <ConnectorPath d='M335 1.5L335 763' scale={scale} />
-      <ConnectorPath
-        d='M325 1.5L325 627.047C325 635.331 318.284 642.047 310 642.047L197 642.047C188.716 642.047 182 648.763 182 657.047L182 763'
-        scale={scale}
-      />
-    </ConnectorsSvg>
-  );
-};
-
-const Sources = styled.div`
-  position: absolute;
-
-  width: 600px;
-  height: 600px;
-`;
-
-const Source = styled.img`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-`;
-
-const PosterContainer = styled.div``;
-const Poster = styled(Image)`
-  max-width: 45vw;
-  object-fit: cover;
-
-  border-radius: 15px;
+  @media (max-width: 768px) {
+    height: 431px;
+  }
 `;
 
 const MovieContainer = styled.div`
@@ -207,177 +95,52 @@ const MovieContainer = styled.div`
   margin: 445px auto 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-`;
-const MovieInfo = styled.div`
-  max-width: 45vw;
-  overflow: hidden;
-  display: grid;
 
-  gap: 41px;
-
-  mask-image: linear-gradient(
-    270deg,
-    rgba(217, 217, 217, 0) 0%,
-    #d9d9d9 11.98%,
-    #d9d9d9 88.02%,
-    rgba(217, 217, 217, 0.0104167) 100%
-  );
+  @media (max-width: 1350px) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin: 200px auto 0 auto;
+  }
 `;
 
-const InfoContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 25px 60px;
-  gap: 10px;
+const ConnectorsContainer = styled.div`
+  position: absolute;
+  transform: translate(15px, 480px);
 
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-`;
-const MovieTitle = styled.h4`
-  font-weight: 800;
-  font-size: 36px;
-  line-height: 37px;
-  margin: 0;
+  @media (max-width: 1348px) {
+    transform: translate(7px, 260px);
+  }
 `;
 
-const TitleText = styled.p`
-  margin: 0;
-`;
-const MovieDescription = styled.p`
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 150%;
-  margin: 0;
-  max-width: 1192px;
-`;
-const MovieNumber = styled.p`
-  font-weight: 800;
-  font-size: 36px;
-  line-height: 37px;
-  margin: 0;
-`;
-const MovieCountry = styled.p`
-  font-weight: 800;
-  font-size: 36px;
-  line-height: 37px;
-  margin: 0;
-`;
-const MovieAward = styled(Image)``;
-
-const PersonContainer = styled.div`
-  max-width: 223px;
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 35px;
-`;
-const PersonPhoto = styled(Image)``;
-const PersonName = styled.span`
-  font-weight: 800;
-  font-size: 18px;
-  line-height: 150%;
-  /* or 27px */
-
-  color: #ffffff;
-`;
-
-const Section = styled.section`
-  margin-top: 100px;
-`;
-
-const Example = () => {
-  const ref = useRef(null);
+const Example: React.FC = () => {
+  const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start start', 'end end'],
   });
 
-  const radius = 260;
-  const centerX = 300;
-  const centerY = 300;
-  const sourcesCount = data.sources.length;
-  const angleStep = 360 / sourcesCount;
   return (
-    <Section ref={ref}>
-      <ParallaxTitles baseVelocity={-5}>{data.title}</ParallaxTitles>
+    <SectionContainer ref={ref}>
+      <SideFade>
+        <ParallaxTitles baseVelocity={-5}>{data.title}</ParallaxTitles>
+      </SideFade>
       <SourcesContainer>
-        <Connectors scrollYProgress={scrollYProgress}></Connectors>
+        <ConnectorsContainer>
+          <Connectors scrollYProgress={scrollYProgress} />
+        </ConnectorsContainer>
 
-        <CircleContainer>
-          <Circles />
-        </CircleContainer>
-        <Sources>
-          {data.sources.map((source, index) => {
-            const angle = index * angleStep;
-            const x = Math.round(centerX + radius * Math.cos((angle * Math.PI) / 180));
-            const y = Math.round(centerY + radius * Math.sin((angle * Math.PI) / 180));
-            return <Source key={index} src={source.logo} alt={source.name} style={{ top: y, left: x }} />;
-          })}
-        </Sources>
-        <LogoBackground width='334' height='353' src='/img/example-bg.png' alt='bg'></LogoBackground>
-        <LogoContainer>
-          <Logo width='108' height='91' src='/img/logo.png' alt='open movie api' />
-        </LogoContainer>
+        <Circles />
+        <Sources sources={data.sources} />
+        <CircularLogo src='/img/logo.png' alt='open movie api' />
       </SourcesContainer>
+
       <MovieContainer>
-        <PosterContainer>
-          <Poster width={835} height={469} src={data.movie.poster} alt={data.movie.titles[0]} />
-        </PosterContainer>
-        <MovieInfo>
-          <ParallaxSlider baseVelocity={1}>
-            {data.movie.titles.map((title, index) => (
-              <InfoContainer key={index}>
-                <MovieTitle>
-                  {title.split('\n').map((str, i) => (
-                    <TitleText key={`title_${i}`}>{str}</TitleText>
-                  ))}
-                </MovieTitle>
-              </InfoContainer>
-            ))}
-            {data.movie.descriptions.map((description, index) => (
-              <InfoContainer key={index}>
-                <MovieDescription>{description}</MovieDescription>
-              </InfoContainer>
-            ))}
-          </ParallaxSlider>
-          <ParallaxSlider baseVelocity={2}>
-            <InfoContainer>
-              <MovieNumber>{data.movie.year}</MovieNumber>
-            </InfoContainer>
-            <InfoContainer>
-              <MovieNumber>{data.movie.rating}</MovieNumber>
-            </InfoContainer>
-            <InfoContainer>
-              <MovieNumber>{data.movie.budget}</MovieNumber>
-            </InfoContainer>
-            {data.movie.countries.map((country, index) => (
-              <InfoContainer key={index}>
-                <MovieCountry>{country}</MovieCountry>
-              </InfoContainer>
-            ))}
-            {data.movie.awards.map((award, index) => (
-              <MovieAward key={index} height={87} width={87} alt={award.name} src={award.logo} />
-            ))}
-          </ParallaxSlider>
-          <ParallaxSlider baseVelocity={5}>
-            {data.movie.actors.map((person, index) => (
-              <InfoContainer key={index}>
-                <PersonContainer>
-                  <PersonPhoto width={88} height={126} alt={person.name} src={person.photo} />
-                  <PersonName>
-                    {person.name.split('\n').map((str, i) => (
-                      <TitleText key={`person_name_${i}`}>{str}</TitleText>
-                    ))}
-                  </PersonName>
-                </PersonContainer>
-              </InfoContainer>
-            ))}
-          </ParallaxSlider>
-        </MovieInfo>
+        <MoviePoster width={835} height={450} src={data.movie.poster} alt={data.movie.titles[0]} />
+        <SideFade>
+          <MovieInfo movie={data.movie} />
+        </SideFade>
       </MovieContainer>
-    </Section>
+    </SectionContainer>
   );
 };
 
