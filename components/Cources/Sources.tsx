@@ -28,49 +28,53 @@ const SourceImage = styled.img<{ size: number }>`
   height: ${(props) => props.size}px;
 `;
 
+const calculateDimensions = (windowWidth: number): { width: number; height: number } => {
+  if (windowWidth > 768) {
+    return { width: 600, height: 600 };
+  } else {
+    return { width: 300, height: 300 };
+  }
+};
+
+const calculateCircularPosition = (
+  index: number,
+  sourcesCount: number,
+  dimensions: { width: number; height: number },
+): { x: number; y: number } => {
+  const radius = dimensions.width * 0.43;
+  const centerX = dimensions.width * 0.5;
+  const centerY = dimensions.height * 0.5;
+  const angleStep = (2 * Math.PI) / sourcesCount;
+  const angle = index * angleStep;
+
+  const x = Math.round(centerX + radius * Math.cos(angle));
+  const y = Math.round(centerY + radius * Math.sin(angle));
+
+  return { x, y };
+};
 
 const Sources: FC<SourcesProps> = memo(({ sources }) => {
   const windowWidth = useWindowSize().width;
 
-  const calculateDimensions = (windowWidth: number): { width: number; height: number } => {
-    if (windowWidth > 768) {
-      return { width: 600, height: 600 };
-    } else if (windowWidth > 500) {
-      return { width: 400, height: 400 };
-    } else {
-      return { width: 300, height: 300 };
-    }
-  };
+  const [dimensions, setDimensions] = useState<{ width: number; height: number }>({ width: 0, height: 0 });
 
-  const calculateCircularPosition = (
-    index: number,
-    sourcesCount: number,
-    dimensions: { width: number; height: number }
-  ): { x: number; y: number } => {
-    const radius = dimensions.width * 0.43;
-    const centerX = dimensions.width * 0.5;
-    const centerY = dimensions.height * 0.5;
-    const angleStep = 360 / sourcesCount;
-    const angle = index * angleStep;
-
-    const x = Math.round(centerX + radius * Math.cos((angle * Math.PI) / 180));
-    const y = Math.round(centerY + radius * Math.sin((angle * Math.PI) / 180));
-  
-    return { x, y };
-  };
-
-  
-  const dimensions = calculateDimensions(windowWidth)
-
-  const imageSize = dimensions.width / 9;
-  const sourcesCount = sources.length;
+  useEffect(() => {
+    const newDimensions = calculateDimensions(windowWidth);
+    setDimensions(newDimensions);
+  }, [windowWidth]);
 
   return (
     <SourcesContainer size={dimensions.width}>
       {sources.map((source, index) => {
-        const { x, y } = calculateCircularPosition(index, sourcesCount, dimensions);
+        const { x, y } = calculateCircularPosition(index, sources.length, dimensions);
         return (
-          <SourceImage key={index} src={source.logo} alt={source.name} size={imageSize} style={{ top: y, left: x }} />
+          <SourceImage
+            key={index}
+            src={source.logo}
+            alt={source.name}
+            size={dimensions.width / 9}
+            style={{ top: y, left: x }}
+          />
         );
       })}
     </SourcesContainer>
@@ -78,4 +82,3 @@ const Sources: FC<SourcesProps> = memo(({ sources }) => {
 });
 
 export default Sources;
-
