@@ -36,8 +36,8 @@ const CirclesSvg = styled.svg`
   @media (max-width: 1000px) {
     width: 100%;
     height: 100%;
-    stroke-width: 2;
-    stroke-dasharray: 3 6;
+    stroke-width: 3;
+    stroke-dasharray: 5 15;
   }
 `;
 
