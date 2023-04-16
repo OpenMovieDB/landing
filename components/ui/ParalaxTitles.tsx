@@ -1,7 +1,7 @@
 import { motion, useTransform, wrap } from 'framer-motion';
 import styled from 'styled-components';
 
-import Title from './Title';
+import GradientTitle from './GradientTitle';
 import { useParallaxScrolling } from '../../hooks/useParallaxScrolling';
 
 interface ParallaxProps {
@@ -41,10 +41,10 @@ const ParallaxTitles = ({ children, baseVelocity = 100 }: ParallaxProps) => {
   return (
     <Parallax>
       <Scroller style={{ x }}>
-        <Title>{children} </Title>
-        <Title>{children} </Title>
-        <Title>{children} </Title>
-        <Title>{children} </Title>
+        <GradientTitle>{children} </GradientTitle>
+        <GradientTitle>{children} </GradientTitle>
+        <GradientTitle>{children} </GradientTitle>
+        <GradientTitle>{children} </GradientTitle>
       </Scroller>
     </Parallax>
   );
