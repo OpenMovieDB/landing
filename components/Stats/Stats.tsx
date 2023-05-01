@@ -1,8 +1,10 @@
-import gsap, { Power1, Power3 } from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
-import React, { useEffect, useRef } from 'react';
-import { useLocomotiveScroll } from 'react-locomotive-scroll';
+import React, { useRef } from 'react';
+import styled from 'styled-components';
+
+import AnimatedCounter from '../ui/AnimatedCounter';
+import Title from '../ui/Title';
 
 type StatItem = {
   sum: number;
@@ -15,7 +17,7 @@ type StatItem = {
   };
 };
 
-const STATS: StatItem[] = [
+const STAT_ITEMS: StatItem[] = [
   {
     sum: 960,
     unit: 'тысяч',
@@ -48,174 +50,153 @@ const STATS: StatItem[] = [
   },
 ];
 
-const initTitleAnimation = (scroller: HTMLElement) => {
-  gsap.utils.toArray('.stats__title').forEach((el, index) => {
-    if (index) {
-      gsap.set(el as HTMLElement, {
-        y: '200%',
-        ease: Power3.easeInOut,
-        duration: 0.1,
-      });
-    } else {
-      gsap.set(el as HTMLElement, {
-        y: '0%',
-        ease: Power3.easeInOut,
-        duration: 0.1,
-      });
-    }
+const StatsSection = styled.section`
+  display: none;
+
+  @media (min-width: 1024px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100vw;
+    min-height: 100vh;
+  }
+`;
+
+const Slides = styled.div`
+  position: relative;
+`;
+
+const Slide = styled.div`
+  max-width: 1920px;
+  margin: 0 auto;
+  position: relative;
+  height: 250vh;
+
+  @media (max-height: 900px) {
+    height: 300vh;
+  }
+
+  @media (min-height: 1100px) {
+    height: 200vh;
+  }
+
+  @media (min-height: 1500px) {
+    height: 180vh;
+  }
+
+  @media (min-height: 2000px) {
+    height: 140vh;
+  }
+`;
+
+const StatsUnit = styled.span`
+  background: linear-gradient(200deg, #0500ff, #710099);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 2px transparent;
+  color: #06050f;
+  font-weight: 800;
+  font-size: 96px;
+  line-height: 98px;
+`;
+
+const ImageFrame = styled.div`
+  position: absolute;
+`;
+
+const StyledImage = styled(Image)`
+  border-radius: 15px;
+`;
+
+const Counter = styled(AnimatedCounter)`
+  background: linear-gradient(200deg, #0500ff, #710099);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 2px transparent;
+  color: #06050f;
+  font-weight: 800;
+  font-size: 96px;
+  line-height: 98px;
+`;
+
+const imagePositions = (slideIndex: number, frameIndex: number) => {
+  const positions = [
+    [
+      'translate(267%, 177%)',
+      'translate(-11%, 246%)',
+      'translate(159%, 422%)',
+      'translate(98%, 590%)',
+      'translate(236%, 792%)',
+      'translate(-62%, 717%)',
+    ],
+    [
+      'translate(294%, 38%)',
+      'translate(-87%, 112%)',
+      'translate(116%, 170%)',
+      'translate(328%, 225%)',
+      'translate(-20%, 339%)',
+      'translate(377%, 413%)',
+    ],
+    [
+      'translate(-79%, 20%)',
+      'translate(187%, 163%)',
+      'translate(-14%, 325%)',
+      'translate(100%, 485%)',
+      'translate(-60%, 588%)',
+      'translate(238%, 688%)',
+    ],
+  ];
+
+  return positions[slideIndex][frameIndex];
+};
+
+const MotionTitleWrap = styled(motion.div)`
+  width: 100vw;
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 50%;
+  transform: translateY(-50%);
+`;
+
+const SlideContent = ({ stat, index }: any) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['end end', 'start start'],
   });
 
-  gsap
-    .timeline({
-      scrollTrigger: {
-        scrub: 1,
-        trigger: '.stats__slide_0',
-        start: 'top center',
-        scroller,
-        end: `center bottom`,
-      },
-    })
-    .to('.stats__title_0', { y: '0' })
-    .from('.stats__title_0 .stats__sum', {
-      trigger: '.stats__slide_0',
-      textContent: 0,
-      duration: 5,
-      ease: Power1.easeIn,
-      snap: { textContent: 1 },
-      stagger: 1,
-    })
-    .to('.stats__title_1', { y: '200%' })
-    .to('.stats__title_2', { y: '200%' });
+  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
-  gsap
-    .timeline({
-      scrollTrigger: {
-        scrub: 1,
-        trigger: '.stats__slide_1',
-        start: 'top center',
-        scroller,
-        end: `center bottom`,
-      },
-    })
-    .to('.stats__title_0', { y: '-200%' })
-    .to('.stats__title_1', { y: '0%' })
-    .from('.stats__title_1 .stats__sum', {
-      trigger: '.stats__slide_0',
-      textContent: 0,
-      duration: 1,
-      ease: Power1.easeIn,
-      snap: { textContent: 1 },
-      stagger: 1,
-    });
-
-  gsap
-    .timeline({
-      scrollTrigger: {
-        scrub: 1,
-        trigger: '.stats__slide_2',
-        start: 'top bottom',
-        scroller,
-        end: `center bottom `,
-      },
-    })
-    .to('.stats__title_1', { y: '-200%' })
-    .to('.stats__title_2', { y: '0%' })
-    .from('.stats__title_2 .stats__sum', {
-      trigger: '.stats__slide_0',
-      textContent: 0,
-      duration: 1,
-      ease: Power1.easeIn,
-      snap: { textContent: 1 },
-      stagger: 1,
-    });
+  return (
+    <Slide key={index} ref={ref}>
+      <MotionTitleWrap style={{ opacity }}>
+        <Title>
+          <Counter from={0} to={stat.sum} />
+          <StatsUnit>{stat.unit}</StatsUnit>
+          {stat.name}
+        </Title>
+      </MotionTitleWrap>
+      {stat.images.map((url: string, frameIndex: number) => (
+        <ImageFrame key={frameIndex} style={{ transform: imagePositions(index, frameIndex) }}>
+          <StyledImage src={url} width={stat.imageSize.width} height={stat.imageSize.height} alt='' />
+        </ImageFrame>
+      ))}
+    </Slide>
+  );
 };
 
 const Stats = () => {
-  const { scroll } = useLocomotiveScroll();
-
-  gsap.registerPlugin(ScrollTrigger);
-  const scene = useRef<HTMLDivElement>(null);
-
-  const ScrollingRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (scroll) {
-      const element = scroll?.el;
-      initTitleAnimation(element);
-
-      ScrollTrigger.create({
-        trigger: '.stats__titles',
-        pin: true,
-        scrub: 1,
-        start: 'top',
-        scroller: element,
-        endTrigger: `.stats__slide_2`,
-        end: 'center',
-      });
-    }
-
-    return () => {
-      ScrollTrigger.addEventListener('refresh', () => scroll?.update());
-      ScrollTrigger.refresh();
-    };
-  }, [scene, ScrollingRef, scroll]);
-
-  const renderImages = (stat: StatItem): React.ReactNode => {
-    return (
-      <>
-        {stat.images.map((url, index) => (
-          <div className="stats__image-frame" key={index}>
-            <Image
-              src={url}
-              width={stat.imageSize.width}
-              height={stat.imageSize.height}
-              alt=""
-              className={`stats__image stats__image_${index}`}
-              data-scroll
-              data-scroll-speed={index + 2}
-            ></Image>
-          </div>
-        ))}
-      </>
-    );
-  };
-
-  const renderTitle = (stat: StatItem, index: number): React.ReactNode => {
-    return (
-      <h3
-        className={`stats__title stats__title_${index} section-title`}
-        key={index}
-      >
-        <span className="stats__sum">{stat.sum}</span>
-        <b className="stats__unit">{stat.unit}</b>
-        {stat.name}
-      </h3>
-    );
-  };
-
-  const renderSlides = (): React.ReactNode => (
-    <div className="stats__slides" ref={ScrollingRef}>
-      <div className="stats__titles">
-        <div className="stats__titles-wrap">
-          {STATS.map((item, index) => renderTitle(item, index))}
-        </div>
-      </div>
-      {STATS.map((item, index) => (
-        <div
-          className={`stats__slide stats__slide_${index}`}
-          key={`slide-${index}`}
-          id={`slide-${index}`}
-        >
-          {renderImages(item)}
-        </div>
-      ))}
-    </div>
-  );
-
   return (
-    <section className="stats" ref={scene}>
-      {renderSlides()}
-    </section>
+    <StatsSection>
+      <Slides>
+        {STAT_ITEMS.map((stat, index) => (
+          <SlideContent key={index} stat={stat} index={index} />
+        ))}
+      </Slides>
+    </StatsSection>
   );
 };
 
