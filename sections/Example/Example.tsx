@@ -91,6 +91,9 @@ const SourcesContainer = styled.div`
 `;
 
 const MovieContainer = styled.div`
+  z-index: 1;
+  position: relative;
+
   max-width: 1720px;
   margin: 445px auto 0 auto;
   display: grid;
