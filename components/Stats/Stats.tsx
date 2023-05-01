@@ -67,6 +67,8 @@ const Slides = styled.div`
 `;
 
 const Slide = styled.div`
+  z-index: 1;
+
   max-width: 1920px;
   margin: 0 auto;
   position: relative;
