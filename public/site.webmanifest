@@ -13,8 +13,8 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
+    "theme_color": "#070612",
+    "background_color": "#070612",
     "start_url": "https://openmovieapi.dev",
     "display": "standalone"
 }
