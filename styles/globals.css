@@ -146,6 +146,8 @@
 
 .hero {
   padding-top: 508px;
+  margin-bottom: 30vh;
+  min-height: 100vh;
 }
 
 .hero-title {
@@ -176,7 +178,7 @@
 }
 
 .section-block {
-  background: #080715 url("/img/noise.png");
+  background: #070612;
   border-radius: 15px;
   padding: 60px;
 }
@@ -1117,7 +1119,7 @@
   .community-item {
     max-width: 100%;
     border-radius: 10px;
-    background: #080715;
+    background: #070612;
   }
 
   .community-item+.community-item {
@@ -1466,9 +1468,9 @@
 @media (max-height: 980px) and (min-width: 1024px) {
   .hero {
     padding-top: 10vh;
+    margin-bottom: 30vh;
     min-height: 100vh;
     display: flex;
     align-items: flex-end;
-    padding-bottom: 1vh;
   }
 }
