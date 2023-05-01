@@ -6,7 +6,7 @@ const LogoContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #080715;
+  background: #070612;
   border-radius: 200px;
   width: 212px;
   height: 212px;

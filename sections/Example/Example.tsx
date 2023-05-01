@@ -122,7 +122,7 @@ const Example: React.FC = () => {
   return (
     <SectionContainer ref={ref}>
       <SideFade>
-        <ParallaxTitles baseVelocity={-5}>{data.title}</ParallaxTitles>
+        <ParallaxTitles baseVelocity={-2}>{data.title}</ParallaxTitles>
       </SideFade>
       <SourcesContainer>
         <ConnectorsContainer>
