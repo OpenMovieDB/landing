@@ -88,16 +88,6 @@ const Slide = styled.div`
   }
 `;
 
-const TitleWrap = styled.div`
-  width: 100vw;
-  height: 8vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-`;
-
 const StatsUnit = styled.span`
   background: linear-gradient(200deg, #0500ff, #710099);
   background-size: 200% 200%;
@@ -168,7 +158,6 @@ const MotionTitleWrap = styled(motion.div)`
   position: sticky;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 2;
 `;
 
 const Stats = () => {

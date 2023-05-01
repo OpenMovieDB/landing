@@ -2,10 +2,8 @@ import styled from 'styled-components';
 
 const Title = styled.h3`
   position: absolute;
-  background: #070612;
   width: 100%;
   text-align: center;
-
   margin: 0;
   font-family: 'ppmi', sans-serif;
   font-size: 64px;
