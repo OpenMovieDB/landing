@@ -1,7 +1,7 @@
 .noise {
-  position: absolute;
+  position: fixed;
   opacity: 1;
-  z-index: 0;
+  z-index: 1;
   mix-blend-mode: overlay;
   background-image: url("/img/noise.png");
   background-repeat: revert;
