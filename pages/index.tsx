@@ -1,12 +1,21 @@
 import Head from 'next/head';
 import { NextSeo } from 'next-seo';
 import { useRef } from 'react';
-import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
+import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import { YMInitializer } from 'react-yandex-metrika';
 
+import BackgroundNoise from '../components/BackgroundNoise/BackgroundNoise';
+import BackgroundScene from '../components/BackgroundScene/BackgroundScene';
+import Community from '../components/Community/Community';
+import Footer from '../components/Footer/Footer';
+import Free from '../components/Free/Free';
+import Header from '../components/Header/Header';
+import Hero from '../components/Hero/Hero';
+import Stats from '../components/Stats/Stats';
+import Support from '../components/Support/Support';
+import Tariffs from '../components/Tariffs/Tariffs';
 import Example from '../sections/Example/Example';
 import GlobalStyles from '../styles/GlobalStyles';
-import ScrollTriggerProxy from '../utils/ScrollTriggerProxy';
 
 export default function Home() {
   const containerRef = useRef(null);
@@ -81,28 +90,19 @@ export default function Home() {
           webvisor: true,
         }}
       />
-      <LocomotiveScrollProvider
-        options={{
-          smooth: true,
-        }}
-        watch={[]}
-        containerRef={containerRef}
-      >
-        <ScrollTriggerProxy />
-        <main ref={containerRef} className='main' id='smooth-scroll' data-scroll-container>
-          {/* <BackgroundNoise></BackgroundNoise>
-          <BackgroundScene></BackgroundScene>
-          <Header></Header>
-          <Hero></Hero> */}
-          {/* <Stats></Stats> */}
-          <Example></Example>
-          {/* <Tariffs></Tariffs>
-          <Community></Community>
-          <Support></Support>
-          <Free></Free>
-          <Footer></Footer> */}
-        </main>
-      </LocomotiveScrollProvider>
+      <main ref={containerRef} className='main'>
+        <BackgroundNoise></BackgroundNoise>
+        <BackgroundScene></BackgroundScene>
+        <Header></Header>
+        <Hero></Hero>
+        <Stats></Stats>
+        <Tariffs></Tariffs>
+        <Example></Example>
+        <Community></Community>
+        <Support></Support>
+        <Free></Free>
+        <Footer></Footer>
+      </main>
     </>
   );
 }
