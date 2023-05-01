@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import { NextSeo } from 'next-seo';
 import { useRef } from 'react';
-import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import { YMInitializer } from 'react-yandex-metrika';
 
 import BackgroundNoise from '../components/BackgroundNoise/BackgroundNoise';
