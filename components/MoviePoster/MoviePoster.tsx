@@ -1,7 +1,7 @@
-import { ImageProps } from 'next/image';
+import type { ImageProps } from 'next/image';
+import Image from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
-import Image from 'next/image';
 
 const PosterContainer = styled.div`
   @media (max-width: 1350px) {

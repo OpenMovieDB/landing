@@ -1,5 +1,6 @@
 import { motion, useTransform, wrap } from 'framer-motion';
 import styled from 'styled-components';
+
 import { useParallaxScrolling } from '../../hooks/useParallaxScrolling';
 
 interface ParallaxProps {

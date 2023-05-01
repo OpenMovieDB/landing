@@ -1,5 +1,7 @@
-import React, { FC, memo, useState, useEffect } from 'react';
+import type { FC } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import styled from 'styled-components';
+
 import useWindowSize from '../../hooks/useWindowSize';
 
 interface Source {
@@ -31,9 +33,8 @@ const SourceImage = styled.img<{ size: number }>`
 const calculateDimensions = (windowWidth: number): { width: number; height: number } => {
   if (windowWidth > 768) {
     return { width: 600, height: 600 };
-  } else {
-    return { width: 300, height: 300 };
   }
+  return { width: 300, height: 300 };
 };
 
 const calculateCircularPosition = (
@@ -80,5 +81,7 @@ const Sources: FC<SourcesProps> = memo(({ sources }) => {
     </SourcesContainer>
   );
 });
+
+Sources.displayName = 'Sources';
 
 export default Sources;

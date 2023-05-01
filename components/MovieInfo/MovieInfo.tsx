@@ -1,7 +1,8 @@
-import styled from 'styled-components';
-import { Movie } from '../../common/types';
-import ParallaxSlider from '../ui/ParallaxSlider';
 import Image from 'next/image';
+import styled from 'styled-components';
+
+import type { Movie } from '../../common/types';
+import ParallaxSlider from '../ui/ParallaxSlider';
 
 const MovieInfoContainer = styled.div`
   max-width: 45vw;

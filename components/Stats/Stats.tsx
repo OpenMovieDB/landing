@@ -1,9 +1,10 @@
-import React, { useEffect, useState, useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
+
 import AnimatedCounter from '../ui/AnimatedCounter';
 import Title from '../ui/Title';
-import { motion, useElementScroll, useScroll, useTransform, useViewportScroll } from 'framer-motion';
 
 type StatItem = {
   sum: number;
@@ -160,36 +161,40 @@ const MotionTitleWrap = styled(motion.div)`
   transform: translateY(-50%);
 `;
 
+const SlideContent = ({ stat, index }: any) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['end end', 'start start'],
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
+  return (
+    <Slide key={index} ref={ref}>
+      <MotionTitleWrap style={{ opacity }}>
+        <Title>
+          <Counter from={0} to={stat.sum} />
+          <StatsUnit>{stat.unit}</StatsUnit>
+          {stat.name}
+        </Title>
+      </MotionTitleWrap>
+      {stat.images.map((url: string, frameIndex: number) => (
+        <ImageFrame key={frameIndex} style={{ transform: imagePositions(index, frameIndex) }}>
+          <StyledImage src={url} width={stat.imageSize.width} height={stat.imageSize.height} alt='' />
+        </ImageFrame>
+      ))}
+    </Slide>
+  );
+};
+
 const Stats = () => {
   return (
     <StatsSection>
       <Slides>
-        {STAT_ITEMS.map((stat, index) => {
-          const ref = React.useRef(null);
-          const { scrollYProgress } = useScroll({
-            target: ref,
-            offset: ['end end', 'start start'],
-          });
-
-          const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
-
-          return (
-            <Slide key={index} ref={ref}>
-              <MotionTitleWrap style={{ opacity: opacity }}>
-                <Title>
-                  <Counter from={0} to={stat.sum} />
-                  <StatsUnit>{stat.unit}</StatsUnit>
-                  {stat.name}
-                </Title>
-              </MotionTitleWrap>
-              {stat.images.map((url, frameIndex) => (
-                <ImageFrame key={frameIndex} style={{ transform: imagePositions(index, frameIndex) }}>
-                  <StyledImage src={url} width={stat.imageSize.width} height={stat.imageSize.height} alt='' />
-                </ImageFrame>
-              ))}
-            </Slide>
-          );
-        })}
+        {STAT_ITEMS.map((stat, index) => (
+          <SlideContent key={index} stat={stat} index={index} />
+        ))}
       </Slides>
     </StatsSection>
   );

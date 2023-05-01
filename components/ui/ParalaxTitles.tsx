@@ -1,8 +1,8 @@
 import { motion, useTransform, wrap } from 'framer-motion';
 import styled from 'styled-components';
 
-import GradientTitle from './GradientTitle';
 import { useParallaxScrolling } from '../../hooks/useParallaxScrolling';
+import GradientTitle from './GradientTitle';
 
 interface ParallaxProps {
   children: string;
