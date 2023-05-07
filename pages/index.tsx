@@ -95,8 +95,8 @@ export default function Home() {
         <Header></Header>
         <Hero></Hero>
         <Stats></Stats>
-        <Tariffs></Tariffs>
         <Example></Example>
+        <Tariffs></Tariffs>
         <Community></Community>
         <Support></Support>
         <Free></Free>
