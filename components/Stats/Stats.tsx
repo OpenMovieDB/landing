@@ -23,7 +23,7 @@ const STAT_ITEMS: StatItem[] = [
     sum: 960,
     unit: 'тысяч',
     name: 'фильмов',
-    images: [1, 2, 3, 4, 5, 6].map((i) => `/img/films/${i}.png`),
+    images: [1306638, 4491001, 4647040, 4540126, 478052, 1219177].map((i) => `/img/films/${i}.png`),
     imageSize: {
       width: 523,
       height: 294,
@@ -33,7 +33,7 @@ const STAT_ITEMS: StatItem[] = [
     sum: 6,
     unit: 'миллионов',
     name: 'персон',
-    images: [1, 2, 3, 4, 5, 6].map((i) => `/img/persons/${i}.png`),
+    images: [3, 6, 4, 2, 1, 5].map((i) => `/img/persons/${i}.png`),
     imageSize: {
       width: 367,
       height: 490,
