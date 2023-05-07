@@ -153,7 +153,6 @@ const imagePositions = (slideIndex: number, frameIndex: number) => {
 };
 
 const MotionTitleWrap = styled(motion.div)`
-  width: 100vw;
   height: 8vh;
   display: flex;
   justify-content: center;
