@@ -1,5 +1,7 @@
-import React, { ReactNode } from 'react';
 import { motion } from 'framer-motion';
+import type { ReactNode } from 'react';
+import React from 'react';
+
 import { useParallaxEffect } from '../../hooks/useParallaxEffect';
 
 interface ParallaxCardProps {

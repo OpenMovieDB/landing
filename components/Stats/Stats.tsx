@@ -4,6 +4,7 @@ import React, { useRef } from 'react';
 import styled from 'styled-components';
 
 import AnimatedCounter from '../ui/AnimatedCounter';
+import ParallaxCard from '../ui/ParallaxCard';
 import Title from '../ui/Title';
 
 type StatItem = {
@@ -68,11 +69,11 @@ const Slides = styled.div`
 
 const Slide = styled.div`
   z-index: 1;
-
+  width: 100vw;
   max-width: 1920px;
   margin: 0 auto;
   position: relative;
-  height: 250vh;
+  height: 200vh;
 
   @media (max-height: 900px) {
     height: 300vh;
@@ -121,37 +122,6 @@ const Counter = styled(AnimatedCounter)`
   line-height: 98px;
 `;
 
-const imagePositions = (slideIndex: number, frameIndex: number) => {
-  const positions = [
-    [
-      'translate(267%, 177%)',
-      'translate(-11%, 246%)',
-      'translate(159%, 422%)',
-      'translate(98%, 590%)',
-      'translate(236%, 792%)',
-      'translate(-62%, 717%)',
-    ],
-    [
-      'translate(294%, 38%)',
-      'translate(-87%, 112%)',
-      'translate(116%, 170%)',
-      'translate(328%, 225%)',
-      'translate(-20%, 339%)',
-      'translate(377%, 413%)',
-    ],
-    [
-      'translate(-79%, 20%)',
-      'translate(187%, 163%)',
-      'translate(-14%, 325%)',
-      'translate(100%, 485%)',
-      'translate(-60%, 588%)',
-      'translate(238%, 688%)',
-    ],
-  ];
-
-  return positions[slideIndex][frameIndex];
-};
-
 const MotionTitleWrap = styled(motion.div)`
   height: 8vh;
   display: flex;
@@ -161,6 +131,45 @@ const MotionTitleWrap = styled(motion.div)`
   top: 50%;
   transform: translateY(-50%);
 `;
+
+const ImagesWrap = styled.div``;
+
+const imagePositions = (slideIndex: number, frameIndex: number) => {
+  const positions = [
+    [
+      'translate(313%, 119%)',
+      'translate(9%, 263%)',
+      'translate(171%, 469%)',
+      'translate(98%, 720%)',
+      'translate(236%, 1140%)',
+      'translate(-21%, 1056%)',
+    ],
+    [
+      'translate(324%, 12%)',
+      'translate(-11%, 31%)',
+      'translate(174%, 153%)',
+      'translate(353%, 305%)',
+      'translate(39%, 504%)',
+      'translate(385%, 672%)',
+    ],
+    [
+      'translate(-23%, 22%)',
+      'translate(229%, 23%)',
+      'translate(42%, 318%)',
+      'translate(145%, 663%)',
+      'translate(-11%, 1003%)',
+      'translate(277%, 1374%)',
+    ],
+  ];
+
+  return positions[slideIndex][frameIndex];
+};
+
+const imagesSlidePositions = (index: number) => {
+  const positions = ['translateY(-57vh)', 'translateY(51vh)', 'translateY(84vh)'];
+
+  return positions[index];
+};
 
 const SlideContent = ({ stat, index }: any) => {
   const ref = useRef(null);
@@ -180,11 +189,15 @@ const SlideContent = ({ stat, index }: any) => {
           {stat.name}
         </Title>
       </MotionTitleWrap>
-      {stat.images.map((url: string, frameIndex: number) => (
-        <ImageFrame key={frameIndex} style={{ transform: imagePositions(index, frameIndex) }}>
-          <StyledImage src={url} width={stat.imageSize.width} height={stat.imageSize.height} alt='' />
-        </ImageFrame>
-      ))}
+      <ImagesWrap style={{ transform: imagesSlidePositions(index) }}>
+        {stat.images.map((url: string, frameIndex: number) => (
+          <ParallaxCard key={frameIndex} velocity={frameIndex === 0 ? 0.3 : 0.1 * (frameIndex + 1)}>
+            <ImageFrame style={{ transform: imagePositions(index, frameIndex) }}>
+              <StyledImage src={url} width={stat.imageSize.width} height={stat.imageSize.height} alt='' />
+            </ImageFrame>
+          </ParallaxCard>
+        ))}
+      </ImagesWrap>
     </Slide>
   );
 };
