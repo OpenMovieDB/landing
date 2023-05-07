@@ -40,8 +40,8 @@ const STAT_ITEMS: StatItem[] = [
     },
   },
   {
-    sum: 1,
-    unit: 'миллион',
+    sum: 3,
+    unit: 'миллиона',
     name: 'изображений',
     images: [1, 2, 3, 4, 5, 6].map((i) => `/img/photos/${i}.png`),
     imageSize: {
