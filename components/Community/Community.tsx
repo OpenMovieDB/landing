@@ -13,7 +13,7 @@ const Community = () => {
           <p className='community-item__description section-body'>
             Присоединяйся в наше сообщество в telegram и получай круглосуточную помощь
           </p>
-          <Link href='https://t.me/dev_to_dev' className='community-item__link'>
+          <Link href='https://t.me/+jeHPZVXiLPFhODJi' className='community-item__link'>
             Присоединиться
           </Link>
         </div>
@@ -25,7 +25,7 @@ const Community = () => {
           <p className='community-item__description section-body'>
             Присоединяйся в наше сообщество в telegram и получай круглосуточную помощь
           </p>
-          <Link href='https://github.com/OpenMovieApi' className='community-item__link'>
+          <Link href='https://github.com/OpenMovieDB' className='community-item__link'>
             Присоединиться
           </Link>
         </div>

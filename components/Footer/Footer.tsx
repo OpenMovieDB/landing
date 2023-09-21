@@ -26,7 +26,7 @@ const Footer = () => {
             </Link>
           </nav>
           <div className='footer-block'>
-            <Link href='https://github.com/OpenMovieApi' className='link-opacity footer-item section-body'>
+            <Link href='https://github.com/OpenMovieiDB' className='link-opacity footer-item section-body'>
               Github
             </Link>
           </div>
