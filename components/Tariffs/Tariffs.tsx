@@ -12,14 +12,14 @@ const Tariffs = () => {
             <h3 className='tariffs-item__title section-h3'>Обучение</h3>
             <p className='tariffs-item__description section-body'>
               Это тариф создан для некомерческого использования API kinopoisk, tmdb и imdb с целью обучения
-              программированию. Идеален для студентов :)
+              программированию и не коммерческой разработки.
             </p>
             <ul className='tariffs-item__list'>
               <li>Доступ ко всем методам API кинопоиска (200 запросов в сутки)</li>
               <li>Доступ к документации</li>
               <li>Доступ исходному коду API</li>
               <li>Нельзя использовать в приватных репозиториях</li>
-              <li>Тех. поддержка в чате @dev_to_dev</li>
+              <li>Тех. поддержка в чате</li>
               <li className='mobile-hidden'>&nbsp;</li>
             </ul>
             <a
@@ -40,7 +40,7 @@ const Tariffs = () => {
             <h3 className='tariffs-item__title section-h3'>Бизнес</h3>
             <p className='tariffs-item__description section-body'>
               Для этого тарифа доступен тестовый период, который позволит вам не платить за апи во время эксперементов.
-              Поумолчанию этот период длится 2 недели c момента активации тарифа, после 2000 р. в месяц.
+              Поумолчанию этот период длится 2 недели c момента активации тарифа, после 2999 р. в месяц.
             </p>
             <ul className='tariffs-item__list'>
               <li>Безлимитный доступ ко всем методам API</li>
