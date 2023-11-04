@@ -1,4 +1,3 @@
-import { Analytics } from '@vercel/analytics/react';
 import Head from 'next/head';
 import { NextSeo } from 'next-seo';
 import { useRef } from 'react';
@@ -90,7 +89,6 @@ export default function Home() {
           webvisor: true,
         }}
       />
-      <Analytics />
       <main ref={containerRef} className='main'>
         <BackgroundNoise></BackgroundNoise>
         <BackgroundScene></BackgroundScene>
