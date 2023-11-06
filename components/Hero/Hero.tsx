@@ -4,15 +4,16 @@ const Hero = () => {
   return (
     <section className='hero'>
       <div className='container'>
-        <h1 className='hero-title'>Свободная база фильмов</h1>
+        <h1 className='hero-title'>База кино и сериалов</h1>
         <p className='section-body hero-description'>
-          Получайте максимум данных о фильмах, сериалах, мультфильмах, тв-шоу, аниме, актерах и режиссерах максимально
-          быстро. Наше api содержит данные из таких баз как: kinopoisk, tmbd, imdb
+          У нас хранятся данные из самых популярных источников, таких как КиноПоиск, IMDB, TMDB, TVDB, Rotten Tomatoes и
+          JustWatch. Все это доступно в одном API с гибким RESTful интерфейсом и хорошей документацией. Вся информация
+          собирается из открытых источников и регулярно обновляется.
         </p>
         <Link href='https://mdwit.t.me' target='_blank' className='hero__link link-gradient'>
           <div className='overlay'>
-            <span>Подключить</span>
-            <span>Подключить</span>
+            <span>Подключить API</span>
+            <span>Подключить API</span>
           </div>
         </Link>
       </div>

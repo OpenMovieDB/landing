@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import Head from 'next/head';
 import { NextSeo } from 'next-seo';
 import { useRef } from 'react';
@@ -5,7 +6,6 @@ import { YMInitializer } from 'react-yandex-metrika';
 
 import BackgroundNoise from '../components/BackgroundNoise/BackgroundNoise';
 import BackgroundScene from '../components/BackgroundScene/BackgroundScene';
-import Community from '../components/Community/Community';
 import Footer from '../components/Footer/Footer';
 import Free from '../components/Free/Free';
 import Header from '../components/Header/Header';
@@ -97,10 +97,11 @@ export default function Home() {
         <Stats></Stats>
         <Example></Example>
         <Tariffs></Tariffs>
-        <Community></Community>
+        {/* <Community></Community> */}
         <Support></Support>
         <Free></Free>
         <Footer></Footer>
+        <Analytics />
       </main>
     </>
   );

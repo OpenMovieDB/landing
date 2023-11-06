@@ -20,8 +20,8 @@ type StatItem = {
 
 const STAT_ITEMS: StatItem[] = [
   {
-    sum: 960,
-    unit: 'тысяч',
+    sum: 1,
+    unit: 'миллион',
     name: 'фильмов',
     images: [1306638, 4491001, 4647040, 4540126, 478052, 1219177].map((i) => `/img/films/${i}.png`),
     imageSize: {
@@ -51,8 +51,11 @@ const STAT_ITEMS: StatItem[] = [
   },
 ];
 
-const StatsSection = styled.section`
+const StatsSection = styled.section``;
+
+const StatWrap = styled.div`
   display: none;
+  margin-top: 40vh;
 
   @media (min-width: 1024px) {
     display: flex;
@@ -132,6 +135,20 @@ const MotionTitleWrap = styled(motion.div)`
   transform: translateY(-50%);
 `;
 
+const StatTitle = styled.h2`
+  text-align: center;
+  font-family: 'ppmi', sans-serif;
+  font-weight: 800;
+  font-size: 96px;
+  line-height: 98px;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  @media (max-width: 1023px) {
+    display: none;
+  }
+`;
+
 const ImagesWrap = styled.div``;
 
 const imagePositions = (slideIndex: number, frameIndex: number) => {
@@ -184,7 +201,7 @@ const SlideContent = ({ stat, index }: any) => {
     <Slide key={index} ref={ref}>
       <MotionTitleWrap style={{ opacity }}>
         <Title>
-          <Counter from={0} to={stat.sum} />
+          <Counter from={stat.sum} to={stat.sum} />
           <StatsUnit>{stat.unit}</StatsUnit>
           {stat.name}
         </Title>
@@ -204,13 +221,18 @@ const SlideContent = ({ stat, index }: any) => {
 
 const Stats = () => {
   return (
-    <StatsSection>
-      <Slides>
-        {STAT_ITEMS.map((stat, index) => (
-          <SlideContent key={index} stat={stat} index={index} />
-        ))}
-      </Slides>
-    </StatsSection>
+    <>
+      <StatsSection>
+        <StatTitle>Статистика базы по категориям</StatTitle>
+        <StatWrap>
+          <Slides>
+            {STAT_ITEMS.map((stat, index) => (
+              <SlideContent key={index} stat={stat} index={index} />
+            ))}
+          </Slides>
+        </StatWrap>
+      </StatsSection>
+    </>
   );
 };
 
