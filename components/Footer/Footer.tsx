@@ -9,7 +9,10 @@ const Footer = () => {
             <Link href='#' className='logo link-opacity'>
               <img src='img/logo.svg' alt='Open Movie API' />
             </Link>
-            <Link href='https://mdwit.t.me' className='link-opacity opacity-color section-body mobile-hidden'>
+            <Link
+              href='https://t.me/kinopoiskdev_bot'
+              className='link-opacity opacity-color section-body mobile-hidden'
+            >
               @MDWIT
             </Link>
             <span className='opacity-color section-body mobile-hidden'>design by isakon</span>

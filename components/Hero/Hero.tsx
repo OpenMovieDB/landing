@@ -10,7 +10,7 @@ const Hero = () => {
           JustWatch. Все это доступно в одном API с гибким RESTful интерфейсом и хорошей документацией. Вся информация
           собирается из открытых источников и регулярно обновляется.
         </p>
-        <Link href='https://mdwit.t.me' target='_blank' className='hero__link link-gradient'>
+        <Link href='https://t.me/kinopoiskdev_bot' target='_blank' className='hero__link link-gradient'>
           <div className='overlay'>
             <span>Подключить API</span>
             <span>Подключить API</span>
