@@ -1,0 +1,171 @@
+.tariffs {
+  margin-top: 300px;
+}
+
+.tariffs-description {
+  margin: 65px 0;
+  max-width: 835px;
+}
+
+.tariffs-cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  z-index: 2;
+  position: relative;
+}
+
+.tariffs-item {
+  flex-grow: 1;
+  width: 100%;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  position: relative;
+  padding: 60px;
+}
+
+.tariffs-item-popular {
+  border: 0;
+}
+
+.tariffs-item-popular::before {
+  content: '';
+  padding: 2px;
+  border-radius: 15px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: inline-block;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  box-sizing: border-box;
+  background-image: var(--gradient-border-popular);
+  border-image-slice: 1;
+}
+
+.tariffs-item__overlay {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.tariffs-item__title {
+  margin: 0;
+}
+
+.tariffs-item__price {
+  font-family: var(--font-primary);
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 1.2;
+  margin: 30px 0 0;
+  background: var(--gradient-primary-title);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tariffs-item__price--free {
+  -webkit-text-fill-color: inherit;
+  background: none;
+  color: #fff;
+}
+
+.tariffs-item__price-period {
+  font-size: 16px;
+  font-weight: 400;
+  opacity: 0.4;
+  -webkit-text-fill-color: #fff;
+}
+
+.tariffs-item__description {
+  opacity: 0.4;
+  flex-grow: 1;
+  margin: 30px 0 30px;
+}
+
+.tariffs-item__list {
+  padding: 0;
+  margin: auto 0 0;
+  list-style: none;
+}
+
+.tariffs-item__list li {
+  font-family: var(--font-primary);
+  font-size: 18px;
+  line-height: 150%;
+}
+
+.tariffs-item__list li + li {
+  margin-top: 30px;
+}
+
+.tariffs-item__button {
+  margin: 50px auto 0;
+}
+
+@media (max-width: 1024px) {
+  .tariffs {
+    margin-top: 250px;
+  }
+
+  .tariffs-cards {
+    flex-direction: column;
+  }
+
+  .tariffs-description {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tariffs-item {
+    padding: 40px;
+  }
+
+  .tariffs-item__description {
+    margin-top: 20px;
+  }
+
+  .tariffs-item__price {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 576px) {
+  .tariffs {
+    margin-top: 160px;
+  }
+
+  .tariffs-description {
+    margin-top: 24px;
+  }
+
+  .tariffs-item {
+    padding: 25px;
+  }
+
+  .tariffs-item__list li {
+    font-size: 14px;
+  }
+
+  .tariffs-item__list li + li {
+    margin-top: 20px;
+  }
+
+  .tariffs-item__button {
+    margin-top: 70px;
+  }
+
+  .tariffs-item__price {
+    font-size: 24px;
+  }
+}

@@ -1,0 +1,41 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html.has-scroll-smooth {
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0 0 100px;
+  background: var(--color-dark);
+  color: var(--color-light);
+  overflow-x: hidden;
+  font-family: var(--font-primary);
+}
+
+a,
+button,
+p,
+span,
+b,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li,
+.tariffs-item__overlay {
+  position: relative;
+  z-index: 3;
+}

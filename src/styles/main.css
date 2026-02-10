@@ -1,0 +1,19 @@
+@import './base/variables.css';
+@import './base/reset.css';
+@import './base/typography.css';
+@import './base/animations.css';
+
+@import './layout/container.css';
+@import './layout/header.css';
+@import './layout/footer.css';
+
+@import './components/buttons.css';
+@import './components/cards.css';
+
+@import './sections/background.css';
+@import './sections/hero.css';
+@import './sections/stats.css';
+@import './sections/example.css';
+@import './sections/tariffs.css';
+@import './sections/support.css';
+@import './sections/free.css';

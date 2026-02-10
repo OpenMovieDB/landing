@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'ppmi';
+  src: url('/fonts/PPNeueMachina-InktrapRegular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ppmp';
+  src: url('/fonts/PPNeueMachina-PlainRegular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ppmi';
+  src: url('/fonts/PPNeueMachina-InktrapUltrabold.woff2') format('woff2');
+  font-weight: 800;
+  font-display: swap;
+}
+
+h1 {
+  font-size: 96px;
+  line-height: 98px;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 64px;
+  line-height: 66px;
+  font-weight: 800;
+}
+
+h3 {
+  font-size: 48px;
+  line-height: 50px;
+  font-weight: 800;
+}

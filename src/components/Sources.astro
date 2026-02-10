@@ -1,0 +1,40 @@
+---
+import type { Source } from '@/data/movie';
+
+interface Props {
+  sources: Source[];
+}
+
+const { sources } = Astro.props;
+
+function calculatePosition(index: number, total: number, size: number) {
+  const radius = size * 0.43;
+  const centerX = size * 0.5;
+  const centerY = size * 0.5;
+  const angleStep = (2 * Math.PI) / total;
+  const angle = index * angleStep;
+  return {
+    x: Math.round(centerX + radius * Math.cos(angle)),
+    y: Math.round(centerY + radius * Math.sin(angle)),
+  };
+}
+
+const containerSize = 600;
+const iconSize = containerSize / 9;
+---
+
+<div class="sources-icons" style={`max-width: ${containerSize}px; max-height: ${containerSize}px;`}>
+  {sources.map((source, index) => {
+    const { x, y } = calculatePosition(index, sources.length, containerSize);
+    return (
+      <img
+        class="sources-icon"
+        src={source.logo}
+        alt={source.name}
+        width={iconSize}
+        height={iconSize}
+        style={`top: ${y}px; left: ${x}px;`}
+      />
+    );
+  })}
+</div>

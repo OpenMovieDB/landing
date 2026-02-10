@@ -1,0 +1,13 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+}
+
+const { src, alt } = Astro.props;
+---
+
+<img class="circular-logo__bg" src="/img/example-bg.png" alt="" />
+<div class="circular-logo">
+  <img class="circular-logo__img" src={src} alt={alt} />
+</div>

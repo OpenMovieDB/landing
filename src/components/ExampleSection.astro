@@ -1,0 +1,32 @@
+---
+import { sources, movie, exampleTitle } from '@/data/movie';
+import Circles from '@/components/Circles.astro';
+import Sources from '@/components/Sources.astro';
+import CircularLogo from '@/components/CircularLogo.astro';
+import MoviePoster from '@/components/MoviePoster.astro';
+import MovieInfo from '@/components/MovieInfo.astro';
+import Connectors from '@/components/interactive/Connectors';
+import ScrollingText from '@/components/interactive/ScrollingText';
+---
+
+<section class="example-section" id="example">
+  <div class="side-fade">
+    <ScrollingText client:visible text={exampleTitle} />
+  </div>
+
+  <div class="sources-container">
+    <div class="connectors-container">
+      <Connectors client:visible />
+    </div>
+    <Circles />
+    <Sources sources={sources} />
+    <CircularLogo src="/img/logo.png" alt="open movie api" />
+  </div>
+
+  <div class="movie-container">
+    <MoviePoster width={835} height={450} src={movie.poster} alt={movie.titles[0]} />
+    <div class="side-fade">
+      <MovieInfo movie={movie} />
+    </div>
+  </div>
+</section>

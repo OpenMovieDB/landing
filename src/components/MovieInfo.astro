@@ -1,0 +1,64 @@
+---
+import type { Movie } from '@/data/movie';
+import ScrollingSlider from '@/components/interactive/ScrollingSlider';
+
+interface Props {
+  movie: Movie;
+}
+
+const { movie } = Astro.props;
+---
+
+<div class="movie-info">
+  <ScrollingSlider client:visible baseVelocity={1}>
+    {movie.titles.map((title) => (
+      <div class="movie-info__row">
+        <h4 class="movie-info__title">
+          {title.split('\n').map((str) => (
+            <p class="movie-info__title-text">{str}</p>
+          ))}
+        </h4>
+      </div>
+    ))}
+    {movie.descriptions.map((description) => (
+      <div class="movie-info__row">
+        <p class="movie-info__description">{description}</p>
+      </div>
+    ))}
+  </ScrollingSlider>
+
+  <ScrollingSlider client:visible baseVelocity={2}>
+    <div class="movie-info__row">
+      <p class="movie-info__number">{movie.year}</p>
+    </div>
+    <div class="movie-info__row">
+      <p class="movie-info__number">{movie.rating}</p>
+    </div>
+    <div class="movie-info__row">
+      <p class="movie-info__number">{movie.budget}</p>
+    </div>
+    {movie.countries.map((country) => (
+      <div class="movie-info__row">
+        <p class="movie-info__country">{country}</p>
+      </div>
+    ))}
+    {movie.awards.map((award) => (
+      <img class="movie-info__award" height={87} width={87} alt={award.name} src={award.logo} />
+    ))}
+  </ScrollingSlider>
+
+  <ScrollingSlider client:visible baseVelocity={5}>
+    {movie.actors.map((person) => (
+      <div class="movie-info__row">
+        <div class="movie-info__person">
+          <img class="movie-info__person-photo" width={88} height={126} alt={person.name} src={person.photo} />
+          <span class="movie-info__person-name">
+            {person.name.split('\n').map((str) => (
+              <p class="movie-info__title-text">{str}</p>
+            ))}
+          </span>
+        </div>
+      </div>
+    ))}
+  </ScrollingSlider>
+</div>

@@ -1,0 +1,22 @@
+.support {
+  text-align: center;
+  max-width: 835px;
+  margin: 300px auto 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.support__description {
+  margin-top: 49px;
+}
+
+@media (max-width: 576px) {
+  .support {
+    margin-top: 140px;
+  }
+
+  .support__description {
+    margin-top: 30px;
+  }
+}

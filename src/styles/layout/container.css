@@ -1,0 +1,11 @@
+.container {
+  margin: 0 auto;
+  max-width: 1770px;
+  padding: 0 25px;
+}
+
+.main {
+  @media (max-width: 768px) {
+    overflow: hidden;
+  }
+}

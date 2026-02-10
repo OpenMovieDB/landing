@@ -1,0 +1,37 @@
+.free {
+  margin: 300px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.free-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1237px;
+  width: 100%;
+}
+
+.free-title {
+  margin-right: 20px;
+}
+
+.free a {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .free {
+    margin: 140px 0;
+  }
+
+  .free-inner {
+    flex-direction: column;
+  }
+
+  .free-title {
+    margin-right: 0;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+}

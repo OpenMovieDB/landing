@@ -1,0 +1,115 @@
+.link-opacity {
+  transition: opacity 0.2s ease-out;
+}
+
+.link-opacity:hover {
+  opacity: 0.9;
+}
+
+.link-opacity:active,
+.link-opacity:focus {
+  opacity: 0.8;
+}
+
+.link-underline {
+  text-decoration: none;
+  transition: all 0.2s ease-out;
+  outline: none;
+  background-image: linear-gradient(90deg, #fff 0%, #fff 100%);
+  background-position: left bottom;
+  background-size: 0px 1px;
+  background-repeat: no-repeat;
+  padding-bottom: 4px;
+  margin-bottom: -4px;
+}
+
+.link-underline:hover {
+  background-size: 100% 1px;
+}
+
+.link-underline:active,
+.link-underline:focus {
+  background-size: 100% 1px;
+}
+
+.link-gradient {
+  display: inline-block;
+  font-family: var(--font-primary);
+  font-weight: 800;
+  font-size: 18px;
+  color: inherit;
+  text-decoration: none;
+  padding: 28px 26px;
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 50px;
+}
+
+.link-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 50px;
+  box-sizing: border-box;
+  padding: 2px;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  background-image: var(--gradient-border);
+  border-image-slice: 1;
+}
+
+.link-gradient.without-gradient {
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.link-gradient.without-gradient::before {
+  content: none;
+}
+
+.link-gradient .overlay {
+  line-height: 150%;
+  display: inline-block;
+  overflow: hidden;
+  height: 27px;
+  vertical-align: bottom;
+  padding: 0 30px;
+}
+
+.link-gradient span {
+  display: block;
+  transition: 0.6s cubic-bezier(0, 0, 0.04, 0.99);
+}
+
+.link-gradient img {
+  margin-left: 34px;
+  margin-right: -27px;
+  vertical-align: bottom;
+}
+
+.link-gradient:hover span:first-child {
+  margin-top: -27px;
+}
+
+@media (max-width: 576px) {
+  .link-gradient {
+    font-size: 14px;
+    padding: 27px 0;
+  }
+
+  .link-gradient .overlay {
+    height: 21px;
+    padding: 0 40px;
+  }
+
+  .link-gradient:hover span:first-child {
+    margin-top: -21px;
+  }
+
+  .link-gradient img {
+    height: 21px;
+  }
+}

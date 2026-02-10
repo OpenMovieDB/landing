@@ -1,0 +1,21 @@
+---
+const circles = ['262', '417', '167'];
+const size = '836';
+const center = '418';
+---
+
+<svg class="circles-svg" viewBox={`0 0 ${size} ${size}`} fill="none" xmlns="http://www.w3.org/2000/svg">
+  {circles.map((r) => (
+    <circle cx={center} cy={center} r={r} stroke="white" stroke-opacity="0.1" stroke-linecap="round">
+      <animateTransform
+        attributeName="transform"
+        attributeType="XML"
+        type="rotate"
+        from={`0 ${center} ${center}`}
+        to={`360 ${center} ${center}`}
+        dur="50s"
+        repeatCount="indefinite"
+      />
+    </circle>
+  ))}
+</svg>

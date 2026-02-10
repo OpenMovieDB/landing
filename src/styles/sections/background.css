@@ -1,0 +1,233 @@
+.noise {
+  position: fixed;
+  opacity: 1;
+  z-index: 1;
+  mix-blend-mode: overlay;
+  background-image: url('/img/noise.png');
+  background-repeat: revert;
+  height: 100vh;
+  width: 100vw;
+}
+
+.background {
+  overflow: hidden;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 100vw;
+  z-index: -1;
+}
+
+.background__video {
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
+  max-height: 1080px;
+  max-width: 1920px;
+}
+
+.background__figures {
+  position: absolute;
+  z-index: -1;
+}
+
+.background__figure {
+  position: absolute;
+  will-change: translate, rotate, filter, mix-blend-mode;
+}
+
+.background__figure_1 {
+  z-index: 3;
+  fill: var(--color-secondary);
+}
+
+.background__figure_2 {
+  z-index: 2;
+  fill: var(--color-primary);
+}
+
+.background__figure_3 {
+  z-index: 1;
+  fill: var(--color-tertiary);
+}
+
+.background__secondary .background__figure_1 {
+  background: rgba(189, 0, 255, 0.4);
+}
+
+.background__secondary .background__figure_2 {
+  background: rgba(5, 0, 255, 0.5);
+}
+
+.background__secondary .background__figure_3 {
+  background: rgba(0, 240, 255, 0.6);
+}
+
+.background__primary,
+.background__secondary {
+  position: absolute;
+  filter: blur(115px);
+}
+
+.background__primary {
+  mix-blend-mode: color-dodge;
+  z-index: 1;
+}
+
+.background__figures_header_scene .background__primary .background__figure_1 {
+  translate: 23vw -12vh;
+  animation: figureAnim1 15s ease-in-out 1s infinite;
+}
+
+.background__figures_header_scene .background__primary .background__figure_2 {
+  translate: 45.9vw -5.4vh;
+  animation: figureAnim2 15s ease-in-out 1s infinite;
+}
+
+.background__figures_header_scene .background__primary .background__figure_3 {
+  translate: 53.3vw 9.4vh;
+  animation: figureAnim3 15s ease-in-out 1s infinite;
+}
+
+.background__figures_header_scene .background__secondary .background__figure_1 {
+  translate: 23vw -12vh;
+  animation: figureSecondaryAnim1 15s ease-in-out 1s infinite;
+}
+
+.background__figures_header_scene .background__secondary .background__figure_2 {
+  translate: 45.9vw -5.4vh;
+  animation: figureSecondaryAnim2 15s ease-in-out 1s infinite;
+}
+
+.background__figures_header_scene .background__secondary .background__figure_3 {
+  translate: 53.3vw 9.4vh;
+  animation: figureSecondaryAnim3 15s ease-in-out 1s infinite;
+}
+
+.background__figures_support_scene:nth-child(1) .background__secondary .background__figure_1 {
+  translate: -32.5vw 6.6vh;
+  transform: scale(0.45) rotate(33deg);
+}
+
+.background__figures_support_scene:nth-child(1) .background__primary .background__figure_1 {
+  translate: -27.1vw -13.4vh;
+  transform: scale(0.45) rotate(-14deg);
+}
+
+.background__figures_support_scene:nth-child(1) .background__primary .background__figure_2 {
+  translate: -42.2vw -2.1vh;
+  transform: scale(0.45) rotate(-14deg);
+}
+
+.background__figures_support_scene:nth-child(1) .background__secondary .background__figure_2 {
+  translate: -33.5vw 13.9vh;
+  transform: scale(0.45) rotate(32deg);
+}
+
+.background__figures_support_scene:nth-child(1) .background__primary .background__figure_3 {
+  translate: -32.5vw 9.9vh;
+  transform: scale(0.45) rotate(33deg);
+}
+
+.background__figures_support_scene:nth-child(1) .background__secondary .background__figure_3 {
+  translate: -28.1vw 1.9vh;
+  transform: scale(0.45) rotate(-13.9deg);
+}
+
+.background__figures_support_scene:nth-child(2) .background__secondary .background__figure_1 {
+  translate: 43.5vw -11.4vh;
+  transform: scale(0.45) rotate(33deg);
+}
+
+.background__figures_support_scene:nth-child(2) .background__primary .background__figure_1 {
+  translate: 44.9vw -4vh;
+  transform: scale(0.45) rotate(-14deg);
+}
+
+.background__figures_support_scene:nth-child(2) .background__primary .background__figure_2 {
+  translate: 46.2vw 2vh;
+  transform: scale(0.45) rotate(36deg);
+}
+
+.background__figures_support_scene:nth-child(2) .background__secondary .background__figure_2 {
+  translate: 37vw 2.1vh;
+  transform: scale(0.45) rotate(-12deg);
+}
+
+.background__figures_support_scene:nth-child(2) .background__primary .background__figure_3 {
+  translate: 50vw 2.7vh;
+  transform: scale(0.45) rotate(-16deg);
+}
+
+.background__figures_support_scene:nth-child(2) .background__secondary .background__figure_3 {
+  translate: 45.1vw -6.5vh;
+  transform: scale(0.45) rotate(35.1deg);
+}
+
+.background__figures_example_scene .background__primary .background__figure_1 {
+  translate: -3.3vw 23.8vh;
+  transform: rotate(2deg);
+}
+
+.background__figures_example_scene .background__secondary .background__figure_1 {
+  translate: 4.2vw 16.6vh;
+  transform: rotate(2deg);
+}
+
+.background__figures_example_scene .background__primary .background__figure_2 {
+  translate: 34.8vw 36.9vh;
+  transform: rotate(-1deg);
+}
+
+.background__figures_example_scene .background__secondary .background__figure_2 {
+  translate: -2.5vw 13.9vh;
+  transform: rotate(0deg);
+}
+
+.background__figures_example_scene .background__primary .background__figure_3 {
+  translate: 31.5vw 18.9vh;
+  transform: rotate(0deg);
+}
+
+.background__figures_example_scene .background__secondary .background__figure_3 {
+  translate: 17.9vw 39.9vh;
+  transform: rotate(1.1deg);
+}
+
+@-moz-document url-prefix() {
+  .background__primary {
+    mix-blend-mode: screen;
+  }
+}
+
+@media (max-width: 1200px) {
+  .background__video {
+    height: auto;
+    width: auto;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 1024px) {
+  .background__video {
+    height: 70vh;
+    width: auto;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 768px) {
+  .background__video {
+    height: 50vh;
+    width: 100vw;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 576px) {
+  body {
+    padding-bottom: 40px;
+  }
+}

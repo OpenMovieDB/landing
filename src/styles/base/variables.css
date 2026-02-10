@@ -1,0 +1,29 @@
+:root {
+  --color-primary: #0500ff;
+  --color-secondary: #bd00ff;
+  --color-tertiary: #00f0ff;
+  --color-light: #ffffff;
+  --color-dark: #070612;
+  --color-gray: #d9d9d9;
+
+  --gradient-primary-title: linear-gradient(
+    119deg,
+    #0500ff,
+    #00a8ff 19.33%,
+    #0500ff 42.44%,
+    #bd00ff 60.08%,
+    rgba(0, 157, 255, 1) 77.31%,
+    rgb(5, 0, 255) 95.8%
+  );
+  --gradient-border: linear-gradient(100deg, rgba(189, 0, 255, 0.4), #0500ff);
+  --gradient-border-popular: linear-gradient(
+    100deg,
+    rgba(189, 0, 255, 0.4),
+    #0500ff,
+    rgba(0, 240, 255, 0.4)
+  );
+  --gradient-stats: linear-gradient(200deg, #0500ff, #710099);
+
+  --font-primary: 'ppmi', sans-serif;
+  --font-plain: 'ppmp', sans-serif;
+}
