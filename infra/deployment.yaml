@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: omdb-landing
+  namespace: kinopoisk
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: omdb-landing
+  template:
+    metadata:
+      labels:
+        app: omdb-landing
+    spec:
+      containers:
+        - name: omdb-landing
+          image: mdwit/omdb-landing:latest
+          ports:
+            - containerPort: 8080
+      imagePullSecrets:
+        - name: regcred

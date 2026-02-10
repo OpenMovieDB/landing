@@ -1,0 +1,15 @@
+apiVersion: networking.cfargotunnel.com/v1alpha1
+kind: TunnelBinding
+metadata:
+  name: omdb-landing
+  namespace: kinopoisk
+subjects:
+  - kind: Service
+    name: omdb-landing
+    spec:
+      fqdn: openmovieapi.dev
+      protocol: https
+      target: http://omdb-landing.kinopoisk.svc.cluster.local:8080
+tunnelRef:
+  kind: ClusterTunnel
+  name: mdwit-tunnel
