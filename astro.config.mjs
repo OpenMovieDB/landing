@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://openmovieapi.dev',
+  site: 'https://openmoviedb.com',
   output: 'static',
   integrations: [react(), sitemap()],
   build: {

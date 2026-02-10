@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: "openmovieapi.dev"
+    - host: "openmoviedb.com"
       http:
         paths:
           - pathType: Prefix
